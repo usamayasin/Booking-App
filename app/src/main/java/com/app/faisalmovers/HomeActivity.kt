@@ -19,7 +19,7 @@ import com.app.faisalmovers.Adapters.CityListRCAdapter
 import com.app.faisalmovers.Models.CityListModel
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     var img_cityList: AppCompatImageView? = null
     var iv_homeGo: AppCompatImageView? = null
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.home_activity)
 
        init()
 
@@ -46,14 +46,14 @@ class MainActivity : AppCompatActivity() {
                     if (monthOfYear + 1 < 10) "0" + (monthOfYear + 1) else (monthOfYear + 1).toString()
                 val _date = if (dayOfMonth < 10) "0$dayOfMonth" else dayOfMonth.toString()
                 val _pickedDate = "$_date/$_month/$_year"
-                Toast.makeText(this@MainActivity, _pickedDate, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@HomeActivity, _pickedDate, Toast.LENGTH_SHORT).show()
                 //activitydate.setText(dateFormatter.format(newDate.getTime()));
             }, newCalendar[Calendar.YEAR], newCalendar[Calendar.MONTH],
             newCalendar[Calendar.DAY_OF_MONTH]
         )
         iv_homeGo?.setOnClickListener { goToSeatSelection() }
         img_cityList?.setOnClickListener(View.OnClickListener { //builder.show();
-            dialouge(this@MainActivity)
+            dialouge(this@HomeActivity)
         })
         iv_calender?.setOnClickListener(View.OnClickListener {
             StartTime.show()
@@ -92,12 +92,12 @@ class MainActivity : AppCompatActivity() {
         et_cityListSearch = dialog.findViewById(R.id.et_cityListSearch)
         setRcViewLayout()
         getCityList()
-        cityListAdapter = CityListRCAdapter(this@MainActivity, cityListModelArrayList)
+        cityListAdapter = CityListRCAdapter(this@HomeActivity, cityListModelArrayList)
         rc_cityDialog!!.adapter = cityListAdapter
     }
 
     private fun setRcViewLayout() {
-        cityListRclayoutManager = LinearLayoutManager(this@MainActivity)
+        cityListRclayoutManager = LinearLayoutManager(this@HomeActivity)
         rc_cityDialog!!.layoutManager = cityListRclayoutManager
         rc_cityDialog!!.setHasFixedSize(true)
     }
