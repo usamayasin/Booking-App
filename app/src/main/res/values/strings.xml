@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Faisal Movers</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="bus_type">Bus Type</string>
+    <string name="price">Price</string>
+    <string name="departure">Departure</string>
+    <string name="arrival">Arrival</string>
 </resources>

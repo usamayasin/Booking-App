@@ -13,15 +13,21 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.faisalmovers.Adapters.CityListRCAdapter
 import com.app.faisalmovers.Models.CityListModel
+import org.w3c.dom.Text
 import java.util.*
 
 class HomeActivity : AppCompatActivity() {
 
-    var img_cityList: AppCompatImageView? = null
+    var cityListDialog: Dialog? = null
+    var img_citySwitch: AppCompatImageView? = null
+    var tv_selectFromCity: AppCompatTextView? = null
+    var tv_selectToCity: AppCompatTextView? = null
+
     var iv_homeGo: AppCompatImageView? = null
     var iv_calender: AppCompatImageView? = null
     var et_cityListSearch: AppCompatEditText? = null
@@ -34,9 +40,46 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
 
-       init()
+        init()
+        listeners()
+
+    }
+
+    private fun init() {
+
+        img_citySwitch = findViewById(R.id.img_citySwitch)
+        iv_calender = findViewById(R.id.iv_calender)
+        iv_homeGo = findViewById(R.id.iv_homeGo)
+
+        tv_selectFromCity = findViewById(R.id.tv_selectFromCity);
+        tv_selectToCity = findViewById(R.id.tv_selectToCity);
+
+    }
+
+    private fun listeners() {
+
+        iv_homeGo?.setOnClickListener { goToSeatSelection() }
+
+        img_citySwitch?.setOnClickListener(View.OnClickListener {
+            if (tv_selectFromCity!!.text.toString().trim()
+                    .isNotEmpty() && tv_selectToCity!!.text.toString().trim().isNotEmpty()
+            ) {
+                var tempValue = tv_selectFromCity!!.text.toString().trim()
+                tv_selectToCity!!.text = tv_selectFromCity!!.text.toString().trim()
+                tv_selectFromCity!!.text = tempValue;
+
+            }
+        })
+        iv_calender?.setOnClickListener(View.OnClickListener {
+            showCalender()
+        })
+        tv_selectFromCity?.setOnClickListener { showCityListDialog(this@HomeActivity) }
+        tv_selectToCity?.setOnClickListener { showCityListDialog(this@HomeActivity) }
 
 
+    }
+
+    private fun showCalender() {
         val newCalendar = Calendar.getInstance()
         val StartTime = DatePickerDialog(
             this, R.style.DatePickerDialogTheme,
@@ -51,45 +94,32 @@ class HomeActivity : AppCompatActivity() {
             }, newCalendar[Calendar.YEAR], newCalendar[Calendar.MONTH],
             newCalendar[Calendar.DAY_OF_MONTH]
         )
-        iv_homeGo?.setOnClickListener { goToSeatSelection() }
-        img_cityList?.setOnClickListener(View.OnClickListener { //builder.show();
-            dialouge(this@HomeActivity)
-        })
-        iv_calender?.setOnClickListener(View.OnClickListener {
-            StartTime.show()
-            val calendar = Calendar.getInstance()
-            StartTime.datePicker.minDate = calendar.timeInMillis - 1000
-            StartTime.getButton(DatePickerDialog.BUTTON_POSITIVE)
-                .setTextColor(resources.getColor(R.color.gradient_color_2))
-            StartTime.getButton(DatePickerDialog.BUTTON_NEGATIVE)
-                .setTextColor(resources.getColor(R.color.gradient_color_1))
-        })
-    }
-
-    private fun init(){
-
-        img_cityList = findViewById(R.id.img_cityList)
-        iv_calender = findViewById(R.id.iv_calender)
-        iv_homeGo = findViewById(R.id.iv_homeGo)
-
-    }
-    private fun listeners(){
-
+        StartTime.show()
+        val calendar = Calendar.getInstance()
+        StartTime.datePicker.minDate = calendar.timeInMillis - 1000
+        StartTime.getButton(DatePickerDialog.BUTTON_POSITIVE)
+            .setTextColor(resources.getColor(R.color.gradient_color_2))
+        StartTime.getButton(DatePickerDialog.BUTTON_NEGATIVE)
+            .setTextColor(resources.getColor(R.color.gradient_color_1))
     }
 
     private fun goToSeatSelection() {
-        val intent = Intent(this, SeatSelectionActivity::class.java)
+        /*val intent = Intent(this, SeatSelectionActivity::class.java)
+        startActivity(intent)*/
+
+        val intent = Intent(this, RouteSelectionActivity::class.java)
         startActivity(intent)
     }
 
-    private fun dialouge(context: Context) {
-        val dialog = Dialog(context)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.dialoge_layout)
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.show()
-        rc_cityDialog = dialog.findViewById<View>(R.id.rc_cityDialog) as RecyclerView
-        et_cityListSearch = dialog.findViewById(R.id.et_cityListSearch)
+    private fun showCityListDialog(context: Context) {
+
+        cityListDialog = Dialog(context)
+        cityListDialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        cityListDialog?.setContentView(R.layout.dialoge_layout)
+        cityListDialog?.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        cityListDialog?.show()
+        rc_cityDialog = cityListDialog?.findViewById<View>(R.id.rc_cityDialog) as RecyclerView
+        et_cityListSearch = cityListDialog?.findViewById(R.id.et_cityListSearch)
         setRcViewLayout()
         getCityList()
         cityListAdapter = CityListRCAdapter(this@HomeActivity, cityListModelArrayList)

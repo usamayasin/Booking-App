@@ -75,7 +75,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_selectFromCity" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/img_cityList"
+                    android:id="@+id/img_citySwitch"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="86dp"

@@ -12,8 +12,7 @@ import com.app.faisalmovers.Models.CityListModel
 import com.app.faisalmovers.R
 import java.util.*
 
-public class CityListRCAdapter(var context: Context, listModels: ArrayList<CityListModel>) :
-    RecyclerView.Adapter<CityListRCAdapter.ViewHolder>() {
+public class CityListRCAdapter(var context: Context, listModels: ArrayList<CityListModel>) : RecyclerView.Adapter<CityListRCAdapter.ViewHolder>() {
     var listModels: ArrayList<CityListModel> = ArrayList<CityListModel>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v: View = LayoutInflater.from(parent.context)
@@ -30,11 +29,7 @@ public class CityListRCAdapter(var context: Context, listModels: ArrayList<CityL
         return listModels.size
     }
 
-    class ViewHolder(
-        itemView: View,
-        argg_list: ArrayList<CityListModel>,
-        var contxt: Context
-    ) :
+    class ViewHolder(itemView: View, argg_list: ArrayList<CityListModel>, var contxt: Context) :
         RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var tv_cityListLabel: TextView? = null
         var clCityItem: LinearLayoutCompat? = null
