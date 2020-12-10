@@ -18,19 +18,19 @@ class SeatSelectionActivity : AppCompatActivity() {
         setContentView(R.layout.seat_selection_activity)
 
         title = "KotlinApp"
-        val recyclerView: RecyclerView = findViewById(R.id.seats_rc_view)
-
+//        val recyclerView: RecyclerView = findViewById(R.id.seats_rc_view)
+//
         val seatSelectionGoButton:ImageView = findViewById(R.id.iv_seat_selection_go_button)
         seatSelectionGoButton.setOnClickListener{
             val intent = Intent(this@SeatSelectionActivity, PassengerDetailsActivity::class.java)
             startActivity(intent)
         }
 
-        seatsAdapter = SeatsAdapter(seatsList)
-        val layoutManager = LinearLayoutManager(applicationContext)
-        recyclerView.layoutManager = layoutManager
-        recyclerView.itemAnimator = DefaultItemAnimator()
-        recyclerView.adapter = seatsAdapter
+//        seatsAdapter = SeatsAdapter(seatsList)
+//        val layoutManager = LinearLayoutManager(applicationContext)
+//        recyclerView.layoutManager = layoutManager
+//        recyclerView.itemAnimator = DefaultItemAnimator()
+//        recyclerView.adapter = seatsAdapter
         prepareSeatNumbers()
     }
 
