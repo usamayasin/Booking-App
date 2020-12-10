@@ -73,8 +73,8 @@ class HomeActivity : AppCompatActivity() {
         iv_calender?.setOnClickListener(View.OnClickListener {
             showCalender()
         })
-        tv_selectFromCity?.setOnClickListener { showCityListDialog(this@MainActivity) }
-        tv_selectToCity?.setOnClickListener { showCityListDialog(this@MainActivity) }
+        tv_selectFromCity?.setOnClickListener { showCityListDialog(this@HomeActivity) }
+        tv_selectToCity?.setOnClickListener { showCityListDialog(this@HomeActivity) }
 
 
     }

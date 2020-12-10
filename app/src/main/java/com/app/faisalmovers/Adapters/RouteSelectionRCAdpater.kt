@@ -1,17 +1,17 @@
 package com.app.faisalmovers.Adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.app.faisalmovers.Models.CityListModel
 import com.app.faisalmovers.Models.RouteSelection
 import com.app.faisalmovers.R
+import com.app.faisalmovers.SeatSelectionActivity
 import java.util.ArrayList
 
 class RouteSelectionRCAdpater(var context: Context, listModels: ArrayList<RouteSelection>) :
@@ -60,8 +60,8 @@ class RouteSelectionRCAdpater(var context: Context, listModels: ArrayList<RouteS
         override fun onClick(v: View) {
             try {
                 if (v == ll_route_item) {
-                    val position = adapterPosition
-                    Toast.makeText(contxt, dataList[position].busType, Toast.LENGTH_SHORT).show()
+                    val intent = Intent(contxt, SeatSelectionActivity::class.java)
+                    contxt.startActivity(intent)
                 }
             } catch (e: Exception) {
                 //Log.e(Utils.APPTAG, "Error " + e.getMessage());
