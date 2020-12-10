@@ -1,7 +1,9 @@
 package com.app.faisalmovers
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +19,13 @@ class SeatSelectionActivity : AppCompatActivity() {
 
         title = "KotlinApp"
         val recyclerView: RecyclerView = findViewById(R.id.seats_rc_view)
+
+        val seatSelectionGoButton:ImageView = findViewById(R.id.iv_seat_selection_go_button)
+        seatSelectionGoButton.setOnClickListener{
+            val intent = Intent(this@SeatSelectionActivity, PassengerDetailsActivity::class.java)
+            startActivity(intent)
+        }
+
         seatsAdapter = SeatsAdapter(seatsList)
         val layoutManager = LinearLayoutManager(applicationContext)
         recyclerView.layoutManager = layoutManager
