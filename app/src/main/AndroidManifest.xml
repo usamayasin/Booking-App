@@ -11,8 +11,9 @@
         android:theme="@style/Theme.FaisalMovers"
         android:windowSoftInputMode="adjustPan|adjustResize">
         <activity android:name=".RouteSelectionActivity"></activity>
+        <activity android:name=".PassengerDetailsActivity"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

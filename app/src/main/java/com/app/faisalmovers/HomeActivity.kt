@@ -21,7 +21,7 @@ import com.app.faisalmovers.Models.CityListModel
 import org.w3c.dom.Text
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     var cityListDialog: Dialog? = null
     var img_citySwitch: AppCompatImageView? = null
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.home_activity)
 
         init()
         listeners()
@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
                     if (monthOfYear + 1 < 10) "0" + (monthOfYear + 1) else (monthOfYear + 1).toString()
                 val _date = if (dayOfMonth < 10) "0$dayOfMonth" else dayOfMonth.toString()
                 val _pickedDate = "$_date/$_month/$_year"
-                Toast.makeText(this@MainActivity, _pickedDate, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@HomeActivity, _pickedDate, Toast.LENGTH_SHORT).show()
                 //activitydate.setText(dateFormatter.format(newDate.getTime()));
             }, newCalendar[Calendar.YEAR], newCalendar[Calendar.MONTH],
             newCalendar[Calendar.DAY_OF_MONTH]
@@ -122,12 +122,12 @@ class MainActivity : AppCompatActivity() {
         et_cityListSearch = cityListDialog?.findViewById(R.id.et_cityListSearch)
         setRcViewLayout()
         getCityList()
-        cityListAdapter = CityListRCAdapter(this@MainActivity, cityListModelArrayList)
+        cityListAdapter = CityListRCAdapter(this@HomeActivity, cityListModelArrayList)
         rc_cityDialog!!.adapter = cityListAdapter
     }
 
     private fun setRcViewLayout() {
-        cityListRclayoutManager = LinearLayoutManager(this@MainActivity)
+        cityListRclayoutManager = LinearLayoutManager(this@HomeActivity)
         rc_cityDialog!!.layoutManager = cityListRclayoutManager
         rc_cityDialog!!.setHasFixedSize(true)
     }
@@ -155,5 +155,15 @@ class MainActivity : AppCompatActivity() {
         cityListModelArrayList.add(model)
         model = CityListModel(12, "Quetta")
         cityListModelArrayList.add(model)
+        /*model = new CityListModel(13, "Haripur");
+        cityListModelArrayList.add(model);
+        model = new CityListModel(14, "Sialkot");
+        cityListModelArrayList.add(model);
+        model = new CityListModel(15, "Kashmir");
+        cityListModelArrayList.add(model);
+        model = new CityListModel(16, "Daddo");
+        cityListModelArrayList.add(model);
+        model = new CityListModel(17, "Rahem Yar Khan");
+        cityListModelArrayList.add(model);*/
     }
 }
