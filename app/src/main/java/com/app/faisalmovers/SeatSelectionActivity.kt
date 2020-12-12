@@ -1,12 +1,15 @@
 package com.app.faisalmovers
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import android.widget.Switch
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import com.google.android.material.card.MaterialCardView
 
 class SeatSelectionActivity : AppCompatActivity() {
 
@@ -20,8 +23,8 @@ class SeatSelectionActivity : AppCompatActivity() {
         title = "KotlinApp"
 //        val recyclerView: RecyclerView = findViewById(R.id.seats_rc_view)
 //
-        val seatSelectionGoButton:ImageView = findViewById(R.id.iv_seat_selection_go_button)
-        seatSelectionGoButton.setOnClickListener{
+        val seatSelectionGoButton: ImageView = findViewById(R.id.iv_seat_selection_go_button)
+        seatSelectionGoButton.setOnClickListener {
             val intent = Intent(this@SeatSelectionActivity, PassengerDetailsActivity::class.java)
             startActivity(intent)
         }
@@ -34,7 +37,7 @@ class SeatSelectionActivity : AppCompatActivity() {
         prepareSeatNumbers()
     }
 
-    fun prepareSeatNumbers(){
+    fun prepareSeatNumbers() {
         var number = Seat("1");
         seatsList.add(number);
         number = Seat("2");
@@ -61,5 +64,20 @@ class SeatSelectionActivity : AppCompatActivity() {
         seatsList.add(number);
         number = Seat("13");
         seatsList.add(number);
+    }
+
+    fun selectSeat(view: View) {
+        var selectedSeat: CardView? = null;
+        selectedSeat = findViewById(view.id);
+        controlSeatSelection(selectedSeat)
+    }
+
+
+    fun controlSeatSelection(cardView: CardView) {
+        if (cardView.cardBackgroundColor.defaultColor.equals(-1)) {
+            cardView?.setCardBackgroundColor(Color.GREEN)
+        } else {
+            cardView?.setCardBackgroundColor(Color.WHITE)
+        }
     }
 }
