@@ -7,6 +7,9 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.Toast
@@ -14,14 +17,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.faisalmovers.Adapters.CityListRCAdapter
+import com.app.faisalmovers.Interfaces.HomeActivityInterface
 import com.app.faisalmovers.Models.CityListModel
+import com.app.faisalmovers.Utils.Utility
 import org.w3c.dom.Text
+import java.lang.Exception
 import java.util.*
+import kotlin.collections.ArrayList
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(),HomeActivityInterface {
 
     var cityListDialog: Dialog? = null
     var img_citySwitch: AppCompatImageView? = null
@@ -34,7 +42,9 @@ class HomeActivity : AppCompatActivity() {
     var rc_cityDialog: RecyclerView? = null
     var cityListAdapter: RecyclerView.Adapter<*>? = null
     var cityListRclayoutManager: RecyclerView.LayoutManager? = null
-    var cityListModelArrayList: ArrayList<CityListModel> = ArrayList<CityListModel>()
+    var citiesList: ArrayList<CityListModel> = ArrayList<CityListModel>()
+    var filteredCityList: ArrayList<CityListModel> = ArrayList<CityListModel>()
+    var homeInterface:HomeActivityInterface?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +63,7 @@ class HomeActivity : AppCompatActivity() {
 
         tv_selectFromCity = findViewById(R.id.tv_selectFromCity);
         tv_selectToCity = findViewById(R.id.tv_selectToCity);
+        homeInterface=this
 
     }
 
@@ -64,7 +75,7 @@ class HomeActivity : AppCompatActivity() {
             if (tv_selectFromCity!!.text.toString().trim()
                     .isNotEmpty() && tv_selectToCity!!.text.toString().trim().isNotEmpty()
             ) {
-                var tempValue = tv_selectFromCity!!.text.toString().trim()
+                var tempValue = tv_selectToCity!!.text.toString().trim()
                 tv_selectToCity!!.text = tv_selectFromCity!!.text.toString().trim()
                 tv_selectFromCity!!.text = tempValue;
 
@@ -73,8 +84,8 @@ class HomeActivity : AppCompatActivity() {
         iv_calender?.setOnClickListener(View.OnClickListener {
             showCalender()
         })
-        tv_selectFromCity?.setOnClickListener { showCityListDialog(this@HomeActivity) }
-        tv_selectToCity?.setOnClickListener { showCityListDialog(this@HomeActivity) }
+        tv_selectFromCity?.setOnClickListener { showCityListDialog(this@HomeActivity,Utility.FROM) }
+        tv_selectToCity?.setOnClickListener { showCityListDialog(this@HomeActivity,Utility.TO) }
 
 
     }
@@ -104,14 +115,11 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun goToSeatSelection() {
-        /*val intent = Intent(this, SeatSelectionActivity::class.java)
-        startActivity(intent)*/
-
         val intent = Intent(this, RouteSelectionActivity::class.java)
         startActivity(intent)
     }
 
-    private fun showCityListDialog(context: Context) {
+    private fun showCityListDialog(context: Context,type:String) {
 
         cityListDialog = Dialog(context)
         cityListDialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -122,7 +130,28 @@ class HomeActivity : AppCompatActivity() {
         et_cityListSearch = cityListDialog?.findViewById(R.id.et_cityListSearch)
         setRcViewLayout()
         getCityList()
-        cityListAdapter = CityListRCAdapter(this@HomeActivity, cityListModelArrayList)
+        populateCities(citiesList,type)
+
+        et_cityListSearch?.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (!s.isNullOrEmpty() && !s.isBlank()) {
+                    searchCity(s.toString(),type)
+                } else {
+                    populateCities(citiesList,type)
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+    }
+
+    private fun populateCities(listModel: ArrayList<CityListModel>,type:String) {
+        cityListAdapter =
+            homeInterface?.let { CityListRCAdapter(this@HomeActivity, listModel,type, it) }
         rc_cityDialog!!.adapter = cityListAdapter
     }
 
@@ -133,37 +162,70 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun getCityList() {
-        cityListModelArrayList.clear()
+        citiesList.clear()
         cityListAdapter = null
         var model = CityListModel(1, "Lahore")
-        cityListModelArrayList.add(model)
+        citiesList.add(model)
         model = CityListModel(3, "Peshawar")
-        cityListModelArrayList.add(model)
+        citiesList.add(model)
         model = CityListModel(4, "Islamabad")
-        cityListModelArrayList.add(model)
+        citiesList.add(model)
         model = CityListModel(5, "Gilgit")
-        cityListModelArrayList.add(model)
+        citiesList.add(model)
         model = CityListModel(6, "Karachi")
-        cityListModelArrayList.add(model)
+        citiesList.add(model)
         model = CityListModel(7, "Faislabad")
-        cityListModelArrayList.add(model)
+        citiesList.add(model)
         model = CityListModel(8, "Murree")
-        cityListModelArrayList.add(model)
+        citiesList.add(model)
         model = CityListModel(10, "Multan")
-        cityListModelArrayList.add(model)
+        citiesList.add(model)
         model = CityListModel(11, "Narran")
-        cityListModelArrayList.add(model)
+        citiesList.add(model)
         model = CityListModel(12, "Quetta")
-        cityListModelArrayList.add(model)
+        citiesList.add(model)
         /*model = new CityListModel(13, "Haripur");
-        cityListModelArrayList.add(model);
+        citiesList.add(model);
         model = new CityListModel(14, "Sialkot");
-        cityListModelArrayList.add(model);
+        citiesList.add(model);
         model = new CityListModel(15, "Kashmir");
-        cityListModelArrayList.add(model);
+        citiesList.add(model);
         model = new CityListModel(16, "Daddo");
-        cityListModelArrayList.add(model);
+        citiesList.add(model);
         model = new CityListModel(17, "Rahem Yar Khan");
-        cityListModelArrayList.add(model);*/
+        citiesList.add(model);*/
+    }
+
+    private fun searchCity(searchValue: String,type:String) {
+        try {
+            filteredCityList.clear()
+            if (citiesList.size < 0) {
+                return
+            }
+            val selectedCity: CityListModel? =
+                citiesList.find { it.cityName.equals(searchValue, ignoreCase = true) }
+
+            if (selectedCity?.cityName.isNullOrEmpty()) {
+                filteredCityList.add(CityListModel(-1, getString(R.string.no_city_found)))
+                populateCities(filteredCityList,type)
+                return
+            }
+            if (selectedCity != null) {
+                filteredCityList.add(selectedCity)
+            }
+            populateCities(filteredCityList,type)
+        } catch (ex: Exception) {
+            Log.i("FaisalMovers ", "Error :: " + ex.message.toString())
+        }
+    }
+
+    override fun getSelectedCity(position: Int, type: String) {
+        if(type.equals(Utility.FROM)){
+            tv_selectFromCity?.text=citiesList.get(position).cityName
+        }
+        if(type.equals(Utility.TO)){
+            tv_selectToCity?.text=citiesList.get(position).cityName
+        }
+        cityListDialog?.dismiss()
     }
 }

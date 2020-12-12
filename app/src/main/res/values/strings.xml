@@ -6,4 +6,11 @@
     <string name="price">Price</string>
     <string name="departure">Departure</string>
     <string name="arrival">Arrival</string>
+    <string name="no_city_found">No City Found</string>
+    <string name="select_city">SELECT CITY</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="open_calender">Open Calender</string>
+    <string name="bus_tickets">Bus Tickets</string>
+    <string name="date">DATE</string>
 </resources>

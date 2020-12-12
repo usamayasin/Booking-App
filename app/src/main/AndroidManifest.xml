@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.faisalmovers">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,8 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FaisalMovers"
         android:windowSoftInputMode="adjustPan|adjustResize">
-        <activity android:name=".RouteSelectionActivity"></activity>
-        <activity android:name=".PassengerDetailsActivity"></activity>
+        <activity android:name=".RouteSelectionActivity"/>
+        <activity android:name=".PassengerDetailsActivity"/>
         <activity
             android:name=".HomeActivity"
             android:screenOrientation="portrait">
