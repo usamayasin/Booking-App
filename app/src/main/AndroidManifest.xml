@@ -14,8 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FaisalMovers"
         android:windowSoftInputMode="adjustPan|adjustResize">
-        <activity android:name=".RouteSelectionActivity"/>
-        <activity android:name=".PassengerDetailsActivity"/>
+        <activity android:name=".RouteSelectionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PassengerDetailsActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".HomeActivity"
             android:screenOrientation="portrait">

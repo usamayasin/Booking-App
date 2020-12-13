@@ -46,7 +46,7 @@
                 android:layout_marginTop="15dp"
                 android:text="@string/from"
                 android:textColor="@color/city_heading_color"
-                android:textSize="22sp"
+                android:textSize="@dimen/_22ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,7 +58,7 @@
                 android:hint="@string/select_city"
                 android:textColor="@android:color/white"
                 android:textColorHint="@color/white"
-                android:textSize="22sp"
+                android:textSize="@dimen/_22ssp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/tv_headingFrom"
                 app:layout_constraintTop_toBottomOf="@+id/tv_headingFrom" />
@@ -76,7 +76,7 @@
                 android:id="@+id/img_citySwitch"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="@dimen/_72sdp"
+                android:layout_marginTop="@dimen/_80sdp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_switch_city"
                 app:layout_constraintEnd_toEndOf="@+id/view"
@@ -86,10 +86,10 @@
                 android:id="@+id/tv_headingTo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:text="@string/to"
                 android:textColor="@color/city_heading_color"
-                android:textSize="22sp"
+                android:textSize="@dimen/_22ssp"
                 app:layout_constraintStart_toStartOf="@+id/view"
                 app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -101,7 +101,7 @@
                 android:hint="@string/select_city"
                 android:textColor="@android:color/white"
                 android:textColorHint="@color/white"
-                android:textSize="22sp"
+                android:textSize="@dimen/_22ssp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/tv_headingTo"
                 app:layout_constraintTop_toBottomOf="@+id/tv_headingTo" />
@@ -121,14 +121,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
                 android:layout_marginLeft="60dp"
-                android:layout_marginTop="270dp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:text="@string/date"
                 android:textColor="@color/city_heading_color"
-                android:textSize="22sp"
+                android:textSize="@dimen/_22ssp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/view_1" />
 
             <LinearLayout
+                android:id="@+id/ll_dates_calender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -153,6 +154,7 @@
                         android:textSize="12sp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_todayDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -161,6 +163,7 @@
                         android:textSize="22sp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_todayMonthYear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -190,6 +193,7 @@
                         android:textSize="12sp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_tomorrowDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -198,6 +202,7 @@
                         android:textSize="22sp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_tomorrowMonthYear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -219,6 +224,7 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_dftDay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -227,6 +233,7 @@
                         android:textSize="12sp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_dftDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -235,6 +242,7 @@
                         android:textSize="22sp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_dftMonthYear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -274,6 +282,20 @@
 
 
             </LinearLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_selectedDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="text|textMultiLine"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/tv_headingDate"
+                app:layout_constraintTop_toBottomOf="@+id/tv_headingDate"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -283,7 +305,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/orange_circle"
             android:src="@drawable/ic_nextarrow" />

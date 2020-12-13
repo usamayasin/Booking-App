@@ -13,4 +13,6 @@
     <string name="open_calender">Open Calender</string>
     <string name="bus_tickets">Bus Tickets</string>
     <string name="date">DATE</string>
+    <string name="going_from">Going from..</string>
+    <string name="going_to">Going to..</string>
 </resources>

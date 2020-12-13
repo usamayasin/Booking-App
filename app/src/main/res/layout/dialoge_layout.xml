@@ -5,6 +5,16 @@
     android:background="@drawable/city_dialog_background"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_dialogHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="@string/going_to"
+        android:gravity="center"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/gradient_color_4" />
+
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/et_cityListSearch"
         android:layout_width="match_parent"
