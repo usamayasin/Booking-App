@@ -6,8 +6,8 @@
             android:useLevel="false">
             <solid android:color="@color/gradient_color_4" />
             <size
-                android:width="35dp"
-                android:height="45dp" />
+                android:width="@dimen/_35sdp"
+                android:height="@dimen/_45sdp" />
         </shape>
     </item>
 </layer-list>

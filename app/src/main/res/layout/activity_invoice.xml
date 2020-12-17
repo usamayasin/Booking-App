@@ -101,15 +101,13 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
                     android:layout_marginRight="@dimen/_20sdp"
-                    android:scrollbars="vertical"
-                    android:gravity="bottom"
-                    android:text="Abdullah Terminal Abdullah Terminal Abdullah "
-                    android:maxWidth="@dimen/_90sdp"
-                    android:maxHeight="@dimen/_20sdp"
+                    android:text="Abdullah Terminal "
+                    android:maxWidth="@dimen/_100sdp"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12ssp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_invoiceHeading" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_invoiceHeading"
+                    app:layout_constraintBottom_toTopOf="@+id/view_separator"/>
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_invoiceLocation"
@@ -128,7 +126,8 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@color/invoice_separator"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_invoiceBusType" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_invoiceTerminal" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_invoiceSeatHeading"
@@ -193,7 +192,8 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_invoiceDepTime">
+                    app:layout_constraintTop_toBottomOf="@id/tv_invoiceDepTime"
+                    app:layout_constraintBottom_toTopOf="@+id/cc_invoicePassengerInfo">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_bookedByName"
@@ -280,27 +280,28 @@
                         app:layout_constraintStart_toStartOf="@id/tv_invoiceBookingDate"
                         app:layout_constraintTop_toBottomOf="@+id/tv_invoiceBookingDate" />
                     <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_qrCode"
                         android:layout_width="@dimen/_100sdp"
                         android:layout_height="@dimen/_100sdp"
-                        android:id="@+id/img_qrCode"
                         android:src="@drawable/ic_qr_code"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginRight="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
-                        app:layout_constraintEnd_toEndOf="@id/cc_invoiceUserInfo"
-                        app:layout_constraintTop_toTopOf="@+id/cc_invoiceUserInfo"
-                        app:layout_constraintBottom_toBottomOf="@id/cc_invoiceUserInfo"/>
-
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/tv_invoicePnr"
+                        />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <!-- Passenger Info Layout-->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cc_invoicePassengerInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cc_invoiceUserInfo">
+                    app:layout_constraintTop_toBottomOf="@id/cc_invoiceUserInfo"
+                    app:layout_constraintBottom_toTopOf="@+id/ll_priceInfo">
 
                     <View
                         android:id="@+id/view_circle_left"
@@ -323,10 +324,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:background="@drawable/rounder_rectangle"
                         android:layout_margin="@dimen/_20sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/view_circle_left"
                         app:layout_constraintStart_toStartOf="@+id/view_circle_left"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:background="@drawable/rounder_rectangle">
+                        app:layout_constraintTop_toTopOf="parent">
+
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -347,8 +350,8 @@
                                 android:layout_width="@dimen/_40sdp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:layout_marginRight="@dimen/_3sdp"
                                 android:src="@drawable/ic_arrow_drop_up"
+                                android:layout_marginRight="@dimen/_3sdp"
                                 android:layout_marginEnd="@dimen/_3sdp" />
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -386,23 +389,24 @@
                             android:id="@+id/rc_passengerInfo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/_10sdp"
-
-                            />
+                            android:layout_marginBottom="@dimen/_10sdp"/>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <!-- Price Info Layout-->
                 <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ll_priceInfo"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_35sdp"
                     android:orientation="horizontal"
                     android:weightSum="3"
-                    app:layout_constraintTop_toBottomOf="@id/cc_invoicePassengerInfo"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:background="@color/invoice_green"
+                    app:layout_constraintTop_toBottomOf="@+id/cc_invoicePassengerInfo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent">
+
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
