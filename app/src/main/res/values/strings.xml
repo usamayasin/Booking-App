@@ -15,4 +15,16 @@
     <string name="date">DATE</string>
     <string name="going_from">Going from..</string>
     <string name="going_to">Going to..</string>
+    <string name="invoice">Invoice</string>
+    <string name="executive_plus">Executive Plus</string>
+    <string name="seat_no_s">Seat No(s)</string>
+    <string name="depature_time">Depature Time</string>
+    <string name="id">ID</string>
+    <string name="pnr">PNR</string>
+    <string name="booking_time">Booking Time</string>
+    <string name="passenger_details">Passenger Details</string>
+    <string name="name">Name</string>
+    <string name="nic">NIC</string>
+    <string name="total_price">Total Price</string>
+    <string name="paid">Paid</string>
 </resources>
