@@ -1,469 +1,503 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gradient_color_4"
+    android:orientation="vertical"
     tools:context=".InvoiceActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
-        android:orientation="vertical">
+        android:layout_marginEnd="@dimen/_20sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:text="@string/invoice"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_invoiceCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_clear" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:orientation="horizontal">
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1.5"
-                android:gravity="center"
-                android:text="@string/invoice"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_15ssp" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_invoiceCancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="0.5"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_clear" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_15sdp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="@dimen/_5sdp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_bookingInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_invoiceHeading"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/invoice_green"
-                    android:gravity="center"
-                    android:padding="@dimen/_8sdp"
-                    android:text="Lahore - Multan"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_15ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_invoiceCompany"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_20sdp"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:text="@string/app_name"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/_15ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_invoiceHeading" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_invoiceBusType"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/executive_plus"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:textSize="@dimen/_12ssp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_invoiceCompany"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_invoiceCompany" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_invoiceTerminal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_20sdp"
-                    android:layout_marginRight="@dimen/_20sdp"
-                    android:text="Abdullah Terminal "
-                    android:maxWidth="@dimen/_100sdp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_invoiceHeading"
-                    app:layout_constraintBottom_toTopOf="@+id/view_separator"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/img_invoiceLocation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_weight="0.2"
-                    android:src="@drawable/ic_baseline_location"
-                    app:layout_constraintEnd_toStartOf="@id/tv_invoiceTerminal"
-                    app:layout_constraintTop_toBottomOf="@id/tv_invoiceHeading" />
-
-                <View
-                    android:id="@+id/view_separator"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_2sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:background="@color/invoice_separator"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_invoiceTerminal" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_invoiceSeatHeading"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:text="@string/seat_no_s"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/tv_invoiceBusType"
-                    app:layout_constraintTop_toBottomOf="@id/view_separator" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_invoiceSeatNo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="11,22,12,13,14,37"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp"
-                    app:layout_constraintStart_toStartOf="@id/tv_invoiceSeatHeading"
-                    app:layout_constraintTop_toBottomOf="@id/tv_invoiceSeatHeading" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_invoiceDepartureHeading"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:text="@string/depature_time"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/img_invoiceLocation"
-                    app:layout_constraintTop_toBottomOf="@id/view_separator" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_invoiceDepDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="30 Dec 2020"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_invoiceDepartureHeading"
-                    app:layout_constraintTop_toBottomOf="@id/tv_invoiceDepartureHeading" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_invoiceDepTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="11:20 Pm"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_invoiceDepDate"
-                    app:layout_constraintTop_toBottomOf="@id/tv_invoiceDepDate" />
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_5sdp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cc_invoiceUserInfo"
+                    android:id="@+id/cl_bookingInfo"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/invoice_separator"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_invoiceDepTime"
-                    app:layout_constraintBottom_toTopOf="@+id/cc_invoicePassengerInfo">
+                    android:layout_height="wrap_content">
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_bookedByName"
+                        android:id="@+id/tv_invoiceHeading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/invoice_green"
+                        android:gravity="center"
+                        android:padding="@dimen/_8sdp"
+                        android:text="Lahore - Multan"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_invoiceCompany"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginLeft="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="Haider Khan"
-                        android:maxWidth="@dimen/_110sdp"
-                        android:textColor="@color/black"
-                        app:layout_constraintStart_toStartOf="@id/cc_invoiceUserInfo"
-                        app:layout_constraintTop_toTopOf="@+id/cc_invoiceUserInfo" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_bookedIDHeading"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:maxWidth="@dimen/_70sdp"
                         android:layout_marginTop="@dimen/_5sdp"
-                        android:text="Bookkaru id"
-                        android:textColor="@color/invoice_booking_info"
-                        app:layout_constraintStart_toStartOf="@id/tv_bookedByName"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_bookedByName"
-
-                        />
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_bookedById"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="123456789"
-                        android:maxWidth="@dimen/_70sdp"
-                        android:textColor="@color/black"
-                        app:layout_constraintStart_toStartOf="@id/tv_bookedIDHeading"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_bookedIDHeading" />
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_pnrHeading"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:maxWidth="@dimen/_70sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:text="PNR"
-                        android:textColor="@color/invoice_booking_info"
-                        app:layout_constraintEnd_toStartOf="@id/img_qrCode"
-                        app:layout_constraintStart_toEndOf="@+id/tv_bookedIDHeading"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_bookedByName" />
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_invoicePnr"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:maxWidth="@dimen/_50sdp"
-                        android:text="123458"
-                        android:textColor="@color/invoice_booking_info"
-                        app:layout_constraintStart_toStartOf="@id/tv_pnrHeading"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_pnrHeading" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_invoiceTimeHeading"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:text="@string/booking_time"
-                        android:maxWidth="@dimen/_70sdp"
-                        android:textColor="@color/invoice_booking_info"
-                        app:layout_constraintStart_toStartOf="@id/tv_bookedById"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_bookedById" />
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_invoiceBookingDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:maxWidth="@dimen/_70sdp"
-                        android:text="17 Dec 2020"
-                        android:textColor="@color/black"
-                        app:layout_constraintStart_toStartOf="@id/tv_invoiceTimeHeading"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_invoiceTimeHeading" />
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_invoiceBookingTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:maxWidth="@dimen/_70sdp"
-                        android:text="10:15 pm"
-                        android:textColor="@color/black"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        app:layout_constraintStart_toStartOf="@id/tv_invoiceBookingDate"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_invoiceBookingDate" />
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_qrCode"
-                        android:layout_width="@dimen/_100sdp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:src="@drawable/ic_qr_code"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginRight="@dimen/_20sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toRightOf="@id/tv_invoicePnr"
-                        />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <!-- Passenger Info Layout-->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cc_invoicePassengerInfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cc_invoiceUserInfo"
-                    app:layout_constraintBottom_toTopOf="@+id/ll_priceInfo">
-
-                    <View
-                        android:id="@+id/view_circle_left"
-                        android:layout_width="@dimen/_12sdp"
-                        android:layout_height="@dimen/_40sdp"
-                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="@string/app_name"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_15ssp"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/invoice_orange_circle"/>
-                    <View
-                        android:id="@+id/view_circle_right"
-                        android:layout_width="@dimen/_12sdp"
-                        android:layout_height="@dimen/_40sdp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/invoice_orange_circle_right"/>
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:id="@+id/lc_invoicePassengerInfo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@drawable/rounder_rectangle"
-                        android:layout_margin="@dimen/_20sdp"
-                        app:layout_constraintEnd_toEndOf="@+id/view_circle_left"
-                        app:layout_constraintStart_toStartOf="@+id/view_circle_left"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toBottomOf="@+id/tv_invoiceHeading" />
 
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_gravity="center"
-                            android:weightSum="2">
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/passenger_details"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"
-                                android:textSize="@dimen/_14ssp"
-                                android:gravity="center"
-                                android:layout_weight="1" />
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/img_passengerInfoControl"
-                                android:layout_width="@dimen/_40sdp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:src="@drawable/ic_arrow_drop_up"
-                                android:layout_marginRight="@dimen/_3sdp"
-                                android:layout_marginEnd="@dimen/_3sdp" />
-
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_2sdp"
-                            android:layout_margin="@dimen/_5sdp"
-                            android:background="@color/invoice_separator" />
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/name"
-                                android:gravity="center"
-                                android:layout_weight="1" />
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/nic"
-                                android:gravity="center"
-                                android:layout_weight="1" />
-
-
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_2sdp"
-                            android:layout_margin="@dimen/_5sdp"
-                            android:background="@color/invoice_separator" />
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rc_passengerInfo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/_10sdp"/>
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <!-- Price Info Layout-->
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:id="@+id/ll_priceInfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    android:orientation="horizontal"
-                    android:weightSum="3"
-                    android:background="@color/invoice_green"
-                    app:layout_constraintTop_toBottomOf="@+id/cc_invoicePassengerInfo"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent">
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_invoiceBusType"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
-                        android:layout_gravity="center">
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/total_price"
-                            android:textColor="@color/white"/>
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/tv_invoicePrice"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_gravity="center"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            android:text="PKR 1925"
-                            android:textSize="@dimen/_15sdp"
-                            android:drawableLeft="@drawable/ic_arrow_drop_down_white"
-                            android:drawableStart="@drawable/ic_arrow_drop_down_white"
-                            />
+                        android:text="@string/executive_plus"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintStart_toStartOf="@+id/tv_invoiceCompany"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_invoiceCompany" />
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-                    <LinearLayout
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="@dimen/_25sdp"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:layout_marginBottom="@dimen/_5sdp"
-                            android:layout_gravity="center"
-                            android:background="@color/invoice_view" />
-                    </LinearLayout>
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_invoicePriceStatus"
+                        android:id="@+id/tv_invoiceTerminal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:maxWidth="@dimen/_100sdp"
+                        android:text="Abdullah Terminal "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toTopOf="@+id/view_separator"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_invoiceHeading" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_invoiceLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_weight="0.2"
+                        android:src="@drawable/ic_baseline_location"
+                        app:layout_constraintEnd_toStartOf="@id/tv_invoiceTerminal"
+                        app:layout_constraintTop_toBottomOf="@id/tv_invoiceHeading" />
+
+                    <View
+                        android:id="@+id/view_separator"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@color/invoice_separator"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_invoiceTerminal" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_invoiceSeatHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="@string/seat_no_s"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@id/tv_invoiceBusType"
+                        app:layout_constraintTop_toBottomOf="@id/view_separator" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_invoiceSeatNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="11,22,12,13,14,37"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@id/tv_invoiceSeatHeading"
+                        app:layout_constraintTop_toBottomOf="@id/tv_invoiceSeatHeading" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_invoiceDepartureHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="@string/depature_time"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/img_invoiceLocation"
+                        app:layout_constraintTop_toBottomOf="@id/view_separator" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_invoiceDepDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="30 Dec 2020"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="@+id/tv_invoiceDepartureHeading"
+                        app:layout_constraintTop_toBottomOf="@id/tv_invoiceDepartureHeading" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_invoiceDepTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:text="@string/paid"
-                        android:textSize="@dimen/_18sdp"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        />
+                        android:text="11:20 Pm"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="@+id/tv_invoiceDepDate"
+                        app:layout_constraintTop_toBottomOf="@id/tv_invoiceDepDate" />
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cc_invoiceUserInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@color/invoice_separator"
+                        app:layout_constraintBottom_toTopOf="@+id/cc_invoicePassengerInfo"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_invoiceDepTime">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_bookedByName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:maxWidth="@dimen/_110sdp"
+                            android:text="Haider Khan"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="@id/cc_invoiceUserInfo"
+                            app:layout_constraintTop_toTopOf="@+id/cc_invoiceUserInfo" />
 
-        </androidx.cardview.widget.CardView>
-    </androidx.appcompat.widget.LinearLayoutCompat>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_bookedIDHeading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:maxWidth="@dimen/_70sdp"
+                            android:text="Bookkaru id"
+                            android:textColor="@color/invoice_booking_info"
+                            app:layout_constraintStart_toStartOf="@id/tv_bookedByName"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_bookedByName"
 
-</ScrollView>
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_bookedById"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxWidth="@dimen/_70sdp"
+                            android:text="123456789"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="@id/tv_bookedIDHeading"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_bookedIDHeading" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_pnrHeading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:maxWidth="@dimen/_70sdp"
+                            android:text="PNR"
+                            android:textColor="@color/invoice_booking_info"
+                            app:layout_constraintEnd_toStartOf="@id/img_qrCode"
+                            app:layout_constraintStart_toEndOf="@+id/tv_bookedIDHeading"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_bookedByName" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_invoicePnr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxWidth="@dimen/_50sdp"
+                            android:text="123458"
+                            android:textColor="@color/invoice_booking_info"
+                            app:layout_constraintStart_toStartOf="@id/tv_pnrHeading"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_pnrHeading" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_invoiceTimeHeading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:maxWidth="@dimen/_70sdp"
+                            android:text="@string/booking_time"
+                            android:textColor="@color/invoice_booking_info"
+                            app:layout_constraintStart_toStartOf="@id/tv_bookedById"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_bookedById" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_invoiceBookingDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxWidth="@dimen/_70sdp"
+                            android:text="17 Dec 2020"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="@id/tv_invoiceTimeHeading"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_invoiceTimeHeading" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_invoiceBookingTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxWidth="@dimen/_70sdp"
+                            android:text="10:15 pm"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            app:layout_constraintStart_toStartOf="@id/tv_invoiceBookingDate"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_invoiceBookingDate"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_qrCode"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:src="@drawable/ic_qr_code"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/tv_invoicePnr" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Passenger Info Layout-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cc_invoicePassengerInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/ll_priceInfo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cc_invoiceUserInfo">
+
+                        <View
+                            android:id="@+id/view_circle_left"
+                            android:layout_width="@dimen/_12sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/invoice_orange_circle"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/view_circle_right"
+                            android:layout_width="@dimen/_12sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/invoice_orange_circle_right"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/lc_invoicePassengerInfo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_20sdp"
+                            android:background="@drawable/rounder_rectangle"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="@+id/view_circle_left"
+                            app:layout_constraintStart_toStartOf="@+id/view_circle_left"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/passenger_details"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14ssp"
+                                    android:textStyle="bold" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_passengerInfoControl"
+                                    android:layout_width="@dimen/_40sdp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="@dimen/_3sdp"
+                                    android:layout_marginRight="@dimen/_3sdp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/ic_arrow_drop_up" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_2sdp"
+                                android:layout_margin="@dimen/_5sdp"
+                                android:background="@color/invoice_separator" />
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/name" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/nic" />
+
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_2sdp"
+                                android:layout_margin="@dimen/_5sdp"
+                                android:background="@color/invoice_separator" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rc_passengerInfo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_10sdp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Price Info Layout-->
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_priceInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:background="@color/invoice_green"
+                        android:orientation="horizontal"
+                        android:weightSum="3"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cc_invoicePassengerInfo">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/total_price"
+                                android:textColor="@color/white" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tv_invoicePrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:drawableStart="@drawable/ic_arrow_drop_down_white"
+                                android:drawableLeft="@drawable/ic_arrow_drop_down_white"
+                                android:gravity="center"
+                                android:text="PKR 1925"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_15sdp"
+                                android:textStyle="bold" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:background="@color/invoice_view" />
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_invoicePriceStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/paid"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_18sdp"
+                            android:textStyle="bold" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:orientation="vertical"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
