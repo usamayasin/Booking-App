@@ -257,12 +257,12 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
         }
     }
 
-    override fun getSelectedCity(position: Int, type: String) {
+    override fun getSelectedCity(cityName: String, type: String) {
         if (type.equals(Utility.FROM)) {
-            tv_selectFromCity?.text = citiesList.get(position).cityName
+            tv_selectFromCity?.text = cityName
         }
         if (type.equals(Utility.TO)) {
-            tv_selectToCity?.text = citiesList.get(position).cityName
+            tv_selectToCity?.text =cityName
         }
         cityListDialog?.dismiss()
     }

@@ -13,8 +13,8 @@
     <string name="open_calender">Open Calender</string>
     <string name="bus_tickets">Bus Tickets</string>
     <string name="date">DATE</string>
-    <string name="going_from">Going from..</string>
-    <string name="going_to">Going to..</string>
+    <string name="going_from">Going From..</string>
+    <string name="going_to">Going To..</string>
     <string name="invoice">Invoice</string>
     <string name="executive_plus">Executive Plus</string>
     <string name="seat_no_s">Seat No(s)</string>
@@ -27,4 +27,6 @@
     <string name="nic">NIC</string>
     <string name="total_price">Total Price</string>
     <string name="paid">Paid</string>
+    <string name="lower_case_from">From</string>
+    <string name="lower_case_to">To</string>
 </resources>

@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="end"
+                android:fontFamily="@font/circular_std_book"
                 android:text="Choose Seats"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
@@ -42,6 +43,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:fontFamily="@font/circular_std_book"
                 android:text="Cancel"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="15sp"
@@ -75,6 +77,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/circular_std_book"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="end"
@@ -105,6 +108,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="end"
+                    android:fontFamily="@font/circular_std_book"
                     android:text="On Hold"
                     android:textColor="@android:color/white" />
 
@@ -131,6 +135,7 @@
                     android:layout_height="0dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:fontFamily="@font/circular_std_book"
                     android:gravity="end"
                     android:text="Booked"
                     android:textColor="@android:color/white" />
@@ -1591,25 +1596,27 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/circular_std_book"
                     android:text="2 Seats"
                     android:textColor="@color/gradient_color_1"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/_15ssp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/circular_std_book"
                     android:text="Rs 2,100"
                     android:textColor="@color/gradient_color_1"
-                    android:textSize="30sp" />
+                    android:textSize="@dimen/_25ssp" />
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_seat_selection_go_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_forward_arrow" />
+                android:src="@drawable/ic_nextarrow" />
         </LinearLayout>
 
     </androidx.appcompat.widget.LinearLayoutCompat>

@@ -31,7 +31,7 @@ class RouteSelectionActivity : AppCompatActivity() {
     fun init(){
         rc_routeInfo = findViewById(R.id.rv_routeInfo)
         tv_selectedToCity = findViewById(R.id.tv_selectedToCity)
-        tv_selectedfromCity = findViewById(R.id.tv_selectedfromCity)
+        tv_selectedfromCity = findViewById(R.id.tv_selectedFromCity)
     }
 
     fun setRecyclerView() {

@@ -41,6 +41,7 @@
                     android:layout_weight="1.7"
                     android:gravity="start"
                     android:text="@string/bus_type"
+                    android:fontFamily="@font/myriad_pro_regular"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12ssp" />
 
@@ -49,6 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
                     android:gravity="end"
+                    android:fontFamily="@font/circular_std_book"
                     android:text="Seats left"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12ssp" />
@@ -71,7 +73,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1.4"
                     android:gravity="start"
-                    android:text="Business"
+                    android:fontFamily="@font/circular_std_book"
+                    android:text="Business Class"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15ssp" />
@@ -84,6 +87,7 @@
                     android:gravity="center"
                     android:textStyle="bold"
                     android:text="36"
+                    android:fontFamily="@font/circular_std_bold"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15ssp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -117,6 +121,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="start"
                         android:text="@string/price"
+                        android:fontFamily="@font/circular_std_book"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
@@ -125,6 +130,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="start"
+                        android:fontFamily="@font/circular_std_bold"
                         android:text="Rs 1600"
                         android:textStyle="bold"
                         android:textColor="@color/black"
@@ -141,6 +147,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/departure"
+                        android:fontFamily="@font/circular_std_book"
                         android:textColor="@color/teal_700"
                         android:textSize="@dimen/_12ssp" />
 
@@ -150,6 +157,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textStyle="bold"
+                        android:fontFamily="@font/circular_std_bold"
                         android:text="11:20 am"
                         android:textColor="@color/teal_700"
                         android:textSize="@dimen/_15ssp" />
@@ -165,6 +173,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/arrival"
+                        android:fontFamily="@font/circular_std_book"
                         android:textColor="@color/teal_700"
                         android:textSize="@dimen/_12ssp" />
 
@@ -174,6 +183,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textStyle="bold"
+                        android:fontFamily="@font/circular_std_bold"
                         android:text="11:20 am"
                         android:textColor="@color/teal_700"
                         android:textSize="@dimen/_15ssp" />

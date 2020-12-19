@@ -12,6 +12,7 @@
         android:text="@string/name"
         android:gravity="center"
         android:layout_weight="1"
+        android:fontFamily="@font/myriad_pro_regular"
         android:textColor="@color/black"/>
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_passengerCnic"
@@ -20,6 +21,7 @@
         android:text="@string/nic"
         android:gravity="center"
         android:layout_weight="1"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:fontFamily="@font/myriad_pro_regular"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
