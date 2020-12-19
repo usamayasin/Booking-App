@@ -48,7 +48,7 @@ public class CityListRCAdapter(var context: Context, listModels: ArrayList<CityL
             try {
                 if (v == clCityItem) {
                     val position = adapterPosition
-                    type?.let { callBackInterface?.getSelectedCity(position, it) }
+                    type?.let { callBackInterface?.getSelectedCity(dataList.get(position).cityName, it) }
 
                 }
             } catch (e: Exception) {

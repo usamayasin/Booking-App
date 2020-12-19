@@ -35,15 +35,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/to"
+                    android:text="@string/lower_case_from"
+                    android:fontFamily="@font/circular_std_book"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_12ssp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_selectedToCity"
+                    android:id="@+id/tv_selectedFromCity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/circular_std_medium"
                     android:text="Islamabad"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_20ssp" />
@@ -67,16 +69,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/from"
+                    android:text="@string/lower_case_to"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_12ssp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_selectedfromCity"
+                    android:id="@+id/tv_selectedToCity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Islamabad"
+                    android:fontFamily="@font/circular_std_medium"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_20ssp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -89,6 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="@dimen/_20sdp"
+            android:fontFamily="@font/circular_std_medium"
             android:text="22 Aug 2021"
             android:textColor="@color/white"
             android:textSize="@dimen/_15sdp" />
