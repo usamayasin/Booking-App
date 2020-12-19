@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="2">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_passengerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textColor="@color/black"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_passengerCnic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nic"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textColor="@color/black"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

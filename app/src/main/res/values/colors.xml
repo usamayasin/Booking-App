@@ -15,4 +15,8 @@
     <color name="city_heading_color">#C3BEBE</color>
 
     <color name="darkBlueBox">#272262</color>
+    <color name="invoice_green">#00a652</color>
+    <color name="invoice_separator">#dddddd</color>
+    <color name="invoice_booking_info">#727273</color>
+    <color name="invoice_view">#595858</color>
 </resources>
