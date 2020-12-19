@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">Faisal Movers</string>
-    <string name="from">From</string>
-    <string name="to">To</string>
+    <string name="from">FROM</string>
+    <string name="to">TO</string>
     <string name="bus_type">Bus Type</string>
     <string name="price">Price</string>
     <string name="departure">Departure</string>
     <string name="arrival">Arrival</string>
     <string name="no_city_found">No City Found</string>
-    <string name="select_city">SELECT CITY</string>
+    <string name="select_city">Select City</string>
     <string name="today">Today</string>
     <string name="tomorrow">Tomorrow</string>
     <string name="open_calender">Open Calender</string>

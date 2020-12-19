@@ -20,9 +20,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/circular_std_medium"
             android:text="@string/bus_tickets"
             android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            android:textSize="@dimen/_18ssp" />
 
         <ImageView
             android:id="@+id/iv_logo"
@@ -44,9 +45,10 @@
                 android:layout_marginStart="60dp"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="15dp"
+                android:fontFamily="@font/myriad_pro_regular"
                 android:text="@string/from"
                 android:textColor="@color/city_heading_color"
-                android:textSize="@dimen/_22ssp"
+                android:textSize="@dimen/_20ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,9 +58,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:hint="@string/select_city"
+                android:fontFamily="@font/gilroy_extra_bold"
                 android:textColor="@android:color/white"
                 android:textColorHint="@color/white"
-                android:textSize="@dimen/_22ssp"
+                android:textSize="@dimen/_20ssp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/tv_headingFrom"
                 app:layout_constraintTop_toBottomOf="@+id/tv_headingFrom" />
@@ -88,8 +91,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:text="@string/to"
+                android:fontFamily="@font/myriad_pro_regular"
                 android:textColor="@color/city_heading_color"
-                android:textSize="@dimen/_22ssp"
+                android:textSize="@dimen/_20ssp"
                 app:layout_constraintStart_toStartOf="@+id/view"
                 app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -99,9 +103,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:hint="@string/select_city"
+                android:fontFamily="@font/gilroy_extra_bold"
                 android:textColor="@android:color/white"
                 android:textColorHint="@color/white"
-                android:textSize="@dimen/_22ssp"
+                android:textSize="@dimen/_20ssp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/tv_headingTo"
                 app:layout_constraintTop_toBottomOf="@+id/tv_headingTo" />
@@ -122,9 +127,10 @@
                 android:layout_marginStart="60dp"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/circular_std_book"
                 android:text="@string/date"
                 android:textColor="@color/city_heading_color"
-                android:textSize="@dimen/_22ssp"
+                android:textSize="@dimen/_20ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view_1" />
 
@@ -150,6 +156,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/today"
+                        android:fontFamily="@font/circular_std_book"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -159,6 +166,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="09"
+                        android:fontFamily="@font/gilroy_extra_bold"
                         android:textColor="@color/white"
                         android:textSize="22sp" />
 
@@ -168,6 +176,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Dec 2020"
+                        android:fontFamily="@font/circular_std_book"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -188,6 +197,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/circular_std_book"
                         android:text="@string/tomorrow"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
@@ -198,6 +208,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="09"
+                        android:fontFamily="@font/gilroy_extra_bold"
                         android:textColor="@color/white"
                         android:textSize="22sp" />
 
@@ -207,6 +218,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Dec 2020"
+                        android:fontFamily="@font/circular_std_book"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -229,6 +241,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Wednesday"
+                        android:fontFamily="@font/circular_std_book"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -237,6 +250,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/gilroy_extra_bold"
                         android:text="09"
                         android:textColor="@color/white"
                         android:textSize="22sp" />
@@ -246,6 +260,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/circular_std_book"
                         android:text="Dec 2020"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
@@ -274,6 +289,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/circular_std_book"
                         android:text="@string/open_calender"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
