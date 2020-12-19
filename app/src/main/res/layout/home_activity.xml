@@ -4,288 +4,311 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
+    android:background="@color/white"
     android:orientation="vertical"
-    android:background="@color/white">
+    tools:context=".HomeActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bottom_corner_rounded"
         android:orientation="vertical"
         android:weightSum="2">
-        <LinearLayout
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="@string/bus_tickets"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/iv_logo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1.84"
-            android:background="@drawable/bottom_corner_rounded">
+            android:layout_height="110dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/pwdfaisalmovers" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_headingFrom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bus Tickets"
-                android:textSize="18sp"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/from"
+                android:textColor="@color/city_heading_color"
+                android:textSize="@dimen/_22ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_selectFromCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/select_city"
                 android:textColor="@android:color/white"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"/>
-            <ImageView
-                android:id="@+id/iv_logo"
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/_22ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_headingFrom"
+                app:layout_constraintTop_toBottomOf="@+id/tv_headingFrom" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="250dp"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/white"
+                app:layout_constraintStart_toStartOf="@+id/tv_selectFromCity"
+                app:layout_constraintTop_toBottomOf="@+id/tv_selectFromCity" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_citySwitch"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/_80sdp"
                 android:scaleType="fitCenter"
-                android:layout_gravity="center"
-                android:src="@drawable/pwdfaisalmovers"
-                android:layout_marginTop="20dp"/>
+                android:src="@drawable/ic_switch_city"
+                app:layout_constraintEnd_toEndOf="@+id/view"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_headingTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/to"
+                android:textColor="@color/city_heading_color"
+                android:textSize="@dimen/_22ssp"
+                app:layout_constraintStart_toStartOf="@+id/view"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_headingFrom"
-                    android:layout_width="wrap_content"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_selectToCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/select_city"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/_22ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_headingTo"
+                app:layout_constraintTop_toBottomOf="@+id/tv_headingTo" />
+
+            <View
+                android:id="@+id/view_1"
+                android:layout_width="250dp"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/white"
+                app:layout_constraintStart_toStartOf="@+id/tv_selectToCity"
+                app:layout_constraintTop_toBottomOf="@+id/tv_selectToCity" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_headingDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/date"
+                android:textColor="@color/city_heading_color"
+                android:textSize="@dimen/_22ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_1" />
+
+            <LinearLayout
+                android:id="@+id/ll_dates_calender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                app:layout_constraintStart_toStartOf="@+id/tv_headingDate"
+                app:layout_constraintTop_toBottomOf="@+id/tv_headingDate">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="FROM"
-                    android:textColor="@color/city_heading_color"
-                    android:textSize="22sp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginTop="15dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_selectFromCity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SELECT CITY"
-                    android:textColor="@android:color/white"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_headingFrom"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_headingFrom" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/today"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_todayDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="09"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_todayMonthYear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Dec 2020"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
 
                 <View
-                    android:id="@+id/view"
-                    android:layout_width="250dp"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@android:color/white"
-                    app:layout_constraintStart_toStartOf="@+id/tv_selectFromCity"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_selectFromCity" />
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/img_citySwitch"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="86dp"
-                    android:background="@drawable/orange_circle"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/switch_city_hdpi"
-                    app:layout_constraintEnd_toEndOf="@+id/view"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_headingTo"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TO"
-                    android:layout_marginTop="20dp"
-                    android:textColor="@color/city_heading_color"
-                    android:textSize="22sp"
-                    app:layout_constraintStart_toStartOf="@+id/view"
-                    app:layout_constraintTop_toBottomOf="@+id/view"/>
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_selectToCity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SELECT CITY"
-                    android:textColor="@android:color/white"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_headingTo"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_headingTo" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/tomorrow"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_tomorrowDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="09"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_tomorrowMonthYear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Dec 2020"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
 
                 <View
-                    android:id="@+id/view_1"
-                    android:layout_width="250dp"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@android:color/white"
-                    app:layout_constraintStart_toStartOf="@+id/tv_selectToCity"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_selectToCity"
-                    />
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_headingDate"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/linearLayout5"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginTop="270dp"
-                    android:text="DATE"
-                    android:textColor="@color/city_heading_color"
-                    android:textSize="22sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_dftDay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Wednesday"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_dftDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="09"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_dftMonthYear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Dec 2020"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal"
-                    android:weightSum="4"
-                    app:layout_constraintStart_toStartOf="@+id/tv_headingDate"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_headingDate">
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:id="@+id/linearLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Today"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="09"
-                            android:textColor="@color/white"
-                            android:textSize="22sp" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Dec 2020"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-                    <View
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"/>
-
-                    <LinearLayout
-                        android:id="@+id/linearLayout3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Tomorrow"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="09"
-                            android:textColor="@color/white"
-                            android:textSize="22sp" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Dec 2020"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-                    <View
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"/>
-
-                    <LinearLayout
-                        android:id="@+id/linearLayout5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Wednesday"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="09"
-                            android:textColor="@color/white"
-                            android:textSize="22sp" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Dec 2020"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-                    <View
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"/>
-                    <LinearLayout
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_calender"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
-                        android:layout_gravity="bottom"
-                        android:gravity="center">
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/iv_calender"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_calender"/>
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Open Calender"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
+                        android:src="@drawable/ic_calender" />
 
-                    </LinearLayout>
-
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/open_calender"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_selectedDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="text|textMultiLine"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/tv_headingDate"
+                app:layout_constraintTop_toBottomOf="@+id/tv_headingDate"/>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_homeGo"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/ic_nextarrow"
-                android:background="@drawable/orange_circle"
-                android:layout_gravity="center"/>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_homeGo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/orange_circle"
+            android:src="@drawable/ic_nextarrow" />
+
     </LinearLayout>
-
 </ScrollView>
