@@ -19,4 +19,6 @@
     <color name="invoice_separator">#dddddd</color>
     <color name="invoice_booking_info">#727273</color>
     <color name="invoice_view">#595858</color>
+    <color name="female_text_color">#da1c5c</color>
+    <color name="male_text_color">#1b75bc</color>
 </resources>
