@@ -13,15 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FaisalMovers"
         android:windowSoftInputMode="adjustPan|adjustResize">
-        <activity android:name=".InvoiceActivity"></activity>
+        <activity android:name=".mvvm.ui.invoice.InvoiceActivity"></activity>
         <activity
-            android:name=".RouteSelectionActivity"
+            android:name=".mvvm.ui.route.RouteSelectionActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PassengerDetailsActivity"
+            android:name=".mvvm.ui.passenger.PassengerDetailsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".mvvm.ui.home.HomeActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SeatSelectionActivity"
+            android:name=".mvvm.ui.seats.SeatSelectionActivity"
             android:screenOrientation="portrait" />
     </application>
 

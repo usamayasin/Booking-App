@@ -1,15 +1,12 @@
-package com.app.faisalmovers
+package com.app.faisalmovers.mvvm.ui.route
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.app.faisalmovers.Adapters.CityListRCAdapter
-import com.app.faisalmovers.Adapters.RouteSelectionRCAdpater
-import com.app.faisalmovers.Models.CityListModel
-import com.app.faisalmovers.Models.RouteSelection
+import com.app.faisalmovers.mvvm.data.network.model.RouteSelection
+import com.app.faisalmovers.R
 import java.util.ArrayList
 
 class RouteSelectionActivity : AppCompatActivity() {

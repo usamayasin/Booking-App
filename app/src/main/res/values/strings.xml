@@ -29,4 +29,5 @@
     <string name="paid">Paid</string>
     <string name="lower_case_from">From</string>
     <string name="lower_case_to">To</string>
+    <string name="no_internet">No Internet Connection</string>
 </resources>

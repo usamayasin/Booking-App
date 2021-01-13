@@ -1,4 +1,4 @@
-package com.app.faisalmovers.Adapters
+package com.app.faisalmovers.mvvm.ui.home
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,19 +8,17 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.app.faisalmovers.Interfaces.HomeActivityInterface
-import com.app.faisalmovers.Models.CityListModel
+import com.app.faisalmovers.mvvm.data.network.model.CityListModel
 import com.app.faisalmovers.R
-import java.net.InterfaceAddress
 import java.util.*
-import kotlin.reflect.KClass
 
 public class CityListRCAdapter(var context: Context, listModels: ArrayList<CityListModel>,
-                               type:String, callBackInterface:HomeActivityInterface) :
+                               type:String, callBackInterface: HomeActivityInterface
+) :
     RecyclerView.Adapter<CityListRCAdapter.ViewHolder>() {
     var listModels: ArrayList<CityListModel> = ArrayList<CityListModel>()
     var type:String
-    var callBackInterface:HomeActivityInterface
+    var callBackInterface: HomeActivityInterface
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.city_dialog_list_view_layout, parent, false)
@@ -37,13 +35,14 @@ public class CityListRCAdapter(var context: Context, listModels: ArrayList<CityL
     }
 
     class ViewHolder(itemView: View, argg_list: ArrayList<CityListModel>, var contxt: Context,
-                     type: String,callBackInterface:HomeActivityInterface) :
+                     type: String, callBackInterface: HomeActivityInterface
+    ) :
         RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var tv_cityListLabel: TextView? = null
         var clCityItem: LinearLayoutCompat? = null
         var dataList: ArrayList<CityListModel> = ArrayList<CityListModel>()
         var type:String?=null
-        var callBackInterface:HomeActivityInterface?=null
+        var callBackInterface: HomeActivityInterface?=null
         override fun onClick(v: View) {
             try {
                 if (v == clCityItem) {

@@ -1,7 +1,10 @@
-package com.app.faisalmovers.Utils
+package com.app.faisalmovers.mvvm.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.util.Log
+import android.widget.Toast
+import com.app.faisalmovers.mvvm.data.network.model.AuthInfo
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -9,8 +12,12 @@ import java.util.*
 class Utility {
 
     companion object {
-        val FROM: String = "from"
-        val TO: String = "to"
+        const val FROM: String = "from"
+        const val TO: String = "to"
+        const val BASE_URL: String = "https://hamza.bookkaru.com/"
+        const val API_KEY: String = "khMD7iONqbxOZMYdkrfjaKFPlgYgbtoC6znTIdM1"
+        const val TAG = "FAISAL MOVERS"
+        var authInfo: AuthInfo = AuthInfo()
 
         fun isNetworkAvailable(context: Context): Boolean {
 
@@ -28,22 +35,32 @@ class Utility {
             return currentDate
 
         }
-        fun getTomorrowDate():String{
+
+        fun getTomorrowDate(): String {
             val calendar = Calendar.getInstance()
             calendar.add(Calendar.DAY_OF_YEAR, 1)
             val tomorrow: Date = calendar.getTime()
             val sdf = SimpleDateFormat("dd/MMM/yyyy")
-            val tomorrowDate=sdf.format(tomorrow)
+            val tomorrowDate = sdf.format(tomorrow)
             return tomorrowDate
         }
-        fun getDftDate():String{
+
+        fun getDftDate(): String {
             val calendar = Calendar.getInstance()
             calendar.add(Calendar.DAY_OF_YEAR, 2)
             val dftDate: Date = calendar.getTime()
             val sdf = SimpleDateFormat("EEEE/dd/MMM/yyyy")
-            val dft=sdf.format(dftDate)
-            println("DFT :: "+dft)
+            val dft = sdf.format(dftDate)
+            println("DFT :: " + dft)
             return dft
+        }
+
+        fun showLog(message: String) {
+            Log.e(TAG, message)
+        }
+
+        fun showToast(context: Context,message: String){
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
     }
 }

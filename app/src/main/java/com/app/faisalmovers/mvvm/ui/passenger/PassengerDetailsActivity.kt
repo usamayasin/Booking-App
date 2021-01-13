@@ -1,9 +1,11 @@
-package com.app.faisalmovers
+package com.app.faisalmovers.mvvm.ui.passenger
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import com.app.faisalmovers.R
+import com.app.faisalmovers.mvvm.ui.invoice.InvoiceActivity
 
 class PassengerDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

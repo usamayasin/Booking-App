@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/gradient_color_4"
     android:orientation="vertical"
-    tools:context=".InvoiceActivity">
+    tools:context=".mvvm.ui.invoice.InvoiceActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"

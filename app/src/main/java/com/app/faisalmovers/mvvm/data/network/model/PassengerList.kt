@@ -1,4 +1,4 @@
-package com.app.faisalmovers.Models
+package com.app.faisalmovers.mvvm.data.network.model
 
 class PassengerList {
 

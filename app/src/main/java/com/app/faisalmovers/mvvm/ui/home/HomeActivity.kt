@@ -1,4 +1,4 @@
-package com.app.faisalmovers
+package com.app.faisalmovers.mvvm.ui.home
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
@@ -14,17 +14,26 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.lifecycle.LifecycleCoroutineScope
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.app.faisalmovers.Adapters.CityListRCAdapter
-import com.app.faisalmovers.Interfaces.HomeActivityInterface
-import com.app.faisalmovers.Models.CityListModel
-import com.app.faisalmovers.Utils.Utility
+import com.app.faisalmovers.R
+import com.app.faisalmovers.mvvm.data.network.model.AuthInfo
+import com.app.faisalmovers.mvvm.data.network.model.AuthInfoRequestBody
+import com.app.faisalmovers.mvvm.data.network.model.CityListModel
+import com.app.faisalmovers.mvvm.data.network.service.ApiClient
+import com.app.faisalmovers.mvvm.data.network.service.RestApis
+import com.app.faisalmovers.mvvm.ui.route.RouteSelectionActivity
+import com.app.faisalmovers.mvvm.utils.Utility
+import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -56,6 +65,9 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
     var homeInterface: HomeActivityInterface? = null
     var ll_dates_calender: LinearLayout? = null
 
+    var apiClient: ApiClient? = null
+    var apiService: RestApis? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
@@ -85,6 +97,8 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
 
         ll_dates_calender = findViewById(R.id.ll_dates_calender)
         homeInterface = this
+        apiClient = ApiClient()
+
 
     }
 
@@ -158,16 +172,15 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
         cityListDialog?.show()
         rc_cityDialog = cityListDialog?.findViewById<View>(R.id.rc_cityDialog) as RecyclerView
         et_cityListSearch = cityListDialog?.findViewById(R.id.et_cityListSearch)
-        tv_dialogHeading=cityListDialog?.findViewById(R.id.tv_dialogHeading)
+        tv_dialogHeading = cityListDialog?.findViewById(R.id.tv_dialogHeading)
         setRcViewLayout()
         getCityList()
         populateCities(citiesList, type)
 
-        if (type.equals(Utility.FROM)){
-            tv_dialogHeading?.text=getString(R.string.going_from)
-        }
-        else{
-            tv_dialogHeading?.text=getString(R.string.going_to)
+        if (type.equals(Utility.FROM)) {
+            tv_dialogHeading?.text = getString(R.string.going_from)
+        } else {
+            tv_dialogHeading?.text = getString(R.string.going_to)
         }
 
         et_cityListSearch?.addTextChangedListener(object : TextWatcher {
@@ -202,25 +215,55 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
     private fun getCityList() {
         citiesList.clear()
         cityListAdapter = null
-        var model = CityListModel(1, "Lahore")
+        var model = CityListModel(
+            1,
+            "Lahore"
+        )
         citiesList.add(model)
-        model = CityListModel(3, "Peshawar")
+        model = CityListModel(
+            3,
+            "Peshawar"
+        )
         citiesList.add(model)
-        model = CityListModel(4, "Islamabad")
+        model = CityListModel(
+            4,
+            "Islamabad"
+        )
         citiesList.add(model)
-        model = CityListModel(5, "Gilgit")
+        model = CityListModel(
+            5,
+            "Gilgit"
+        )
         citiesList.add(model)
-        model = CityListModel(6, "Karachi")
+        model = CityListModel(
+            6,
+            "Karachi"
+        )
         citiesList.add(model)
-        model = CityListModel(7, "Faislabad")
+        model = CityListModel(
+            7,
+            "Faislabad"
+        )
         citiesList.add(model)
-        model = CityListModel(8, "Murree")
+        model = CityListModel(
+            8,
+            "Murree"
+        )
         citiesList.add(model)
-        model = CityListModel(10, "Multan")
+        model = CityListModel(
+            10,
+            "Multan"
+        )
         citiesList.add(model)
-        model = CityListModel(11, "Narran")
+        model = CityListModel(
+            11,
+            "Narran"
+        )
         citiesList.add(model)
-        model = CityListModel(12, "Quetta")
+        model = CityListModel(
+            12,
+            "Quetta"
+        )
         citiesList.add(model)
         /*model = new CityListModel(13, "Haripur");
         citiesList.add(model);
@@ -244,7 +287,12 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
                 citiesList.find { it.cityName.equals(searchValue, ignoreCase = true) }
 
             if (selectedCity?.cityName.isNullOrEmpty()) {
-                filteredCityList.add(CityListModel(-1, getString(R.string.no_city_found)))
+                filteredCityList.add(
+                    CityListModel(
+                        -1,
+                        getString(R.string.no_city_found)
+                    )
+                )
                 populateCities(filteredCityList, type)
                 return
             }
@@ -262,7 +310,7 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
             tv_selectFromCity?.text = cityName
         }
         if (type.equals(Utility.TO)) {
-            tv_selectToCity?.text =cityName
+            tv_selectToCity?.text = cityName
         }
         cityListDialog?.dismiss()
     }
@@ -278,6 +326,12 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
     override fun onResume() {
         super.onResume()
         setDatesView()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        apiService = apiClient?.getApiService()
+        getAuthInfo()
     }
 
     @SuppressLint("SetTextI18n")
@@ -298,5 +352,29 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
             Utility.getDftDate().split("/")[2] + " " +
                     Utility.getDftDate().split("/")[3]
 
+    }
+
+    private fun getAuthInfo() {
+        /*if (!Utility.isNetworkAvailable(this@HomeActivity)){
+            Utility.showToast(this, getString(R.string.no_internet))
+            Utility.showLog( getString(R.string.no_internet))
+            return
+        }*/
+        lifecycleScope.launch {
+            val authInfo: Call<AuthInfo>? = apiService?.getAuth(AuthInfoRequestBody())
+            authInfo?.enqueue( object :Callback<AuthInfo>{
+                override fun onResponse(call: Call<AuthInfo>, response: Response<AuthInfo>) {
+                   Utility.showToast(this@HomeActivity,response.toString())
+                    Utility.showLog(response.toString())
+                }
+
+                override fun onFailure(call: Call<AuthInfo>, t: Throwable) {
+                    Utility.showToast(this@HomeActivity,"Error in Calling")
+                    Utility.showLog("Error in Calling")
+
+                }
+            })
+
+        }
     }
 }
