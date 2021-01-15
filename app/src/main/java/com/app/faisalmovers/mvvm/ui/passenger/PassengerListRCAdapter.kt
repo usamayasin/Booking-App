@@ -1,4 +1,4 @@
-package com.app.faisalmovers.Adapters
+package com.app.faisalmovers.mvvm.ui.passenger
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,11 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.app.faisalmovers.Interfaces.HomeActivityInterface
-import com.app.faisalmovers.Models.CityListModel
-import com.app.faisalmovers.Models.PassengerList
+import com.app.faisalmovers.mvvm.data.network.model.general.PassengerList
 import com.app.faisalmovers.R
 import java.util.ArrayList
 
@@ -22,13 +19,13 @@ class PassengerListRCAdapter (var context: Context, listModels: ArrayList<Passen
         this.listModels = listModels
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PassengerListRCAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.passenger_list_item, parent, false)
-        return PassengerListRCAdapter.ViewHolder(v, listModels, context)
+        return ViewHolder(v, listModels, context)
     }
 
-    override fun onBindViewHolder(holder: PassengerListRCAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data: PassengerList = listModels[position]
         holder.tv_passengerName?.text=data.name.toString()
         holder.tv_passengerCnic?.text=data.cnic.toString()

@@ -1,4 +1,4 @@
-package com.app.faisalmovers.Adapters
+package com.app.faisalmovers.mvvm.ui.route
 
 import android.content.Context
 import android.content.Intent
@@ -9,9 +9,9 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.app.faisalmovers.Models.RouteSelection
+import com.app.faisalmovers.mvvm.data.network.model.general.RouteSelection
 import com.app.faisalmovers.R
-import com.app.faisalmovers.SeatSelectionActivity
+import com.app.faisalmovers.mvvm.ui.seats.SeatSelectionActivity
 import java.util.ArrayList
 
 class RouteSelectionRCAdpater(var context: Context, listModels: ArrayList<RouteSelection>) :
@@ -26,10 +26,10 @@ class RouteSelectionRCAdpater(var context: Context, listModels: ArrayList<RouteS
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): RouteSelectionRCAdpater.ViewHolder {
+    ): ViewHolder {
         val v: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.route_selection_item_layout, parent, false)
-        return RouteSelectionRCAdpater.ViewHolder(v, listModels, context)
+        return ViewHolder(v, listModels, context)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

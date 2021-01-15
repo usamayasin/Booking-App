@@ -1,4 +1,4 @@
-package com.app.faisalmovers
+package com.app.faisalmovers.mvvm.ui.seats
 
 import android.content.Intent
 import android.graphics.Color
@@ -7,6 +7,9 @@ import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.app.faisalmovers.R
+import com.app.faisalmovers.mvvm.data.network.model.general.Seat
+import com.app.faisalmovers.mvvm.ui.passenger.PassengerDetailsActivity
 
 class SeatSelectionActivity : AppCompatActivity() {
 

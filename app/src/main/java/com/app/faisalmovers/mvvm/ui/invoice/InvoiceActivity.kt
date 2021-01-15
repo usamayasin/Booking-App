@@ -1,13 +1,12 @@
-package com.app.faisalmovers
+package com.app.faisalmovers.mvvm.ui.invoice
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.app.faisalmovers.Adapters.PassengerListRCAdapter
-import com.app.faisalmovers.Adapters.RouteSelectionRCAdpater
-import com.app.faisalmovers.Models.PassengerList
-import com.app.faisalmovers.Models.RouteSelection
+import com.app.faisalmovers.mvvm.ui.passenger.PassengerListRCAdapter
+import com.app.faisalmovers.mvvm.data.network.model.general.PassengerList
+import com.app.faisalmovers.R
 import java.util.ArrayList
 
 class InvoiceActivity : AppCompatActivity() {
@@ -35,22 +34,22 @@ class InvoiceActivity : AppCompatActivity() {
         rc_passengerInfo!!.adapter = passengerInfoListAdapter
     }
     fun getPassengerList(){
-        var data=PassengerList("Ali Ahmed","35201-3912838-3")
+        var data= PassengerList("Ali Ahmed","35201-3912838-3")
         passengerInfoArrayList.add(data)
 
-        data=PassengerList("Rizwan","35201-3912838-3")
+        data= PassengerList("Rizwan","35201-3912838-3")
         passengerInfoArrayList.add(data)
 
-        data=PassengerList("Khalid Ali Khan Ahmed","35201-3912838-3")
+        data= PassengerList("Khalid Ali Khan Ahmed","35201-3912838-3")
         passengerInfoArrayList.add(data)
 
-        data=PassengerList("Usama Jinjuwa Gardezi","35201-3912838-3")
+        data= PassengerList("Usama Jinjuwa Gardezi","35201-3912838-3")
         passengerInfoArrayList.add(data)
 
-        data=PassengerList("Ustad Tallish Ali khan","35201-3912838-3")
+        data= PassengerList("Ustad Tallish Ali khan","35201-3912838-3")
         passengerInfoArrayList.add(data)
 
-        data=PassengerList("Ustad Cheera Qureshi","35201-3912838-3")
+        data= PassengerList("Ustad Cheera Qureshi","35201-3912838-3")
         passengerInfoArrayList.add(data)
 
     }

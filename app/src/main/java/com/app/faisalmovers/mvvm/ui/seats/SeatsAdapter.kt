@@ -1,10 +1,12 @@
-package com.app.faisalmovers
+package com.app.faisalmovers.mvvm.ui.seats
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
+import com.app.faisalmovers.R
+import com.app.faisalmovers.mvvm.data.network.model.general.Seat
 
 
 internal class SeatsAdapter(private var seatList: List<Seat>) :

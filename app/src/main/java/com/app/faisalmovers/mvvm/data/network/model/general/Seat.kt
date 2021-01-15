@@ -1,4 +1,4 @@
-package com.app.faisalmovers
+package com.app.faisalmovers.mvvm.data.network.model.general
 
 class Seat(seatNumber: String?) {
     private var seatNumber: String
