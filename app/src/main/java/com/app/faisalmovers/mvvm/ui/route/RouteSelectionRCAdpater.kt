@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.app.faisalmovers.mvvm.data.network.model.RouteSelection
+import com.app.faisalmovers.mvvm.data.network.model.general.RouteSelection
 import com.app.faisalmovers.R
 import com.app.faisalmovers.mvvm.ui.seats.SeatSelectionActivity
 import java.util.ArrayList

@@ -4,7 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.util.Log
 import android.widget.Toast
-import com.app.faisalmovers.mvvm.data.network.model.AuthInfo
+import com.app.faisalmovers.mvvm.data.network.model.response.AuthInfo
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -51,7 +51,6 @@ class Utility {
             val dftDate: Date = calendar.getTime()
             val sdf = SimpleDateFormat("EEEE/dd/MMM/yyyy")
             val dft = sdf.format(dftDate)
-            println("DFT :: " + dft)
             return dft
         }
 

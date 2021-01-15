@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.app.faisalmovers.mvvm.data.network.model.PassengerList
+import com.app.faisalmovers.mvvm.data.network.model.general.PassengerList
 import com.app.faisalmovers.R
 import java.util.ArrayList
 

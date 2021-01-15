@@ -8,30 +8,30 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.app.faisalmovers.mvvm.data.network.model.CityListModel
+import com.app.faisalmovers.mvvm.data.network.model.general.CityListModel
 import com.app.faisalmovers.R
 import java.util.*
 
-public class CityListRCAdapter(var context: Context, listModels: ArrayList<CityListModel>,
-                               type:String, callBackInterface: HomeActivityInterface
+class CityListRCAdapter(var context: Context, citiesList: ArrayList<CityListModel>,
+                        type:String, callBackInterface: HomeActivityInterface
 ) :
     RecyclerView.Adapter<CityListRCAdapter.ViewHolder>() {
-    var listModels: ArrayList<CityListModel> = ArrayList<CityListModel>()
+    var citiesList: ArrayList<CityListModel> = ArrayList<CityListModel>()
     var type:String
     var callBackInterface: HomeActivityInterface
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.city_dialog_list_view_layout, parent, false)
-        return ViewHolder(v, listModels, context,this.type,callBackInterface)
+        return ViewHolder(v, citiesList, context,this.type,callBackInterface)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val data: CityListModel = listModels[position]
-        holder.tv_cityListLabel?.text=data.getCityName()
+        val data: CityListModel = citiesList[position]
+        holder.tv_cityListLabel?.text=data.name
     }
 
     override fun getItemCount(): Int {
-        return listModels.size
+        return citiesList.size
     }
 
     class ViewHolder(itemView: View, argg_list: ArrayList<CityListModel>, var contxt: Context,
@@ -47,11 +47,11 @@ public class CityListRCAdapter(var context: Context, listModels: ArrayList<CityL
             try {
                 if (v == clCityItem) {
                     val position = adapterPosition
-                    type?.let { callBackInterface?.getSelectedCity(dataList.get(position).cityName, it) }
+                    type?.let { callBackInterface?.getSelectedCity(dataList.get(position).name, it) }
 
                 }
             } catch (e: Exception) {
-                //Log.e(Utils.APPTAG, "Error " + e.getMessage());
+
             }
         }
 
@@ -72,7 +72,7 @@ public class CityListRCAdapter(var context: Context, listModels: ArrayList<CityL
     }
 
     init {
-        this.listModels = listModels
+        this.citiesList = citiesList
         this.type=type
         this.callBackInterface=callBackInterface
     }

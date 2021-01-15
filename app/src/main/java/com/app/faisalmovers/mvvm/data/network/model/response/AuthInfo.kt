@@ -1,4 +1,4 @@
-package com.app.faisalmovers.mvvm.data.network.model
+package com.app.faisalmovers.mvvm.data.network.model.response
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

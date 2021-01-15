@@ -8,7 +8,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.app.faisalmovers.R
-import com.app.faisalmovers.mvvm.data.network.model.Seat
+import com.app.faisalmovers.mvvm.data.network.model.general.Seat
 import com.app.faisalmovers.mvvm.ui.passenger.PassengerDetailsActivity
 
 class SeatSelectionActivity : AppCompatActivity() {

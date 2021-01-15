@@ -14,23 +14,20 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.lifecycle.LifecycleCoroutineScope
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.faisalmovers.R
-import com.app.faisalmovers.mvvm.data.network.model.AuthInfo
-import com.app.faisalmovers.mvvm.data.network.model.AuthInfoRequestBody
-import com.app.faisalmovers.mvvm.data.network.model.CityListModel
+import com.app.faisalmovers.mvvm.data.network.model.response.AuthInfo
+import com.app.faisalmovers.mvvm.data.network.model.request.AuthInfoRequestBody
+import com.app.faisalmovers.mvvm.data.network.model.general.CityListModel
 import com.app.faisalmovers.mvvm.data.network.service.ApiClient
-import com.app.faisalmovers.mvvm.data.network.service.RestApis
+import com.app.faisalmovers.mvvm.ui.base.BaseActivity
 import com.app.faisalmovers.mvvm.ui.route.RouteSelectionActivity
 import com.app.faisalmovers.mvvm.utils.Utility
-import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,7 +35,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class HomeActivity : AppCompatActivity(), HomeActivityInterface {
+class HomeActivity : BaseActivity(), HomeActivityInterface {
 
     var cityListDialog: Dialog? = null
     var img_citySwitch: AppCompatImageView? = null
@@ -60,25 +57,24 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
     var rc_cityDialog: RecyclerView? = null
     var cityListAdapter: RecyclerView.Adapter<*>? = null
     var cityListRclayoutManager: RecyclerView.LayoutManager? = null
-    var citiesList: ArrayList<CityListModel> = ArrayList<CityListModel>()
-    var filteredCityList: ArrayList<CityListModel> = ArrayList<CityListModel>()
+    var citiesList: ArrayList<CityListModel> = ArrayList()
+    var filteredCityList: ArrayList<CityListModel> = ArrayList()
     var homeInterface: HomeActivityInterface? = null
     var ll_dates_calender: LinearLayout? = null
-
-    var apiClient: ApiClient? = null
-    var apiService: RestApis? = null
+    private lateinit var viewModel: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
 
+        initializeBaseActivityViews()
         init()
         listeners()
-
     }
 
     private fun init() {
 
+        getAuthInfo()
         img_citySwitch = findViewById(R.id.img_citySwitch)
         iv_calender = findViewById(R.id.iv_calender)
         iv_homeGo = findViewById(R.id.iv_homeGo)
@@ -97,9 +93,21 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
 
         ll_dates_calender = findViewById(R.id.ll_dates_calender)
         homeInterface = this
-        apiClient = ApiClient()
+        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        observeViewModel()
+    }
 
+    private fun observeViewModel() {
+        viewModel.cities.observe(this, { response ->
+            response?.let {
+                citiesList = response.content as ArrayList<CityListModel>
+                citiesList = citiesList.filter { model -> model.active == 1 } as ArrayList<CityListModel>
+            }
+        })
 
+        viewModel.cityLoadError.observe(this, { isError ->
+            print(isError)
+        })
     }
 
     private fun listeners() {
@@ -107,14 +115,7 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
         iv_homeGo?.setOnClickListener { goToSeatSelection() }
 
         img_citySwitch?.setOnClickListener(View.OnClickListener {
-            if (tv_selectFromCity!!.text.toString().trim()
-                    .isNotEmpty() && tv_selectToCity!!.text.toString().trim().isNotEmpty()
-            ) {
-                var tempValue = tv_selectToCity!!.text.toString().trim()
-                tv_selectToCity!!.text = tv_selectFromCity!!.text.toString().trim()
-                tv_selectFromCity!!.text = tempValue;
-
-            }
+            switchCities()
         })
         iv_calender?.setOnClickListener(View.OnClickListener {
             showCalender()
@@ -174,7 +175,6 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
         et_cityListSearch = cityListDialog?.findViewById(R.id.et_cityListSearch)
         tv_dialogHeading = cityListDialog?.findViewById(R.id.tv_dialogHeading)
         setRcViewLayout()
-        getCityList()
         populateCities(citiesList, type)
 
         if (type.equals(Utility.FROM)) {
@@ -212,81 +212,16 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
         rc_cityDialog!!.setHasFixedSize(true)
     }
 
-    private fun getCityList() {
-        citiesList.clear()
-        cityListAdapter = null
-        var model = CityListModel(
-            1,
-            "Lahore"
-        )
-        citiesList.add(model)
-        model = CityListModel(
-            3,
-            "Peshawar"
-        )
-        citiesList.add(model)
-        model = CityListModel(
-            4,
-            "Islamabad"
-        )
-        citiesList.add(model)
-        model = CityListModel(
-            5,
-            "Gilgit"
-        )
-        citiesList.add(model)
-        model = CityListModel(
-            6,
-            "Karachi"
-        )
-        citiesList.add(model)
-        model = CityListModel(
-            7,
-            "Faislabad"
-        )
-        citiesList.add(model)
-        model = CityListModel(
-            8,
-            "Murree"
-        )
-        citiesList.add(model)
-        model = CityListModel(
-            10,
-            "Multan"
-        )
-        citiesList.add(model)
-        model = CityListModel(
-            11,
-            "Narran"
-        )
-        citiesList.add(model)
-        model = CityListModel(
-            12,
-            "Quetta"
-        )
-        citiesList.add(model)
-        /*model = new CityListModel(13, "Haripur");
-        citiesList.add(model);
-        model = new CityListModel(14, "Sialkot");
-        citiesList.add(model);
-        model = new CityListModel(15, "Kashmir");
-        citiesList.add(model);
-        model = new CityListModel(16, "Daddo");
-        citiesList.add(model);
-        model = new CityListModel(17, "Rahem Yar Khan");
-        citiesList.add(model);*/
-    }
-
     private fun searchCity(searchValue: String, type: String) {
         try {
             filteredCityList.clear()
             if (citiesList.size < 0) {
                 return
             }
-            val selectedCity: CityListModel? =
-                citiesList.find { it.cityName.equals(searchValue, ignoreCase = true) }
 
-            if (selectedCity?.cityName.isNullOrEmpty()) {
+            filteredCityList = citiesList.filter { model -> model.name.toLowerCase().contains(searchValue.toLowerCase()) } as ArrayList<CityListModel>
+
+            if (filteredCityList.isNullOrEmpty()) {
                 filteredCityList.add(
                     CityListModel(
                         -1,
@@ -295,9 +230,6 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
                 )
                 populateCities(filteredCityList, type)
                 return
-            }
-            if (selectedCity != null) {
-                filteredCityList.add(selectedCity)
             }
             populateCities(filteredCityList, type)
         } catch (ex: Exception) {
@@ -323,15 +255,20 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
 
     }
 
+    private fun switchCities(){
+        if (tv_selectFromCity!!.text.toString().trim()
+                .isNotEmpty() && tv_selectToCity!!.text.toString().trim().isNotEmpty()
+        ) {
+            var tempValue = tv_selectToCity!!.text.toString().trim()
+            tv_selectToCity!!.text = tv_selectFromCity!!.text.toString().trim()
+            tv_selectFromCity!!.text = tempValue;
+
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         setDatesView()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        apiService = apiClient?.getApiService()
-        getAuthInfo()
     }
 
     @SuppressLint("SetTextI18n")
@@ -355,26 +292,28 @@ class HomeActivity : AppCompatActivity(), HomeActivityInterface {
     }
 
     private fun getAuthInfo() {
-        /*if (!Utility.isNetworkAvailable(this@HomeActivity)){
+        if (!Utility.isNetworkAvailable(this@HomeActivity)) {
             Utility.showToast(this, getString(R.string.no_internet))
-            Utility.showLog( getString(R.string.no_internet))
+            Utility.showLog(getString(R.string.no_internet))
             return
-        }*/
-        lifecycleScope.launch {
-            val authInfo: Call<AuthInfo>? = apiService?.getAuth(AuthInfoRequestBody())
-            authInfo?.enqueue( object :Callback<AuthInfo>{
-                override fun onResponse(call: Call<AuthInfo>, response: Response<AuthInfo>) {
-                   Utility.showToast(this@HomeActivity,response.toString())
-                    Utility.showLog(response.toString())
-                }
-
-                override fun onFailure(call: Call<AuthInfo>, t: Throwable) {
-                    Utility.showToast(this@HomeActivity,"Error in Calling")
-                    Utility.showLog("Error in Calling")
-
-                }
-            })
-
         }
+        setProgressbar(true)
+        val authInfo: Call<AuthInfo>? = ApiClient.getInstance()?.getAuth(AuthInfoRequestBody())
+        authInfo?.enqueue(object : Callback<AuthInfo> {
+            override fun onResponse(call: Call<AuthInfo>, response: Response<AuthInfo>) {
+                Utility.authInfo = response.body()!!
+                viewModel.refresh()
+                setProgressbar(false)
+            }
+
+            override fun onFailure(call: Call<AuthInfo>, t: Throwable) {
+                Utility.showToast(this@HomeActivity, "Error in Calling")
+            }
+        })
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }

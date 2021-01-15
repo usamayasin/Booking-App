@@ -1,4 +1,4 @@
-package com.app.faisalmovers.mvvm.data.network.model
+package com.app.faisalmovers.mvvm.data.network.model.general
 
 class RouteSelection {
 

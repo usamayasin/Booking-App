@@ -1,4 +1,4 @@
-package com.app.faisalmovers.mvvm.data.network.model
+package com.app.faisalmovers.mvvm.data.network.model.request
 
 import com.app.faisalmovers.mvvm.utils.Utility
 import com.google.gson.annotations.Expose

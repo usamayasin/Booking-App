@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import com.app.faisalmovers.R
-import com.app.faisalmovers.mvvm.data.network.model.Seat
+import com.app.faisalmovers.mvvm.data.network.model.general.Seat
 
 
 internal class SeatsAdapter(private var seatList: List<Seat>) :

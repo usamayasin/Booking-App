@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.app.faisalmovers.mvvm.data.network.model.RouteSelection
+import com.app.faisalmovers.mvvm.data.network.model.general.RouteSelection
 import com.app.faisalmovers.R
 import java.util.ArrayList
 
