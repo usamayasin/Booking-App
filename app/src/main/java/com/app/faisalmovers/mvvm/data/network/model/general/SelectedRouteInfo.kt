@@ -7,5 +7,5 @@ class SelectedRouteInfo {
     var toId: Int = -1
     var toName: String = ""
     var date:String = ""
-    var route:Route = TODO()
+    var route = Route()
 }

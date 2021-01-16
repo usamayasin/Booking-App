@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import com.app.faisalmovers.R
+import com.app.faisalmovers.mvvm.utils.Utility
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -18,6 +19,7 @@ open class BaseActivity: AppCompatActivity() {
 
     public fun initializeBaseActivityViews(){
         dialog = Dialog(this)
+        Utility.initializeValidationErrorsHashMap()
     }
     public fun setProgressbar(  showStatus:Boolean) {
         dialog?.setContentView(R.layout.progress_dialog)

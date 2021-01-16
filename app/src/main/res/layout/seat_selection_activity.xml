@@ -1594,18 +1594,20 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_number_of_seats"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/circular_std_book"
-                    android:text="2 Seats"
+                    android:text="0 Seat"
                     android:textColor="@color/gradient_color_1"
                     android:textSize="@dimen/_15ssp" />
 
                 <TextView
+                    android:id="@+id/tv_total_bill"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/circular_std_book"
-                    android:text="Rs 2,100"
+                    android:text="Rs 0"
                     android:textColor="@color/gradient_color_1"
                     android:textSize="@dimen/_25ssp" />
             </LinearLayout>
