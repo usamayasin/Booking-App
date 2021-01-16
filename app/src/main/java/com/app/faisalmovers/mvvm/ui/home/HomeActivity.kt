@@ -28,6 +28,8 @@ import com.app.faisalmovers.mvvm.data.network.service.ApiClient
 import com.app.faisalmovers.mvvm.ui.base.BaseActivity
 import com.app.faisalmovers.mvvm.ui.route.RouteSelectionActivity
 import com.app.faisalmovers.mvvm.utils.Utility
+import com.app.faisalmovers.mvvm.utils.snack
+import kotlinx.android.synthetic.main.home_activity.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -62,6 +64,7 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
     var homeInterface: HomeActivityInterface? = null
     var ll_dates_calender: LinearLayout? = null
     private lateinit var viewModel: HomeViewModel
+    var validationErrorCode: String = Utility.FROM_CITY_MISSING_ERROR
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -112,7 +115,7 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
 
     private fun listeners() {
 
-        iv_homeGo?.setOnClickListener { goToSeatSelection() }
+        iv_homeGo?.setOnClickListener { goToRouteSelection() }
 
         img_citySwitch?.setOnClickListener(View.OnClickListener {
             switchCities()
@@ -143,10 +146,12 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
 
                 val calendar = Calendar.getInstance()
                 calendar[year, monthOfYear] = dayOfMonth
-                val format = SimpleDateFormat("EEEE, dd MMMM")
-                val formatedSelectedDate: String = format.format(calendar.time)
-                setSelectedDate(formatedSelectedDate)
-
+                val dateFormatForUI = SimpleDateFormat("EEEE, dd MMMM")
+                val dateFormatForSelectedRouteInfo = SimpleDateFormat("YYYY-MM-DD")
+                val dateForUI: String = dateFormatForUI.format(calendar.time)
+                val dateForSelectedRouteInfo: String
+                = dateFormatForSelectedRouteInfo.format(calendar.time)
+                setSelectedDate(dateForUI,dateForSelectedRouteInfo)
             }, newCalendar[Calendar.YEAR], newCalendar[Calendar.MONTH],
             newCalendar[Calendar.DAY_OF_MONTH]
         )
@@ -159,9 +164,13 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
             .setTextColor(resources.getColor(R.color.gradient_color_1))
     }
 
-    private fun goToSeatSelection() {
-        val intent = Intent(this, RouteSelectionActivity::class.java)
-        startActivity(intent)
+    private fun goToRouteSelection() {
+        if (validations()) {
+            val intent = Intent(this, RouteSelectionActivity::class.java)
+            startActivity(intent)
+        } else {
+            homeRootLayout.snack(Utility.getValidationErrorMessage(validationErrorCode))
+        }
     }
 
     private fun showCityListDialog(context: Context, type: String) {
@@ -219,7 +228,9 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
                 return
             }
 
-            filteredCityList = citiesList.filter { model -> model.name.toLowerCase().contains(searchValue.toLowerCase()) } as ArrayList<CityListModel>
+            filteredCityList = citiesList.filter { model ->
+                model.name.toLowerCase().contains(searchValue.toLowerCase())
+            } as ArrayList<CityListModel>
 
             if (filteredCityList.isNullOrEmpty()) {
                 filteredCityList.add(
@@ -237,33 +248,51 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
         }
     }
 
-    override fun getSelectedCity(cityName: String, type: String) {
+    override fun getSelectedCity(city: CityListModel, type: String) {
         if (type.equals(Utility.FROM)) {
-            tv_selectFromCity?.text = cityName
+            tv_selectFromCity?.text = city.name
+            Utility.selectedRouteInfo.fromName = city.name
+            Utility.selectedRouteInfo.fromId = city.id
         }
         if (type.equals(Utility.TO)) {
-            tv_selectToCity?.text = cityName
+            tv_selectToCity?.text = city.name
+            Utility.selectedRouteInfo.toName = city.name
+            Utility.selectedRouteInfo.toId = city.id
         }
         cityListDialog?.dismiss()
     }
 
-    private fun setSelectedDate(strDate: String) {
+    private fun setSelectedDate(strDate: String , strDate2:String) {
         ll_dates_calender?.visibility = View.GONE
         tv_selectedDate?.visibility = View.VISIBLE
         tv_selectedDate?.text = strDate
-
-
+        Utility.selectedRouteInfo.date = strDate2.trim()
     }
 
-    private fun switchCities(){
+    private fun switchCities() {
         if (tv_selectFromCity!!.text.toString().trim()
                 .isNotEmpty() && tv_selectToCity!!.text.toString().trim().isNotEmpty()
         ) {
-            var tempValue = tv_selectToCity!!.text.toString().trim()
-            tv_selectToCity!!.text = tv_selectFromCity!!.text.toString().trim()
-            tv_selectFromCity!!.text = tempValue;
-
+            switchCitiesNameOnUI()
+            switchCitiesOnSelectedRouteInfo()
         }
+    }
+
+    private fun switchCitiesOnSelectedRouteInfo() {
+        //Switching city ID's
+        var tempValueForId = Utility.selectedRouteInfo.toId
+        Utility.selectedRouteInfo.toId = Utility.selectedRouteInfo.fromId
+        Utility.selectedRouteInfo.fromId = tempValueForId;
+        //Switching city Name's
+        var tempValueForName = Utility.selectedRouteInfo.toName
+        Utility.selectedRouteInfo.toName = Utility.selectedRouteInfo.fromName
+        Utility.selectedRouteInfo.fromName = tempValueForName;
+    }
+
+    private fun switchCitiesNameOnUI() {
+        var tempValue = tv_selectToCity!!.text.toString().trim()
+        tv_selectToCity!!.text = tv_selectFromCity!!.text.toString().trim()
+        tv_selectFromCity!!.text = tempValue;
     }
 
     override fun onResume() {
@@ -311,6 +340,32 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
             }
         })
 
+    }
+
+    private fun validations(): Boolean {
+        //validate From City is selected
+        if (Utility.selectedRouteInfo.fromId.equals(-1)) {
+            validationErrorCode = Utility.FROM_CITY_MISSING_ERROR
+            return false
+        }
+        //validate To City is selected
+        if (Utility.selectedRouteInfo.toId.equals(-1)) {
+            validationErrorCode = Utility.TO_CITY_MISSING_ERROR
+            return false
+        }
+        //validate From City should not be the same as To City
+        if (Utility.selectedRouteInfo.fromId.equals(Utility.selectedRouteInfo.toId) ||
+            Utility.selectedRouteInfo.toId.equals(Utility.selectedRouteInfo.fromId)
+        ) {
+            validationErrorCode = Utility.FROM_AND_TO_CITY_SAME_ERROR
+            return false
+        }
+        //validate date is selected
+        if (Utility.selectedRouteInfo.date.isNullOrEmpty()) {
+            validationErrorCode = Utility.ROUTE_DATE_MISSING_ERROR
+            return false
+        }
+        return true
     }
 
     override fun onDestroy() {
