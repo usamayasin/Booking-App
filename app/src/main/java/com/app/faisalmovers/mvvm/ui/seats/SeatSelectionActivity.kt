@@ -49,37 +49,18 @@ class SeatSelectionActivity : BaseActivity() {
 
     private fun setSeatsUI() {
 
-        if (Utility.selectedRouteInfo.route.busType.contentEquals("Standard")) {
-            Utility.selectedRouteInfo.route.busType = "Standard-45"
-        }else{
-            Utility.selectedRouteInfo.route.busType = "Standard Plus"
-        }
-
-        when (Utility.selectedRouteInfo.route.busType) {
-            "Standard-45" -> {
-                val stub = findViewById<View>(R.id.viewStub) as ViewStub
+        var myValue : String = Utility.selectedRouteInfo.route.busType;
+        val stub = findViewById<View>(R.id.viewStub) as ViewStub
+        when (myValue) {
+            "Standard" -> {
                 stub.layoutResource = R.layout.standard_forty_five_layout
-                val inflated = stub.inflate()
+                stub.inflate()
             }
-            "Standard Plus", "Executive" -> {
-                val stub = findViewById<View>(R.id.viewStub) as ViewStub
+            "Standard Plus", "Executive" , "Standard Plus Executive"-> {
                 stub.layoutResource = R.layout.standard_plus_and_executive_seat_layout
-                val inflated = stub.inflate()
+                stub.inflate()
             }
         }
-
-
-        /* val totalSeatCount = 33//Utility.selectedRouteInfo.route.seats
-         val seatsTobeHide = Utility.TOTAL_SEATS - totalSeatCount
-         var lastSeatIndex=Utility.TOTAL_SEATS
-         for (index in 0 until seatsTobeHide) {
-             val viewGroup =
-                 (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
-             val cardView: CardView =
-                 viewGroup.findViewWithTag(lastSeatIndex.toString()) as CardView
-
-             lastSeatIndex--
-         }*/
     }
 
 
@@ -185,7 +166,7 @@ class SeatSelectionActivity : BaseActivity() {
     private fun controlSeatSelection(cardView: CardView) {
         if (cardView.cardBackgroundColor.defaultColor == -1) {
             //cardView.setCardBackgroundColor(Color.GREEN)
-            holdSeat(cardView.tag as Int)
+            holdSeat(cardView.tag.toString())
         } else {
             unHoldSeat(cardView.tag as Int)
             //cardView.setCardBackgroundColor(Color.WHITE)
@@ -212,9 +193,9 @@ class SeatSelectionActivity : BaseActivity() {
         return objSeat[0].seat_id
     }
 
-    fun holdSeat(seat_no: Int) {
-        selectedSeatNo = seat_no
-        val selectedSeatId = getSeatIDFromSeatsList(seat_no)
+    fun holdSeat(seat_no: String) {
+        selectedSeatNo = seat_no.toInt()
+        val selectedSeatId = getSeatIDFromSeatsList(seat_no.toInt())
         if (Utility.isNetworkAvailable(this@SeatSelectionActivity)) {
 
             viewModel.holdSeat(
