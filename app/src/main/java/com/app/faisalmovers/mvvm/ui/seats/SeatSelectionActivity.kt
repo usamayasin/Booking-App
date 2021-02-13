@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewStub
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -13,7 +14,6 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
-import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.ViewModelProvider
 import com.app.faisalmovers.R
 import com.app.faisalmovers.mvvm.data.network.model.general.Route
@@ -23,7 +23,6 @@ import com.app.faisalmovers.mvvm.ui.passenger.PassengerDetailsActivity
 import com.app.faisalmovers.mvvm.utils.Utility
 import com.app.faisalmovers.mvvm.utils.Utility.Companion.SEAT_HOLD
 import com.app.faisalmovers.mvvm.utils.Utility.Companion.TOTAL_SEATS
-import com.google.android.material.card.MaterialCardView
 import kotlinx.android.synthetic.main.seat_selection_activity.*
 
 
@@ -49,17 +48,38 @@ class SeatSelectionActivity : BaseActivity() {
     }
 
     private fun setSeatsUI() {
-        val totalSeatCount = 33//Utility.selectedRouteInfo.route.seats
-        val seatsTobeHide = Utility.TOTAL_SEATS - totalSeatCount
-        var lastSeatIndex=Utility.TOTAL_SEATS
-        for (index in 0 until seatsTobeHide) {
-            val viewGroup =
-                (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
-            val cardView: CardView =
-                viewGroup.findViewWithTag(lastSeatIndex.toString()) as CardView
 
-            lastSeatIndex--
+        if (Utility.selectedRouteInfo.route.busType.contentEquals("Standard")) {
+            Utility.selectedRouteInfo.route.busType = "Standard-45"
+        }else{
+            Utility.selectedRouteInfo.route.busType = "Standard Plus"
         }
+
+        when (Utility.selectedRouteInfo.route.busType) {
+            "Standard-45" -> {
+                val stub = findViewById<View>(R.id.viewStub) as ViewStub
+                stub.layoutResource = R.layout.standard_forty_five_layout
+                val inflated = stub.inflate()
+            }
+            "Standard Plus", "Executive" -> {
+                val stub = findViewById<View>(R.id.viewStub) as ViewStub
+                stub.layoutResource = R.layout.standard_plus_and_executive_seat_layout
+                val inflated = stub.inflate()
+            }
+        }
+
+
+        /* val totalSeatCount = 33//Utility.selectedRouteInfo.route.seats
+         val seatsTobeHide = Utility.TOTAL_SEATS - totalSeatCount
+         var lastSeatIndex=Utility.TOTAL_SEATS
+         for (index in 0 until seatsTobeHide) {
+             val viewGroup =
+                 (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
+             val cardView: CardView =
+                 viewGroup.findViewWithTag(lastSeatIndex.toString()) as CardView
+
+             lastSeatIndex--
+         }*/
     }
 
 
@@ -143,9 +163,9 @@ class SeatSelectionActivity : BaseActivity() {
     }
 
     private fun noSeatsFound(errorMesssage: String) {
-        tv_seats_not_found?.text = errorMesssage
+        /*tv_seats_not_found?.text = errorMesssage
         seatsScrollView?.visibility = View.GONE
-        tv_seats_not_found?.visibility = View.VISIBLE
+        tv_seats_not_found?.visibility = View.VISIBLE*/
     }
 
     private fun listener() {
