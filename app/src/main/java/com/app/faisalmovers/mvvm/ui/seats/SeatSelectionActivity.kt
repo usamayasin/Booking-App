@@ -43,7 +43,7 @@ class SeatSelectionActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.seat_selection_activity)
         setSeatsUI()
-        //init()
+        init()
         listener()
     }
 
@@ -72,20 +72,20 @@ class SeatSelectionActivity : BaseActivity() {
         setProgressbar(true)
         viewModel = ViewModelProvider(this).get(SeatsViewModel::class.java)
 
-        /*viewModel.fetchSeats(
-            Utility.selectedRouteInfo.fromId.toString(),
-            Utility.selectedRouteInfo.toId.toString(),
-            Utility.selectedRouteInfo.date,
-            Utility.selectedRouteInfo.route.scheduleId.toString(),
-            Utility.selectedRouteInfo.route.pMaskRoute.toString(),
-            Utility.selectedRouteInfo.route.departureTime,
-            Utility.selectedRouteInfo.route.operatorId.toString()
-        )*/
 
         if (Utility.isNetworkAvailable(this@SeatSelectionActivity)) {
             viewModel.fetchSeats(
                 "54", "310", "2021-01-28", "47", "7", "09:20", "1"
             )
+           /* viewModel.fetchSeats(
+                Utility.selectedRouteInfo.fromId.toString(),
+                Utility.selectedRouteInfo.toId.toString(),
+                Utility.selectedRouteInfo.date,
+                Utility.selectedRouteInfo.route.scheduleId.toString(),
+                Utility.selectedRouteInfo.route.pMaskRoute.toString(),
+                Utility.selectedRouteInfo.route.departureTime,
+                Utility.selectedRouteInfo.route.operatorId.toString()
+            )*/
             observeViewModel()
         } else {
             Utility.showToast(this, getString(R.string.no_internet))
@@ -115,7 +115,8 @@ class SeatSelectionActivity : BaseActivity() {
             response?.let {
                 if (response.status == 200) {
                     if (response.message.contentEquals(getString(R.string.success))) {
-                        updateSelectedSeatUI(SEAT_HOLD)
+                        Log.e("Res",response.message)
+                       // updateSelectedSeatUI(SEAT_HOLD)
                     }
                 } else {
                     Log.e("Error ", response.status.toString() + " " + response.message.toString())
@@ -139,6 +140,11 @@ class SeatSelectionActivity : BaseActivity() {
 
         viewModel.seatsLoadError.observe(this, { isError ->
             print(isError)
+        })
+        viewModel.seatHoldError.observe(this, { isError ->
+            print("Hold Error "+isError)
+
+
         })
         setProgressbar(false)
     }
@@ -168,7 +174,7 @@ class SeatSelectionActivity : BaseActivity() {
             //cardView.setCardBackgroundColor(Color.GREEN)
             holdSeat(cardView.tag.toString())
         } else {
-            unHoldSeat(cardView.tag as Int)
+            unHoldSeat(cardView.tag.toString())
             //cardView.setCardBackgroundColor(Color.WHITE)
         }
         updatedSeatCount()
@@ -199,8 +205,8 @@ class SeatSelectionActivity : BaseActivity() {
         if (Utility.isNetworkAvailable(this@SeatSelectionActivity)) {
 
             viewModel.holdSeat(
-                Utility.selectedRouteInfo.route.from,
-                Utility.selectedRouteInfo.route.to,
+                Utility.selectedRouteInfo.route.fromId.toString(),
+                Utility.selectedRouteInfo.route.toId.toString(),
                 selectedSeatId.toString(),
                 Utility.selectedRouteInfo.route.operatorId.toString()
             )
@@ -209,9 +215,9 @@ class SeatSelectionActivity : BaseActivity() {
         }
     }
 
-    fun unHoldSeat(seat_no: Int) {
-        selectedSeatNo = seat_no
-        val selectedSeatId = getSeatIDFromSeatsList(seat_no)
+    fun unHoldSeat(seat_no: String) {
+        selectedSeatNo = seat_no.toInt()
+        val selectedSeatId = getSeatIDFromSeatsList(seat_no.toInt())
         if (Utility.isNetworkAvailable(this@SeatSelectionActivity)) {
 
             viewModel.unHoldSeat(
@@ -254,7 +260,7 @@ class SeatSelectionActivity : BaseActivity() {
     }
 
     private fun updateSeat(seat_no: Int, seat_status: String) {
-        if (seat_no <= TOTAL_SEATS) {
+
             val viewGroup =
                 (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
             val cardView: CardView = viewGroup.findViewWithTag(seat_no.toString()) as CardView
@@ -280,7 +286,6 @@ class SeatSelectionActivity : BaseActivity() {
                 cardView.isEnabled = false
                 cardView.isClickable = false
             }
-        }
     }
 
     private fun updateSelectedSeatUI(seatUpadteType: String) {

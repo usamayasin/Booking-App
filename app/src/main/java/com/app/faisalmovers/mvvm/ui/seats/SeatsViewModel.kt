@@ -1,5 +1,6 @@
 package com.app.faisalmovers.mvvm.ui.seats
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.app.faisalmovers.mvvm.data.network.model.response.SeatHoldBaseResponse
@@ -14,9 +15,10 @@ import kotlinx.coroutines.*
 class SeatsViewModel : ViewModel() {
     private var headers = HashMap<String, String>()
     val seats = MutableLiveData<SeatsBaseResponse>()
-    val seatHold=MutableLiveData<SeatHoldBaseResponse>()
-    val seatUnHold=MutableLiveData<SeatUnHoldBaseResponse>()
+    val seatHold = MutableLiveData<SeatHoldBaseResponse>()
+    val seatUnHold = MutableLiveData<SeatUnHoldBaseResponse>()
     val seatsLoadError = MutableLiveData<String?>()
+    val seatHoldError = MutableLiveData<String?>()
     val service: RestApis? = ApiClient.getInstance();
     var serviceJob: Job? = null
     val exceptionHandler =
@@ -24,6 +26,7 @@ class SeatsViewModel : ViewModel() {
 
     private fun onError(message: String) {
         seatsLoadError.value = message
+        seatHoldError.value = message
     }
 
     public fun fetchSeats(
@@ -73,16 +76,15 @@ class SeatsViewModel : ViewModel() {
 
     }
 
-    public fun holdSeat(
+    private fun seatHold(
         fromCity: String,
         toCity: String,
-        seat_id:String,
+        seat_id: String,
         operatorID: String
-
-    ){
-
+    ) {
         headers["Authorization"] = "Bearer " + Utility.authInfo.access_token.toString()
         headers["Accept"] = "application/json"
+
 
         serviceJob = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
             val response = service?.holdSeat(
@@ -93,19 +95,45 @@ class SeatsViewModel : ViewModel() {
                 headers
             )
             withContext(Dispatchers.Main) {
+
                 if (response != null) {
                     if (response.isSuccessful) {
-                        seatHold.value = response.body()
-                        seatsLoadError.value = ""
-                    } else onError("Error: ${response.message()}")
+                        Log.e("Response ",response.message())
+                        seatHold.postValue(response.body())
+                        seatHoldError.postValue("")
+                    } else{
+                        Log.e("Error ",response.message())
+                         onError(
+                           "Error: ${
+                               response.message()
+                           }"
+                       )
+                    }
+
                 }
             }
         }
     }
-    public fun unHoldSeat(
-        seat_id:String,
+
+    fun holdSeat(
+        fromCity: String,
+        toCity: String,
+        seat_id: String,
         operatorID: String
-    ){
+
+    ) {
+        seatHold(
+            fromCity,
+            toCity,
+            seat_id,
+            operatorID
+        )
+    }
+
+    public fun unHoldSeat(
+        seat_id: String,
+        operatorID: String
+    ) {
         headers["Authorization"] = "Bearer " + Utility.authInfo.access_token.toString()
         headers["Accept"] = "application/json"
 
