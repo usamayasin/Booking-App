@@ -25,19 +25,22 @@ class Utility {
         const val TO_CITY_MISSING_ERROR = "TO_CITY_MISSING_ERROR"
         const val FROM_AND_TO_CITY_SAME_ERROR = "FROM_AND_TO_CITY_SAME_ERROR"
         const val ROUTE_DATE_MISSING_ERROR = "ROUTE_DATE_MISSING_ERROR"
+        const val SEAT_HOLD = "Hold"
+        const val SEAT_RESERVED = "Reserved"
+        const val TOTAL_SEATS:Int = 41
 
         var authInfo: AuthInfo = AuthInfo()
         var selectedRouteInfo = SelectedRouteInfo()
         val validationErrorsHashMap = HashMap<String, String>()
 
-        fun initializeValidationErrorsHashMap(){
+        fun initializeValidationErrorsHashMap() {
             validationErrorsHashMap[FROM_CITY_MISSING_ERROR] = "From City is required."
             validationErrorsHashMap[TO_CITY_MISSING_ERROR] = "To City is required."
             validationErrorsHashMap[FROM_AND_TO_CITY_SAME_ERROR] = "Both Cities cannot be same."
             validationErrorsHashMap[ROUTE_DATE_MISSING_ERROR] = "Date is required."
         }
 
-        fun getValidationErrorMessage(key:String) : String {
+        fun getValidationErrorMessage(key: String): String {
             return validationErrorsHashMap.get(key).toString()
         }
 

@@ -31,8 +31,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="end"
                 android:fontFamily="@font/circular_std_book"
+                android:gravity="end"
                 android:text="Choose Seats"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
@@ -42,8 +42,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:fontFamily="@font/circular_std_book"
+                android:gravity="center"
                 android:text="Cancel"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="15sp"
@@ -77,9 +77,9 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/circular_std_book"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:fontFamily="@font/circular_std_book"
                     android:gravity="end"
                     android:text="Selected"
                     android:textColor="@android:color/white" />
@@ -107,8 +107,8 @@
                     android:layout_height="0dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:gravity="end"
                     android:fontFamily="@font/circular_std_book"
+                    android:gravity="end"
                     android:text="On Hold"
                     android:textColor="@android:color/white" />
 
@@ -151,6 +151,7 @@
         android:layout_height="0dp"
         android:isScrollContainer="true"
         android:orientation="vertical"
+        android:tag="seatsScrollView"
         app:layout_constraintBottom_toTopOf="@id/ll_bottom_bar"
         app:layout_constraintTop_toBottomOf="@id/ll_top_bar">
 
@@ -179,6 +180,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="3"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -212,6 +214,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="1"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -247,6 +250,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="2"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toStartOf="@id/cv_1"
@@ -264,14 +268,23 @@
                             android:id="@+id/tv_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:tag="2"
                             android:gravity="center"
+                            android:tag="2"
                             android:text="2"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_18ssp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_seats_not_found"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="@dimen/_15ssp"
+                    tools:layout_editor_absoluteY="13dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -293,6 +306,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="6"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -326,6 +340,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="4"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -361,6 +376,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="5"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toStartOf="@id/cv_4"
@@ -407,6 +423,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="9"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -440,6 +457,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="7"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -475,6 +493,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="8"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toStartOf="@id/cv_7"
@@ -522,6 +541,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="13"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -557,6 +577,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="12"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toEndOf="@id/cv_13"
@@ -592,6 +613,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="11"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toStartOf="@id/cv_10"
@@ -625,6 +647,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="10"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -672,6 +695,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="17"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -707,6 +731,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="16"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toEndOf="@id/cv_17"
@@ -742,6 +767,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="15"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toStartOf="@id/cv_14"
@@ -775,6 +801,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="14"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -821,6 +848,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="21"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -856,6 +884,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="20"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toEndOf="@id/cv_21"
@@ -891,6 +920,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="19"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toStartOf="@id/cv_18"
@@ -924,6 +954,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="18"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -970,6 +1001,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="22"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -1005,6 +1037,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="23"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toStartOf="@id/cv_22"
@@ -1040,6 +1073,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="24"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toEndOf="@id/cv_25"
@@ -1073,6 +1107,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="25"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1119,6 +1154,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="26"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -1154,6 +1190,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="27"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toStartOf="@id/cv_26"
@@ -1189,6 +1226,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="28"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toEndOf="@id/cv_29"
@@ -1205,7 +1243,7 @@
                         <TextView
                             android:id="@+id/tv_28"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:gravity="center"
                             android:tag="28"
                             android:text="28"
@@ -1222,6 +1260,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="29"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1268,6 +1307,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="30"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -1303,6 +1343,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="31"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toStartOf="@id/cv_30"
@@ -1338,6 +1379,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="32"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toEndOf="@id/cv_33"
@@ -1371,6 +1413,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="33"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1417,6 +1460,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="34"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -1452,6 +1496,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="35"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toStartOf="@id/cv_34"
@@ -1487,6 +1532,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="36"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toEndOf="@id/cv_37"
@@ -1520,6 +1566,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="selectSeat"
+                    android:tag="37"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="10dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1547,18 +1594,162 @@
                 </com.google.android.material.card.MaterialCardView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginLeft="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:layout_marginRight="@dimen/_18sdp"
+                android:layout_weight="3"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_38"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="selectSeat"
+                    android:tag="38"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="@dimen/_1sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_38"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:tag="38"
+                            android:text="38"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_18ssp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_39"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_12sdp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="selectSeat"
+                    android:tag="39"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintEnd_toStartOf="@id/cv_38"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="@dimen/_1sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_39"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:tag="39"
+                            android:text="39"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_18ssp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_40"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="selectSeat"
+                    android:tag="40"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintStart_toEndOf="@id/cv_41"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="@dimen/_1sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_40"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:tag="40"
+                            android:text="40"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_18ssp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_41"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="selectSeat"
+                    android:tag="41"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="@dimen/_1sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_41"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:tag="41"
+                            android:text="41"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_18ssp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/ll_bottom_bar"

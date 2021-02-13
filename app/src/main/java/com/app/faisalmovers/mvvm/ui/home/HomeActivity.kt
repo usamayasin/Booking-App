@@ -104,7 +104,8 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
         viewModel.cities.observe(this, { response ->
             response?.let {
                 citiesList = response.content as ArrayList<CityListModel>
-                citiesList = citiesList.filter { model -> model.active == 1 } as ArrayList<CityListModel>
+                citiesList =
+                    citiesList.filter { model -> model.active == 1 } as ArrayList<CityListModel>
             }
         })
 
@@ -137,6 +138,7 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
 
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun showCalender() {
 
         val newCalendar = Calendar.getInstance()
@@ -147,11 +149,11 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
                 val calendar = Calendar.getInstance()
                 calendar[year, monthOfYear] = dayOfMonth
                 val dateFormatForUI = SimpleDateFormat("EEEE, dd MMMM")
-                val dateFormatForSelectedRouteInfo = SimpleDateFormat("YYYY-MM-DD")
+                val dateFormatForSelectedRouteInfo = SimpleDateFormat("yyyy-MM-dd")
                 val dateForUI: String = dateFormatForUI.format(calendar.time)
-                val dateForSelectedRouteInfo: String
-                = dateFormatForSelectedRouteInfo.format(calendar.time)
-                setSelectedDate(dateForUI,dateForSelectedRouteInfo)
+                val dateForSelectedRouteInfo: String =
+                    dateFormatForSelectedRouteInfo.format(calendar.time)
+                setSelectedDate(dateForUI, dateForSelectedRouteInfo)
             }, newCalendar[Calendar.YEAR], newCalendar[Calendar.MONTH],
             newCalendar[Calendar.DAY_OF_MONTH]
         )
@@ -262,7 +264,10 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
         cityListDialog?.dismiss()
     }
 
-    private fun setSelectedDate(strDate: String , strDate2:String) {
+    private fun setSelectedDate(
+        strDate: String,
+        strDate2: String
+    ) {
         ll_dates_calender?.visibility = View.GONE
         tv_selectedDate?.visibility = View.VISIBLE
         tv_selectedDate?.text = strDate
@@ -323,7 +328,6 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
     private fun getAuthInfo() {
         if (!Utility.isNetworkAvailable(this@HomeActivity)) {
             Utility.showToast(this, getString(R.string.no_internet))
-            Utility.showLog(getString(R.string.no_internet))
             return
         }
         setProgressbar(true)

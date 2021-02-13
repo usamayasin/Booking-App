@@ -30,4 +30,7 @@
     <string name="lower_case_from">From</string>
     <string name="lower_case_to">To</string>
     <string name="no_internet">No Internet Connection</string>
+    <string name="success">success</string>
+    <string name="no_seats_found">No Seats Found</string>
+
 </resources>
