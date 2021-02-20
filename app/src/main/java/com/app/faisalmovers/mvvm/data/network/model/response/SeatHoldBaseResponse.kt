@@ -1,7 +1,6 @@
 package com.app.faisalmovers.mvvm.data.network.model.response
 
 import com.google.gson.annotations.SerializedName
-
 data class SeatHoldBaseResponse(
     @SerializedName("Status")
     var status: Int,
@@ -10,10 +9,10 @@ data class SeatHoldBaseResponse(
     var message: String,
 
     @SerializedName("Error")
-    var error: Any,
+    var error: Boolean,
 
     @SerializedName("Content")
-    var content:Any
+    var content:String
 ){
 
 }

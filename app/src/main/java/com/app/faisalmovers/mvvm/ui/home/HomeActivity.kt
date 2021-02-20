@@ -340,6 +340,7 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
             }
 
             override fun onFailure(call: Call<AuthInfo>, t: Throwable) {
+                setProgressbar(false)
                 Utility.showToast(this@HomeActivity, "Error in Calling")
             }
         })

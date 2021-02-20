@@ -49,14 +49,14 @@ class SeatSelectionActivity : BaseActivity() {
 
     private fun setSeatsUI() {
 
-        var myValue : String = Utility.selectedRouteInfo.route.busType;
+        var myValue: String = Utility.selectedRouteInfo.route.busType;
         val stub = findViewById<View>(R.id.viewStub) as ViewStub
         when (myValue) {
             "Standard" -> {
                 stub.layoutResource = R.layout.standard_forty_five_layout
                 stub.inflate()
             }
-            "Standard Plus", "Executive" , "Standard Plus Executive"-> {
+            "Standard Plus", "Executive", "Standard Plus Executive" -> {
                 stub.layoutResource = R.layout.standard_plus_and_executive_seat_layout
                 stub.inflate()
             }
@@ -77,15 +77,16 @@ class SeatSelectionActivity : BaseActivity() {
             viewModel.fetchSeats(
                 "54", "310", "2021-01-28", "47", "7", "09:20", "1"
             )
-           /* viewModel.fetchSeats(
-                Utility.selectedRouteInfo.fromId.toString(),
-                Utility.selectedRouteInfo.toId.toString(),
-                Utility.selectedRouteInfo.date,
-                Utility.selectedRouteInfo.route.scheduleId.toString(),
-                Utility.selectedRouteInfo.route.pMaskRoute.toString(),
-                Utility.selectedRouteInfo.route.departureTime,
-                Utility.selectedRouteInfo.route.operatorId.toString()
-            )*/
+
+            /* viewModel.fetchSeats(
+                 Utility.selectedRouteInfo.fromId.toString(),
+                 Utility.selectedRouteInfo.toId.toString(),
+                 Utility.selectedRouteInfo.date,
+                 Utility.selectedRouteInfo.route.scheduleId.toString(),
+                 Utility.selectedRouteInfo.route.pMaskRoute.toString(),
+                 Utility.selectedRouteInfo.route.departureTime,
+                 Utility.selectedRouteInfo.route.operatorId.toString()
+             )*/
             observeViewModel()
         } else {
             Utility.showToast(this, getString(R.string.no_internet))
@@ -115,8 +116,8 @@ class SeatSelectionActivity : BaseActivity() {
             response?.let {
                 if (response.status == 200) {
                     if (response.message.contentEquals(getString(R.string.success))) {
-                        Log.e("Res",response.message)
-                       // updateSelectedSeatUI(SEAT_HOLD)
+                        Log.e("Res", response.message)
+                        // updateSelectedSeatUI(SEAT_HOLD)
                     }
                 } else {
                     Log.e("Error ", response.status.toString() + " " + response.message.toString())
@@ -127,10 +128,12 @@ class SeatSelectionActivity : BaseActivity() {
         viewModel.seatUnHold.observe(this, { response ->
             response?.let {
                 if (response.status.contentEquals(getString(R.string.success))) {
-                    if (response.data.get(0).status.toLowerCase()
+                    if (response.data[0].status.toLowerCase()
                             .contentEquals(getString(R.string.success))
                     ) {
-                        updateSelectedSeatUI(" ")
+                        Log.e("Unhold", response.toString())
+                        println(response.toString())
+                        // updateSelectedSeatUI(" ")
                     }
                 } else {
                     Log.e("Error ", response.status.toString() + " " + response.status)
@@ -142,7 +145,7 @@ class SeatSelectionActivity : BaseActivity() {
             print(isError)
         })
         viewModel.seatHoldError.observe(this, { isError ->
-            print("Hold Error "+isError)
+            print("Hold Error " + isError)
 
 
         })
@@ -157,6 +160,11 @@ class SeatSelectionActivity : BaseActivity() {
 
     private fun listener() {
         seatSelectionGoButton?.setOnClickListener {
+            val intent = Intent(this@SeatSelectionActivity, PassengerDetailsActivity::class.java)
+            startActivity(intent)
+        }
+        iv_seat_selection_go_button.setOnClickListener {
+            //viewModel.unHoldSeat("61149514", "1")
             val intent = Intent(this@SeatSelectionActivity, PassengerDetailsActivity::class.java)
             startActivity(intent)
         }
@@ -261,31 +269,31 @@ class SeatSelectionActivity : BaseActivity() {
 
     private fun updateSeat(seat_no: Int, seat_status: String) {
 
-            val viewGroup =
-                (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
-            val cardView: CardView = viewGroup.findViewWithTag(seat_no.toString()) as CardView
+        val viewGroup =
+            (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
+        val cardView: CardView = viewGroup.findViewWithTag(seat_no.toString()) as CardView
 
-            val firstChild: LinearLayout = cardView[0] as LinearLayout
-            val secondChild: TextView = firstChild[0] as TextView
+        val firstChild: LinearLayout = cardView[0] as LinearLayout
+        val secondChild: TextView = firstChild[0] as TextView
 
-            if (seat_status.contentEquals(Utility.SEAT_RESERVED)) {
-                cardView.setCardBackgroundColor(Color.RED)
-                secondChild.setTextColor(Color.WHITE)
-                cardView.isEnabled = false
-                cardView.isClickable = false
+        if (seat_status.contentEquals(Utility.SEAT_RESERVED)) {
+            cardView.setCardBackgroundColor(Color.RED)
+            secondChild.setTextColor(Color.WHITE)
+            cardView.isEnabled = false
+            cardView.isClickable = false
 
-            }
-            if (seat_status.contentEquals(Utility.SEAT_HOLD)) {
-                cardView.setCardBackgroundColor(
-                    ContextCompat.getColor(
-                        this@SeatSelectionActivity,
-                        R.color.darkBlueBox
-                    )
+        }
+        if (seat_status.contentEquals(Utility.SEAT_HOLD)) {
+            cardView.setCardBackgroundColor(
+                ContextCompat.getColor(
+                    this@SeatSelectionActivity,
+                    R.color.darkBlueBox
                 )
-                secondChild.setTextColor(Color.WHITE)
-                cardView.isEnabled = false
-                cardView.isClickable = false
-            }
+            )
+            secondChild.setTextColor(Color.WHITE)
+            cardView.isEnabled = false
+            cardView.isClickable = false
+        }
     }
 
     private fun updateSelectedSeatUI(seatUpadteType: String) {
