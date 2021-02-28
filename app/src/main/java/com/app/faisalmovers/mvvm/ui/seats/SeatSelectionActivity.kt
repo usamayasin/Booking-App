@@ -10,11 +10,17 @@ import android.view.ViewStub
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.lifecycle.ViewModelProvider
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.VolleyLog
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.app.faisalmovers.R
 import com.app.faisalmovers.mvvm.data.network.model.general.Route
 import com.app.faisalmovers.mvvm.data.network.model.general.SeatsProvider
@@ -23,7 +29,10 @@ import com.app.faisalmovers.mvvm.ui.passenger.PassengerDetailsActivity
 import com.app.faisalmovers.mvvm.utils.Utility
 import com.app.faisalmovers.mvvm.utils.Utility.Companion.SEAT_HOLD
 import com.app.faisalmovers.mvvm.utils.Utility.Companion.TOTAL_SEATS
+import com.app.faisalmovers.mvvm.utils.Utility.Companion.showToast
 import kotlinx.android.synthetic.main.seat_selection_activity.*
+import kotlinx.android.synthetic.main.standard_plus_and_executive_seat_layout.*
+import org.json.JSONObject
 
 
 class SeatSelectionActivity : BaseActivity() {
@@ -74,19 +83,20 @@ class SeatSelectionActivity : BaseActivity() {
 
 
         if (Utility.isNetworkAvailable(this@SeatSelectionActivity)) {
-            viewModel.fetchSeats(
-                "54", "310", "2021-01-28", "47", "7", "09:20", "1"
-            )
+            /*  viewModel.fetchSeats(
+                  "54", "310", "2021-01-28", "47", "7", "09:20", "1"
+              )*/
 
-            /* viewModel.fetchSeats(
-                 Utility.selectedRouteInfo.fromId.toString(),
-                 Utility.selectedRouteInfo.toId.toString(),
-                 Utility.selectedRouteInfo.date,
-                 Utility.selectedRouteInfo.route.scheduleId.toString(),
-                 Utility.selectedRouteInfo.route.pMaskRoute.toString(),
-                 Utility.selectedRouteInfo.route.departureTime,
-                 Utility.selectedRouteInfo.route.operatorId.toString()
-             )*/
+
+            viewModel.fetchSeats(
+                Utility.selectedRouteInfo.fromId.toString(),
+                Utility.selectedRouteInfo.toId.toString(),
+                Utility.selectedRouteInfo.date,
+                Utility.selectedRouteInfo.route.scheduleId.toString(),
+                Utility.selectedRouteInfo.route.pMaskRoute.toString(),
+                Utility.selectedRouteInfo.route.departureTime,
+                Utility.selectedRouteInfo.route.operatorId.toString()
+            )
             observeViewModel()
         } else {
             Utility.showToast(this, getString(R.string.no_internet))
@@ -116,8 +126,6 @@ class SeatSelectionActivity : BaseActivity() {
             response?.let {
                 if (response.status == 200) {
                     if (response.message.contentEquals(getString(R.string.success))) {
-                        Log.e("Res", response.message)
-                        // updateSelectedSeatUI(SEAT_HOLD)
                     }
                 } else {
                     Log.e("Error ", response.status.toString() + " " + response.message.toString())
@@ -132,8 +140,7 @@ class SeatSelectionActivity : BaseActivity() {
                             .contentEquals(getString(R.string.success))
                     ) {
                         Log.e("Unhold", response.toString())
-                        println(response.toString())
-                        // updateSelectedSeatUI(" ")
+
                     }
                 } else {
                     Log.e("Error ", response.status.toString() + " " + response.status)
@@ -153,9 +160,9 @@ class SeatSelectionActivity : BaseActivity() {
     }
 
     private fun noSeatsFound(errorMesssage: String) {
-        /*tv_seats_not_found?.text = errorMesssage
+        tv_seats_not_found?.text = errorMesssage
         seatsScrollView?.visibility = View.GONE
-        tv_seats_not_found?.visibility = View.VISIBLE*/
+        tv_seats_not_found?.visibility = View.VISIBLE
     }
 
     private fun listener() {
@@ -164,9 +171,19 @@ class SeatSelectionActivity : BaseActivity() {
             startActivity(intent)
         }
         iv_seat_selection_go_button.setOnClickListener {
-            //viewModel.unHoldSeat("61149514", "1")
-            val intent = Intent(this@SeatSelectionActivity, PassengerDetailsActivity::class.java)
-            startActivity(intent)
+            if (tv_number_of_seats?.text.toString().split(" ")[0].toInt() > 0) {
+                startActivity(
+                    Intent(
+                        this@SeatSelectionActivity,
+                        PassengerDetailsActivity::class.java
+                    )
+                )
+            } else {
+                showToast(this, "Please Select available seat")
+            }
+        }
+        tv_cancel.setOnClickListener {
+            onBackPressed()
         }
     }
 
@@ -178,6 +195,10 @@ class SeatSelectionActivity : BaseActivity() {
     }
 
     private fun controlSeatSelection(cardView: CardView) {
+        if (tv_number_of_seats?.text.toString().split(" ")[0].toInt() > 6) {
+            showToast(this, "You can select maximum six seats")
+            return
+        }
         if (cardView.cardBackgroundColor.defaultColor == -1) {
             //cardView.setCardBackgroundColor(Color.GREEN)
             holdSeat(cardView.tag.toString())
@@ -185,52 +206,49 @@ class SeatSelectionActivity : BaseActivity() {
             unHoldSeat(cardView.tag.toString())
             //cardView.setCardBackgroundColor(Color.WHITE)
         }
-        updatedSeatCount()
     }
-    /* fun controlSeatSelection(cardView: CardView) {
-        if (cardView.cardBackgroundColor.defaultColor.equals(-1)) {
-            addSeat()
-            cardView.setCardBackgroundColor(Color.GREEN)
-        } else {
-            if (seatCount > 0) {
-                deductSeat()
-            }
-            cardView.setCardBackgroundColor(Color.WHITE)
-        }
-        updatedSeatCount()
-    }*/
 
-    fun getSeatIDFromSeatsList(seat_no: Int): Long {
-
-        var seat_id: Long = 0
-        val objSeat = seatsList.filter { seats -> seats.seat_no == seat_no }
+    private fun getFromSeatsList(seatNo: Int): Long {
+        val objSeat = seatsList.filter { seats -> seats.seat_no == seatNo }
         return objSeat[0].seat_id
     }
 
-    fun holdSeat(seat_no: String) {
-        selectedSeatNo = seat_no.toInt()
-        val selectedSeatId = getSeatIDFromSeatsList(seat_no.toInt())
+    private fun holdSeat(seatNo: String) {
+        selectedSeatNo = seatNo.toInt()
+        val selected = getFromSeatsList(seatNo.toInt())
         if (Utility.isNetworkAvailable(this@SeatSelectionActivity)) {
 
-            viewModel.holdSeat(
+            holdSeatApiRequest(
                 Utility.selectedRouteInfo.route.fromId.toString(),
                 Utility.selectedRouteInfo.route.toId.toString(),
-                selectedSeatId.toString(),
-                Utility.selectedRouteInfo.route.operatorId.toString()
+                selected.toString(),
+                Utility.selectedRouteInfo.route.operatorId.toString(),
+                seatNo
             )
+            /*viewModel.holdSeat(
+                "54",
+                "310",
+                "5015",
+                "1"
+            )*/
+            /* viewModel.holdSeat(
+                 Utility.selectedRouteInfo.route.fromId.toString(),
+                 Utility.selectedRouteInfo.route.toId.toString(),
+                 selected.toString(),
+                 Utility.selectedRouteInfo.route.operatorId.toString()
+             )*/
         } else {
             Utility.showToast(this@SeatSelectionActivity, getString(R.string.no_internet))
         }
     }
 
-    fun unHoldSeat(seat_no: String) {
-        selectedSeatNo = seat_no.toInt()
-        val selectedSeatId = getSeatIDFromSeatsList(seat_no.toInt())
+    fun unHoldSeat(seatNo: String) {
+        selectedSeatNo = seatNo.toInt()
+        val selected = getFromSeatsList(seatNo.toInt())
         if (Utility.isNetworkAvailable(this@SeatSelectionActivity)) {
 
-            viewModel.unHoldSeat(
-                selectedSeatId.toString(),
-                Utility.selectedRouteInfo.route.operatorId.toString()
+            unHoldSeatApiRequest(
+                selected.toString(), Utility.selectedRouteInfo.route.operatorId.toString(), seatNo
             )
         } else {
             Utility.showToast(this@SeatSelectionActivity, getString(R.string.no_internet))
@@ -240,6 +258,7 @@ class SeatSelectionActivity : BaseActivity() {
     private fun deductSeat() {
         seatCount--
         bill = bill - selectedRoute.fare
+        updatedSeatCount()
     }
 
     private fun updatedSeatCount() {
@@ -249,11 +268,13 @@ class SeatSelectionActivity : BaseActivity() {
         }
         tv_total_bill?.text = "Rs " + (bill).toString()
 
+
     }
 
     private fun addSeat() {
         seatCount++
         bill = selectedRoute.fare * seatCount
+        updatedSeatCount()
     }
 
     override fun onBackPressed() {
@@ -267,11 +288,11 @@ class SeatSelectionActivity : BaseActivity() {
         }
     }
 
-    private fun updateSeat(seat_no: Int, seat_status: String) {
+    private fun updateSeat(seatNo: Int, seat_status: String) {
 
         val viewGroup =
             (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
-        val cardView: CardView = viewGroup.findViewWithTag(seat_no.toString()) as CardView
+        val cardView: CardView = viewGroup.findViewWithTag(seatNo.toString()) as CardView
 
         val firstChild: LinearLayout = cardView[0] as LinearLayout
         val secondChild: TextView = firstChild[0] as TextView
@@ -296,37 +317,124 @@ class SeatSelectionActivity : BaseActivity() {
         }
     }
 
-    private fun updateSelectedSeatUI(seatUpadteType: String) {
+    private fun updateSelectedSeatUI(seatUpadteType: String, seatNo: String, seatId: String) {
 
-        if (selectedSeatNo <= TOTAL_SEATS) {
-            if (seatUpadteType.contentEquals(SEAT_HOLD)) {
-                val viewGroup =
-                    (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
-                val cardView: CardView =
-                    viewGroup.findViewWithTag(selectedSeatNo.toString()) as CardView
+        if (seatUpadteType.contentEquals(SEAT_HOLD)) {
+            val viewGroup =
+                (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
+            val cardView: CardView =
+                viewGroup.findViewWithTag(selectedSeatNo.toString()) as CardView
 
-                val firstChild: LinearLayout = cardView[0] as LinearLayout
-                val secondChild: TextView = firstChild[0] as TextView
+            val firstChild: LinearLayout = cardView[0] as LinearLayout
+            val secondChild: TextView = firstChild[0] as TextView
 
-                cardView.setCardBackgroundColor(Color.GREEN)
-                secondChild.setTextColor(Color.WHITE)
-                addSeat()
-            } else {
-                val viewGroup =
-                    (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
-                val cardView: CardView =
-                    viewGroup.findViewWithTag(selectedSeatNo.toString()) as CardView
+            cardView.setCardBackgroundColor(Color.GREEN)
+            secondChild.setTextColor(Color.WHITE)
+            addSeat()
+            Utility.selectedRouteInfo.selectedSeatsList[seatNo] = seatId
 
-                val firstChild: LinearLayout = cardView[0] as LinearLayout
-                val secondChild: TextView = firstChild[0] as TextView
 
-                cardView.setCardBackgroundColor(Color.WHITE)
-                secondChild.setTextColor(Color.BLACK)
-                if (seatCount > 0) {
-                    deductSeat()
-                }
+        } else {
+            val viewGroup =
+                (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
+            val cardView: CardView =
+                viewGroup.findViewWithTag(selectedSeatNo.toString()) as CardView
+
+            val firstChild: LinearLayout = cardView[0] as LinearLayout
+            val secondChild: TextView = firstChild[0] as TextView
+
+            cardView.setCardBackgroundColor(Color.WHITE)
+            secondChild.setTextColor(Color.BLACK)
+            if (seatCount > 0) {
+                deductSeat()
+                Utility.selectedRouteInfo.selectedSeatsList.remove(seatNo)
             }
         }
+    }
+
+    private fun holdSeatApiRequest(
+        fromCity: String,
+        toCity: String,
+        seatId: String,
+        operatorID: String,
+        seatNo: String
+    ) {
+        setProgressbar(true)
+        val holdSeatUrl =
+            "https://hamza.bookkaru.com/api/v1/seatHold?from=${fromCity}&to=${toCity}&seat_id=${seatId}&oid=${operatorID}"
+
+        try {
+            val queue = Volley.newRequestQueue(this)
+            VolleyLog.setTag("HOLD API")
+
+            val stringRequest = object : StringRequest(Request.Method.GET, holdSeatUrl,
+                Response.Listener<String> { response ->
+                    val responseObject = JSONObject(response.toString())
+                    if (responseObject.getInt("Status") == 200 &&
+                        responseObject.getString("Message")!!.contentEquals("success")
+                    ) {
+                        updateSelectedSeatUI(SEAT_HOLD, seatNo, seatId)
+                        setProgressbar(false)
+                    }
+                },
+                Response.ErrorListener {
+                    setProgressbar(false)
+                    Log.d("Seat Hold Error", "Response is: " + it.message.toString())
+                    showToast(this, "Seat did not hold .. Please try again")
+                }) {
+                override fun getHeaders(): MutableMap<String, String> {
+                    val headers = HashMap<String, String>()
+                    headers["Authorization"] = "Bearer " + Utility.authInfo.access_token.toString()
+                    headers["Accept"] = "application/json"
+                    headers["Content-Type"] = "application/json"
+                    return headers
+                }
+            }
+            queue.add(stringRequest)
+        } catch (e: Exception) {
+            setProgressbar(false)
+            showToast(this, "Seat did not hold .. Please try again")
+            Log.e("SeatHoldResponseError ", e.message.toString())
+        }
+
+    }
+
+    private fun unHoldSeatApiRequest(seatId: String, operatorID: String, seatNo: String) {
+        setProgressbar(true)
+        val unHoldSeatUrl =
+            "https://hamza.bookkaru.com/api/v1/seatUnhold?seat_id=${seatId}&oid=${operatorID}"
+        try {
+            val queue = Volley.newRequestQueue(this)
+
+            val stringRequest = object : StringRequest(Request.Method.GET, unHoldSeatUrl,
+                Response.Listener<String> { response ->
+                    val responseObject = JSONObject(response.toString())
+                    if (responseObject.getString("Status")!!.contentEquals("success")
+                    ) {
+                        updateSelectedSeatUI("", seatNo, seatId)
+                        setProgressbar(false)
+                    }
+                },
+                Response.ErrorListener {
+                    setProgressbar(false)
+                    showToast(this, "Seat did not UnHold .. Please try again")
+                    Log.d("Response ", "Response is: " + it.message.toString())
+                }) {
+                override fun getHeaders(): MutableMap<String, String> {
+                    val headers = HashMap<String, String>()
+                    headers["Authorization"] = "Bearer " + Utility.authInfo.access_token.toString()
+                    headers["Accept"] = "application/json"
+                    headers["Content-Type"] = "application/json"
+                    return headers
+                }
+            }
+            queue.add(stringRequest)
+        } catch (e: Exception) {
+            setProgressbar(false)
+            showToast(this, "Seat did not UnHold .. Please try again")
+            Log.e("UnHoldResponseError ", e.message.toString())
+        }
+
     }
 
 }

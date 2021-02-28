@@ -6,6 +6,7 @@ class SelectedRouteInfo {
     var fromName: String = ""
     var toId: Int = -1
     var toName: String = ""
-    var date:String = ""
+    var date: String = ""
     var route = Route()
+    var selectedSeatsList = HashMap<String, String>()
 }

@@ -1173,6 +1173,8 @@
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
