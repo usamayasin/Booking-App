@@ -22,6 +22,7 @@ import com.android.volley.VolleyLog
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.app.faisalmovers.R
+import com.app.faisalmovers.mvvm.data.network.model.general.PassengerList
 import com.app.faisalmovers.mvvm.data.network.model.general.Route
 import com.app.faisalmovers.mvvm.data.network.model.general.SeatsProvider
 import com.app.faisalmovers.mvvm.ui.base.BaseActivity
@@ -331,7 +332,7 @@ class SeatSelectionActivity : BaseActivity() {
             cardView.setCardBackgroundColor(Color.GREEN)
             secondChild.setTextColor(Color.WHITE)
             addSeat()
-            Utility.selectedRouteInfo.selectedSeatsList[seatNo] = seatId
+            Utility.selectedRouteInfo.passengerList.add(PassengerList("", "", seatNo, seatId))
 
 
         } else {
@@ -347,7 +348,12 @@ class SeatSelectionActivity : BaseActivity() {
             secondChild.setTextColor(Color.BLACK)
             if (seatCount > 0) {
                 deductSeat()
-                Utility.selectedRouteInfo.selectedSeatsList.remove(seatNo)
+                var valueTobeRemoved =
+                    Utility.selectedRouteInfo.passengerList.filter { it.seatNo == seatNo }
+                if (valueTobeRemoved.isNullOrEmpty().not()) {
+                    Utility.selectedRouteInfo.passengerList.remove(valueTobeRemoved[0])
+                    println(Utility.selectedRouteInfo.passengerList)
+                }
             }
         }
     }
@@ -435,6 +441,11 @@ class SeatSelectionActivity : BaseActivity() {
             Log.e("UnHoldResponseError ", e.message.toString())
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Utility.selectedRouteInfo.passengerList.clear()
     }
 
 }

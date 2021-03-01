@@ -34,7 +34,7 @@ class InvoiceActivity : AppCompatActivity() {
         rc_passengerInfo!!.adapter = passengerInfoListAdapter
     }
     fun getPassengerList(){
-        var data= PassengerList("Ali Ahmed","35201-3912838-3")
+      /*  var data= PassengerList("Ali Ahmed","35201-3912838-3")
         passengerInfoArrayList.add(data)
 
         data= PassengerList("Rizwan","35201-3912838-3")
@@ -50,7 +50,7 @@ class InvoiceActivity : AppCompatActivity() {
         passengerInfoArrayList.add(data)
 
         data= PassengerList("Ustad Cheera Qureshi","35201-3912838-3")
-        passengerInfoArrayList.add(data)
+        passengerInfoArrayList.add(data)*/
 
     }
 }

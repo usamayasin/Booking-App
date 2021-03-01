@@ -8,5 +8,5 @@ class SelectedRouteInfo {
     var toName: String = ""
     var date: String = ""
     var route = Route()
-    var selectedSeatsList = HashMap<String, String>()
+    var passengerList = ArrayList<PassengerList>()
 }
