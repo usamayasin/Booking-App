@@ -29,6 +29,7 @@ import com.app.faisalmovers.mvvm.ui.base.BaseActivity
 import com.app.faisalmovers.mvvm.ui.route.RouteSelectionActivity
 import com.app.faisalmovers.mvvm.utils.Utility
 import com.app.faisalmovers.mvvm.utils.snack
+import kotlinx.android.synthetic.main.dialoge_layout.*
 import kotlinx.android.synthetic.main.home_activity.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -335,6 +336,10 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
         authInfo?.enqueue(object : Callback<AuthInfo> {
             override fun onResponse(call: Call<AuthInfo>, response: Response<AuthInfo>) {
                 Utility.authInfo = response.body()!!
+                if (!Utility.isNetworkAvailable(this@HomeActivity)) {
+                    Utility.showToast(this@HomeActivity, getString(R.string.no_internet))
+                    return
+                }
                 viewModel.refresh()
                 setProgressbar(false)
             }

@@ -7,6 +7,20 @@
     android:background="@drawable/background_gradient_drawable"
     tools:context=".mvvm.ui.seats.SeatSelectionActivity">
 
+    <TextView
+        android:id="@+id/error_invalid_seat_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Invalid Seat Count in API. Please contact admin"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
     <LinearLayout
         android:id="@+id/ll_top_bar"
         android:layout_width="match_parent"

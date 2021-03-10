@@ -1,5 +1,6 @@
 package com.app.faisalmovers.mvvm.data.network.service
 
+import com.app.faisalmovers.mvvm.data.network.model.general.TerminalResponse
 import com.app.faisalmovers.mvvm.data.network.model.request.AuthInfoRequestBody
 import com.app.faisalmovers.mvvm.data.network.model.response.*
 import retrofit2.Call
@@ -53,5 +54,12 @@ interface RestApis {
 
         @HeaderMap headerMap: HashMap<String, String>
     ): Response<SeatUnHoldBaseResponse>
+
+    @GET("api/v1/get/terminals")
+    suspend fun getTerminal(
+        @Query("operator") from: Int,
+        @Query("from") to: Int,
+        @HeaderMap headerMap: HashMap<String, String>
+    ): Response<TerminalResponse>
 
 }

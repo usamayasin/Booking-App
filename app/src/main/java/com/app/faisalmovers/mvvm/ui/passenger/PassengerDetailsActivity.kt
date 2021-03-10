@@ -62,6 +62,11 @@ class PassengerDetailsActivity : AppCompatActivity() {
                 ed_passenger_one_cnic.error = "required"
                 return
             }
+            if (ed_passenger_one_cnic.text.length < 14) {
+                ed_passenger_one_cnic.error = "Invalid CNIC"
+                return
+            }
+
 
         }
         if (ll_passenger_two.isVisible) {
@@ -72,6 +77,10 @@ class PassengerDetailsActivity : AppCompatActivity() {
             }
             if (ed_passenger_two_cnic.text.isNullOrEmpty()) {
                 ed_passenger_two_cnic.error = "required"
+                return
+            }
+            if (ed_passenger_two_cnic.text.length < 14 ) {
+                ed_passenger_two_cnic.error = "Invalid CNIC"
                 return
             }
 
@@ -86,7 +95,10 @@ class PassengerDetailsActivity : AppCompatActivity() {
                 ed_passenger_three_cnic.error = "required"
                 return
             }
-
+            if (ed_passenger_three_cnic.text.length < 14 ) {
+                ed_passenger_three_cnic.error = "Invalid CNIC"
+                return
+            }
         }
         if (ll_passenger_four.isVisible) {
 
@@ -96,6 +108,10 @@ class PassengerDetailsActivity : AppCompatActivity() {
             }
             if (ed_passenger_four_cnic.text.isNullOrEmpty()) {
                 ed_passenger_four_cnic.error = "required"
+                return
+            }
+            if (ed_passenger_four_cnic.text.length < 14 ) {
+                ed_passenger_four_cnic.error = "Invalid CNIC"
                 return
             }
 
@@ -110,7 +126,10 @@ class PassengerDetailsActivity : AppCompatActivity() {
                 ed_passenger_five_cnic.error = "required"
                 return
             }
-
+            if (ed_passenger_five_cnic.text.length < 14 ) {
+                ed_passenger_five_cnic.error = "Invalid CNIC"
+                return
+            }
         }
         if (ll_passenger_six.isVisible) {
 
@@ -120,6 +139,10 @@ class PassengerDetailsActivity : AppCompatActivity() {
             }
             if (ed_passenger_six_cnic.text.isNullOrEmpty()) {
                 ed_passenger_six_cnic.error = "required"
+                return
+            }
+            if (ed_passenger_six_cnic.text.length < 14 ) {
+                ed_passenger_six_cnic.error = "Invalid CNIC"
                 return
             }
 

@@ -3,6 +3,7 @@ package com.app.faisalmovers.mvvm.ui.seats
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,6 @@ import android.view.ViewStub
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
@@ -23,16 +23,15 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.app.faisalmovers.R
 import com.app.faisalmovers.mvvm.data.network.model.general.PassengerList
-import com.app.faisalmovers.mvvm.data.network.model.general.Route
 import com.app.faisalmovers.mvvm.data.network.model.general.SeatsProvider
 import com.app.faisalmovers.mvvm.ui.base.BaseActivity
 import com.app.faisalmovers.mvvm.ui.passenger.PassengerDetailsActivity
 import com.app.faisalmovers.mvvm.utils.Utility
 import com.app.faisalmovers.mvvm.utils.Utility.Companion.SEAT_HOLD
-import com.app.faisalmovers.mvvm.utils.Utility.Companion.TOTAL_SEATS
 import com.app.faisalmovers.mvvm.utils.Utility.Companion.showToast
 import kotlinx.android.synthetic.main.seat_selection_activity.*
 import kotlinx.android.synthetic.main.standard_plus_and_executive_seat_layout.*
+import kotlinx.coroutines.delay
 import org.json.JSONObject
 
 
@@ -46,8 +45,10 @@ class SeatSelectionActivity : BaseActivity() {
     var tv_total_bill: AppCompatTextView? = null
     var seatSelectionGoButton: ImageView? = null
     var seatCount: Int = 0
-    var bill: Int = 0
+    var bill: Double = 0.0
     var selectedSeatNo: Int = -1
+    var seatUIFlag: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         initializeBaseActivityViews()
         super.onCreate(savedInstanceState)
@@ -58,22 +59,63 @@ class SeatSelectionActivity : BaseActivity() {
     }
 
     private fun setSeatsUI() {
-
+        setProgressbar(true)
         var myValue: String = Utility.selectedRouteInfo.route.busType;
         val stub = findViewById<View>(R.id.viewStub) as ViewStub
         when (myValue) {
             "Standard" -> {
-                stub.layoutResource = R.layout.standard_forty_five_layout
-                stub.inflate()
+                if(Utility.selectedRouteInfo.route.seats == 45){
+                    seatUIFlag =  true
+                    stub.layoutResource = R.layout.standard_forty_five_layout
+                    stub.inflate()
+                    setProgressbar(false)
+                }
             }
-            "Standard Plus", "Executive", "Standard Plus Executive" -> {
-                stub.layoutResource = R.layout.standard_plus_and_executive_seat_layout
-                stub.inflate()
+            "Standard Plus", "Executive" -> {
+                if(Utility.selectedRouteInfo.route.seats == 40 ){
+                    seatUIFlag =  true
+                    stub.layoutResource = R.layout.standard_plus_and_executive_seat_layout
+                    stub.inflate()
+                    setProgressbar(false)
+                }
+            }
+            "Business Class" -> {
+                if(Utility.selectedRouteInfo.route.seats == 33){
+                    seatUIFlag =  true
+                    stub.layoutResource = R.layout.business_thirty_three_layout
+                    stub.inflate()
+                    setProgressbar(false)
+                }
+            }
+            "Executive Plus" -> {
+                if(Utility.selectedRouteInfo.route.seats ==  37 ){
+                    seatUIFlag =  true
+                    stub.layoutResource = R.layout.executive_plus_seat_layout
+                    stub.inflate()
+                    setProgressbar(false)
+                }
+            }
+            "HiRoof" -> {
+                if(Utility.selectedRouteInfo.route.seats == 15){
+                    seatUIFlag =  true
+                    stub.layoutResource = R.layout.hi_roof_layout
+                    stub.inflate()
+                    setProgressbar(false)
+                }
+            }
+            "Mini Yutong" -> {
+                if(Utility.selectedRouteInfo.route.seats == 33){
+                    seatUIFlag =  true
+                    stub.layoutResource = R.layout.mini_yutong_layout
+                    stub.inflate()
+                    setProgressbar(false)
+                }
+            }
+            else -> { // Note the block
+                showToast(this, " You have invalid Seat count")
             }
         }
     }
-
-
     private fun init() {
         tv_number_of_seats = findViewById(R.id.tv_number_of_seats)
         tv_total_bill = findViewById(R.id.tv_total_bill)
@@ -81,25 +123,26 @@ class SeatSelectionActivity : BaseActivity() {
 
         setProgressbar(true)
         viewModel = ViewModelProvider(this).get(SeatsViewModel::class.java)
+        error_invalid_seat_count.visibility = View.GONE
 
-
-        if (Utility.isNetworkAvailable(this@SeatSelectionActivity)) {
-            /*  viewModel.fetchSeats(
-                  "54", "310", "2021-01-28", "47", "7", "09:20", "1"
-              )*/
-
-
-            viewModel.fetchSeats(
-                Utility.selectedRouteInfo.fromId.toString(),
-                Utility.selectedRouteInfo.toId.toString(),
-                Utility.selectedRouteInfo.date,
-                Utility.selectedRouteInfo.route.scheduleId.toString(),
-                Utility.selectedRouteInfo.route.pMaskRoute.toString(),
-                Utility.selectedRouteInfo.route.departureTime,
-                Utility.selectedRouteInfo.route.operatorId.toString()
-            )
-            observeViewModel()
+        if (Utility.isNetworkAvailable(this@SeatSelectionActivity) ) {
+            if(seatUIFlag){
+                viewModel.fetchSeats(
+                    Utility.selectedRouteInfo.fromId.toString(),
+                    Utility.selectedRouteInfo.toId.toString(),
+                    Utility.selectedRouteInfo.date,
+                    Utility.selectedRouteInfo.route.scheduleId.toString(),
+                    Utility.selectedRouteInfo.route.pMaskRoute.toString(),
+                    Utility.selectedRouteInfo.route.departureTime,
+                    Utility.selectedRouteInfo.route.operatorId.toString()
+                )
+                observeViewModel()
+            } else {
+                setProgressbar(false)
+                error_invalid_seat_count.visibility = View.VISIBLE
+            }
         } else {
+            setProgressbar(false)
             Utility.showToast(this, getString(R.string.no_internet))
             return
         }
@@ -167,10 +210,7 @@ class SeatSelectionActivity : BaseActivity() {
     }
 
     private fun listener() {
-        seatSelectionGoButton?.setOnClickListener {
-            val intent = Intent(this@SeatSelectionActivity, PassengerDetailsActivity::class.java)
-            startActivity(intent)
-        }
+
         iv_seat_selection_go_button.setOnClickListener {
             if (tv_number_of_seats?.text.toString().split(" ")[0].toInt() > 0) {
                 startActivity(
@@ -196,11 +236,12 @@ class SeatSelectionActivity : BaseActivity() {
     }
 
     private fun controlSeatSelection(cardView: CardView) {
-        if (tv_number_of_seats?.text.toString().split(" ")[0].toInt() > 6) {
-            showToast(this, "You can select maximum six seats")
-            return
-        }
         if (cardView.cardBackgroundColor.defaultColor == -1) {
+            val count = tv_number_of_seats?.text.toString().split(" ")[0].toInt()
+            if (count + 1 > 6) {
+                showToast(this, "You can select maximum six seats")
+                return
+            }
             //cardView.setCardBackgroundColor(Color.GREEN)
             holdSeat(cardView.tag.toString())
         } else {
@@ -212,6 +253,11 @@ class SeatSelectionActivity : BaseActivity() {
     private fun getFromSeatsList(seatNo: Int): Long {
         val objSeat = seatsList.filter { seats -> seats.seat_no == seatNo }
         return objSeat[0].seat_id
+    }
+
+    private fun getSeatFareFromSeatId(seatId: Long): Double {
+        val objSeat = seatsList.filter { seats -> seats.seat_id == seatId }
+        return objSeat[0].fare
     }
 
     private fun holdSeat(seatNo: String) {
@@ -226,18 +272,6 @@ class SeatSelectionActivity : BaseActivity() {
                 Utility.selectedRouteInfo.route.operatorId.toString(),
                 seatNo
             )
-            /*viewModel.holdSeat(
-                "54",
-                "310",
-                "5015",
-                "1"
-            )*/
-            /* viewModel.holdSeat(
-                 Utility.selectedRouteInfo.route.fromId.toString(),
-                 Utility.selectedRouteInfo.route.toId.toString(),
-                 selected.toString(),
-                 Utility.selectedRouteInfo.route.operatorId.toString()
-             )*/
         } else {
             Utility.showToast(this@SeatSelectionActivity, getString(R.string.no_internet))
         }
@@ -256,9 +290,11 @@ class SeatSelectionActivity : BaseActivity() {
         }
     }
 
-    private fun deductSeat() {
+    private fun deductSeat(seatId: String) {
+        var seatFare = getSeatFareFromSeatId(seatId.toLong())
         seatCount--
-        bill = bill - selectedRoute.fare
+        bill -= seatFare;
+//        bill = bill - selectedRoute.fare
         updatedSeatCount()
     }
 
@@ -272,15 +308,63 @@ class SeatSelectionActivity : BaseActivity() {
 
     }
 
-    private fun addSeat() {
+    private fun addSeat(seatId: String) {
+        var seatFare = getSeatFareFromSeatId(seatId.toLong())
         seatCount++
-        bill = selectedRoute.fare * seatCount
+        bill += seatFare
+
+//        bill = selectedRoute.fare * seatCount
         updatedSeatCount()
     }
 
     override fun onBackPressed() {
+        setProgressbar(false)
+
+        if (Utility.selectedRouteInfo.passengerList.size > 0) {
+            for (seat in Utility.selectedRouteInfo.passengerList) {
+                onBackPressedUnHoldSelectedSeats(seat.seatID.toString())
+            }
+        }
         super.onBackPressed()
-        Utility.selectedRouteInfo.route = Route()
+    }
+
+    fun onBackPressedUnHoldSelectedSeats(selectedSeatId: String) {
+        if (Utility.isNetworkAvailable(this)) {
+            setProgressbar(true)
+            val unHoldSeatUrl =
+                "https://hamza.bookkaru.com/api/v1/seatUnhold?seat_id=${selectedSeatId}&oid=${Utility.selectedRouteInfo.route.operatorId}"
+            try {
+                val queue = Volley.newRequestQueue(this)
+                val stringRequest =
+                    object : StringRequest(Request.Method.GET, unHoldSeatUrl,
+                        Response.Listener<String> { response ->
+                            val responseObject = JSONObject(response.toString())
+                            if (responseObject.getString("Status")!!
+                                    .contentEquals("success")
+                            ) {
+                                println("SeatSelectionActivtiy: Seat gets Unhold -> $selectedSeatId")
+                            }
+                        },
+                        Response.ErrorListener {
+                            setProgressbar(false)
+                            showToast(this, "Seat did not UnHold .. Please try again")
+                        }) {
+                        override fun getHeaders(): MutableMap<String, String> {
+                            val headers = HashMap<String, String>()
+                            headers["Authorization"] =
+                                "Bearer " + Utility.authInfo.access_token.toString()
+                            headers["Accept"] = "application/json"
+                            headers["Content-Type"] = "application/json"
+                            return headers
+                        }
+                    }
+                queue.add(stringRequest)
+            } catch (e: Exception) {
+                setProgressbar(false)
+                showToast(this, "Seat did not UnHold .. Please try again")
+                Log.e("UnHoldResponseError ", e.message.toString())
+            }
+        }
     }
 
     private fun setSeatsInfo() {
@@ -291,31 +375,32 @@ class SeatSelectionActivity : BaseActivity() {
 
     private fun updateSeat(seatNo: Int, seat_status: String) {
 
-        val viewGroup =
-            (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
-        val cardView: CardView = viewGroup.findViewWithTag(seatNo.toString()) as CardView
+            val viewGroup =
+                (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
+            if (viewGroup != null) {
+                val cardView: CardView = viewGroup.findViewWithTag(seatNo.toString()) as CardView
+                val firstChild: LinearLayout = cardView[0] as LinearLayout
+                val secondChild: TextView = firstChild[0] as TextView
 
-        val firstChild: LinearLayout = cardView[0] as LinearLayout
-        val secondChild: TextView = firstChild[0] as TextView
+                if (seat_status.contentEquals(Utility.SEAT_RESERVED)) {
+                    cardView.setCardBackgroundColor(Color.RED)
+                    secondChild.setTextColor(Color.WHITE)
+                    cardView.isEnabled = false
+                    cardView.isClickable = false
 
-        if (seat_status.contentEquals(Utility.SEAT_RESERVED)) {
-            cardView.setCardBackgroundColor(Color.RED)
-            secondChild.setTextColor(Color.WHITE)
-            cardView.isEnabled = false
-            cardView.isClickable = false
-
-        }
-        if (seat_status.contentEquals(Utility.SEAT_HOLD)) {
-            cardView.setCardBackgroundColor(
-                ContextCompat.getColor(
-                    this@SeatSelectionActivity,
-                    R.color.darkBlueBox
-                )
-            )
-            secondChild.setTextColor(Color.WHITE)
-            cardView.isEnabled = false
-            cardView.isClickable = false
-        }
+                }
+                if (seat_status.contentEquals(Utility.SEAT_HOLD)) {
+                    cardView.setCardBackgroundColor(
+                        ContextCompat.getColor(
+                            this@SeatSelectionActivity,
+                            R.color.darkBlueBox
+                        )
+                    )
+                    secondChild.setTextColor(Color.WHITE)
+                    cardView.isEnabled = false
+                    cardView.isClickable = false
+                }
+            }
     }
 
     private fun updateSelectedSeatUI(seatUpadteType: String, seatNo: String, seatId: String) {
@@ -331,7 +416,7 @@ class SeatSelectionActivity : BaseActivity() {
 
             cardView.setCardBackgroundColor(Color.GREEN)
             secondChild.setTextColor(Color.WHITE)
-            addSeat()
+            addSeat(seatId)
             Utility.selectedRouteInfo.passengerList.add(PassengerList("", "", seatNo, seatId))
 
 
@@ -347,7 +432,7 @@ class SeatSelectionActivity : BaseActivity() {
             cardView.setCardBackgroundColor(Color.WHITE)
             secondChild.setTextColor(Color.BLACK)
             if (seatCount > 0) {
-                deductSeat()
+                deductSeat(seatId)
                 var valueTobeRemoved =
                     Utility.selectedRouteInfo.passengerList.filter { it.seatNo == seatNo }
                 if (valueTobeRemoved.isNullOrEmpty().not()) {
@@ -390,7 +475,8 @@ class SeatSelectionActivity : BaseActivity() {
                 }) {
                 override fun getHeaders(): MutableMap<String, String> {
                     val headers = HashMap<String, String>()
-                    headers["Authorization"] = "Bearer " + Utility.authInfo.access_token.toString()
+                    headers["Authorization"] =
+                        "Bearer " + Utility.authInfo.access_token.toString()
                     headers["Accept"] = "application/json"
                     headers["Content-Type"] = "application/json"
                     return headers
@@ -445,7 +531,7 @@ class SeatSelectionActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        Utility.selectedRouteInfo.passengerList.clear()
+//        Utility.selectedRouteInfo.passengerList.clear()
     }
 
 }

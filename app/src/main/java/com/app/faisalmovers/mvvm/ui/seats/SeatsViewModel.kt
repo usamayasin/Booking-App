@@ -67,8 +67,8 @@ class SeatsViewModel : ViewModel() {
             withContext(Dispatchers.Main) {
                 if (response != null) {
                     if (response.isSuccessful) {
-                        seats.value = response.body()
-                        seatsLoadError.value = ""
+                        seats.postValue(response.body())
+                        seatsLoadError.postValue("")
                     } else onError("Error: ${response.message()}")
                 }
             }
