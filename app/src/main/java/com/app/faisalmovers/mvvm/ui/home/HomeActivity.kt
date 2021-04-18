@@ -14,6 +14,7 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
@@ -165,6 +166,43 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
             .setTextColor(resources.getColor(R.color.gradient_color_2))
         StartTime.getButton(DatePickerDialog.BUTTON_NEGATIVE)
             .setTextColor(resources.getColor(R.color.gradient_color_1))
+    }
+
+    private fun formateDateForUIAndForSelectedRouteInfo(dateType: String) {
+        try {
+            val dateFormatForUI = SimpleDateFormat("EEEE, dd MMMM")
+            val dateFormatForSelectedRouteInfo = SimpleDateFormat("yyyy-MM-dd")
+            var dateForUI: String = ""
+            var dateForSelectedRouteInfo: String = ""
+            when (dateType) {
+                Utility.TODAY_DATE -> {
+                    val currentDate = Date()
+                    dateForUI = dateFormatForUI.format(currentDate.time)
+                    dateForSelectedRouteInfo =
+                        dateFormatForSelectedRouteInfo.format(currentDate.time)
+                }
+                Utility.TOMORROW_DATE -> {
+                    val calendar = Calendar.getInstance()
+                    calendar.add(Calendar.DAY_OF_YEAR, 1)
+                    val tomorrow: Date = calendar.time
+                    dateForUI = dateFormatForUI.format(tomorrow)
+                    dateForSelectedRouteInfo =
+                        dateFormatForSelectedRouteInfo.format(tomorrow)
+                }
+                Utility.DAYAFTERTOMORROW_DATE -> {
+                    val calendar = Calendar.getInstance()
+                    calendar.add(Calendar.DAY_OF_YEAR, 2)
+                    val dftDate: Date = calendar.time
+                    dateForUI = dateFormatForUI.format(dftDate)
+                    dateForSelectedRouteInfo =
+                        dateFormatForSelectedRouteInfo.format(dftDate)
+                }
+            }
+            setSelectedDate(dateForUI, dateForSelectedRouteInfo)
+        } catch (e: Exception) {
+            Log.e("Date123 ", e.message.toString())
+        }
+
     }
 
     private fun goToRouteSelection() {
@@ -380,5 +418,18 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
 
     override fun onDestroy() {
         super.onDestroy()
+    }
+
+    fun selectTodaysDate(view: View) {
+        formateDateForUIAndForSelectedRouteInfo(Utility.TODAY_DATE)
+
+    }
+
+    fun selectTomorrowDate(view: View) {
+        formateDateForUIAndForSelectedRouteInfo(Utility.TOMORROW_DATE)
+    }
+
+    fun selectDayAfterTomorrowDate(view: View) {
+        formateDateForUIAndForSelectedRouteInfo(Utility.DAYAFTERTOMORROW_DATE)
     }
 }

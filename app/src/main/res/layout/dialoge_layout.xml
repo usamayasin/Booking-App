@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/city_dialog_background"
+    android:padding="@dimen/_10sdp"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatTextView

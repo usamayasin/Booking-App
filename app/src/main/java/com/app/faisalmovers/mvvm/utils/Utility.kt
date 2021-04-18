@@ -29,6 +29,10 @@ class Utility {
         const val SEAT_RESERVED = "Reserved"
         const val TOTAL_SEATS:Int = 41
 
+        const val TODAY_DATE="0"
+        const val TOMORROW_DATE="1"
+        const val DAYAFTERTOMORROW_DATE="2"
+
         var authInfo: AuthInfo = AuthInfo()
         var selectedRouteInfo = SelectedRouteInfo()
         val validationErrorsHashMap = HashMap<String, String>()

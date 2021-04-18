@@ -9,4 +9,7 @@ class SelectedRouteInfo {
     var date: String = ""
     var route = Route()
     var passengerList = ArrayList<PassengerList>()
+    var terminalId:Int=-1
+    var terminalName=""
+
 }

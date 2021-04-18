@@ -8,9 +8,7 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewStub
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
@@ -64,48 +62,57 @@ class SeatSelectionActivity : BaseActivity() {
         val stub = findViewById<View>(R.id.viewStub) as ViewStub
         when (myValue) {
             "Standard" -> {
-                if(Utility.selectedRouteInfo.route.seats == 45){
-                    seatUIFlag =  true
-                    stub.layoutResource = R.layout.standard_forty_five_layout
-                    stub.inflate()
-                    setProgressbar(false)
-                }
+                //if(Utility.selectedRouteInfo.route.seats == 45){
+                seatUIFlag = true
+                stub.layoutResource = R.layout.standard_forty_five_layout
+                stub.inflate()
+                setProgressbar(false)
+                //}
             }
             "Standard Plus", "Executive" -> {
-                if(Utility.selectedRouteInfo.route.seats == 40 ){
-                    seatUIFlag =  true
+                //if (Utility.selectedRouteInfo.route.seats == 40) {
+                    seatUIFlag = true
                     stub.layoutResource = R.layout.standard_plus_and_executive_seat_layout
                     stub.inflate()
                     setProgressbar(false)
-                }
+                //}
+            }
+            "Standard Plus Executive" -> {
+                //if (Utility.selectedRouteInfo.route.seats == 40) {
+                seatUIFlag = true
+                stub.layoutResource = R.layout.standard_plus_executive_layout
+                stub.inflate()
+                setProgressbar(false)
+                //}
             }
             "Business Class" -> {
-                if(Utility.selectedRouteInfo.route.seats == 33){
-                    seatUIFlag =  true
+              //  if (Utility.selectedRouteInfo.route.seats == 33) {
+                    seatUIFlag = true
                     stub.layoutResource = R.layout.business_thirty_three_layout
                     stub.inflate()
                     setProgressbar(false)
-                }
+              //  }
             }
             "Executive Plus" -> {
-                if(Utility.selectedRouteInfo.route.seats ==  37 ){
-                    seatUIFlag =  true
+                //if (Utility.selectedRouteInfo.route.seats == 37) {
+                    seatUIFlag = true
                     stub.layoutResource = R.layout.executive_plus_seat_layout
                     stub.inflate()
                     setProgressbar(false)
-                }
+                //}
             }
+
             "HiRoof" -> {
-                if(Utility.selectedRouteInfo.route.seats == 15){
-                    seatUIFlag =  true
+                if (Utility.selectedRouteInfo.route.seats == 15) {
+                    seatUIFlag = true
                     stub.layoutResource = R.layout.hi_roof_layout
                     stub.inflate()
                     setProgressbar(false)
                 }
             }
             "Mini Yutong" -> {
-                if(Utility.selectedRouteInfo.route.seats == 33){
-                    seatUIFlag =  true
+                if (Utility.selectedRouteInfo.route.seats == 33) {
+                    seatUIFlag = true
                     stub.layoutResource = R.layout.mini_yutong_layout
                     stub.inflate()
                     setProgressbar(false)
@@ -116,6 +123,7 @@ class SeatSelectionActivity : BaseActivity() {
             }
         }
     }
+
     private fun init() {
         tv_number_of_seats = findViewById(R.id.tv_number_of_seats)
         tv_total_bill = findViewById(R.id.tv_total_bill)
@@ -123,6 +131,7 @@ class SeatSelectionActivity : BaseActivity() {
 
         setProgressbar(true)
         viewModel = ViewModelProvider(this).get(SeatsViewModel::class.java)
+        invoiceViewModel = ViewModelProvider(this).get(InvoiceViewModel::class.java)
         error_invalid_seat_count.visibility = View.GONE
 
         if (Utility.isNetworkAvailable(this@SeatSelectionActivity) ) {
@@ -229,10 +238,14 @@ class SeatSelectionActivity : BaseActivity() {
     }
 
     fun selectSeat(view: View) {
-        var selectedSeat: CardView? = null;
-        selectedSeat = findViewById(view.id);
+        try {
+            var selectedSeat: CardView? = null;
+            selectedSeat = findViewById(view.id);
 
-        controlSeatSelection(selectedSeat)
+            controlSeatSelection(selectedSeat)
+        } catch (e: Exception) {
+
+        }
     }
 
     private fun controlSeatSelection(cardView: CardView) {
@@ -368,39 +381,42 @@ class SeatSelectionActivity : BaseActivity() {
     }
 
     private fun setSeatsInfo() {
-        for (seat in seatsList) {
-            updateSeat(seat.seat_no, seat.seat_status)
+        try {
+            for (seat in seatsList) {
+                updateSeat(seat.seat_no, seat.seat_status)
+            }
+        } catch (e: Exception) {
         }
     }
 
     private fun updateSeat(seatNo: Int, seat_status: String) {
 
-            val viewGroup =
-                (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
-            if (viewGroup != null) {
-                val cardView: CardView = viewGroup.findViewWithTag(seatNo.toString()) as CardView
-                val firstChild: LinearLayout = cardView[0] as LinearLayout
-                val secondChild: TextView = firstChild[0] as TextView
+        val viewGroup =
+            (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
+        if (viewGroup != null) {
+            val cardView: CardView = viewGroup.findViewWithTag(seatNo.toString()) as CardView
+            val firstChild: LinearLayout = cardView[0] as LinearLayout
+            val secondChild: TextView = firstChild[0] as TextView
 
-                if (seat_status.contentEquals(Utility.SEAT_RESERVED)) {
-                    cardView.setCardBackgroundColor(Color.RED)
-                    secondChild.setTextColor(Color.WHITE)
-                    cardView.isEnabled = false
-                    cardView.isClickable = false
+            if (seat_status.contentEquals(Utility.SEAT_RESERVED)) {
+                cardView.setCardBackgroundColor(Color.RED)
+                secondChild.setTextColor(Color.WHITE)
+                cardView.isEnabled = false
+                cardView.isClickable = false
 
-                }
-                if (seat_status.contentEquals(Utility.SEAT_HOLD)) {
-                    cardView.setCardBackgroundColor(
-                        ContextCompat.getColor(
-                            this@SeatSelectionActivity,
-                            R.color.darkBlueBox
-                        )
-                    )
-                    secondChild.setTextColor(Color.WHITE)
-                    cardView.isEnabled = false
-                    cardView.isClickable = false
-                }
             }
+            if (seat_status.contentEquals(Utility.SEAT_HOLD)) {
+                cardView.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        this@SeatSelectionActivity,
+                        R.color.darkBlueBox
+                    )
+                )
+                secondChild.setTextColor(Color.WHITE)
+                cardView.isEnabled = false
+                cardView.isClickable = false
+            }
+        }
     }
 
     private fun updateSelectedSeatUI(seatUpadteType: String, seatNo: String, seatId: String) {
