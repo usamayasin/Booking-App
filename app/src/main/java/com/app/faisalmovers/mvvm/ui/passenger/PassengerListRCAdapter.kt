@@ -27,7 +27,7 @@ class PassengerListRCAdapter (var context: Context, listModels: ArrayList<Passen
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data: PassengerList = listModels[position]
-        holder.tv_passengerName?.text=data.name.toString()
+        holder.tv_passengerName?.text=data.name.toString() + "\n Seat "+data.seatNo.toString()
         holder.tv_passengerCnic?.text=data.cnic.toString()
     }
 

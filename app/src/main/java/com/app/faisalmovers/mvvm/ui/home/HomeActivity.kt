@@ -14,6 +14,7 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
@@ -29,6 +30,7 @@ import com.app.faisalmovers.mvvm.ui.base.BaseActivity
 import com.app.faisalmovers.mvvm.ui.route.RouteSelectionActivity
 import com.app.faisalmovers.mvvm.utils.Utility
 import com.app.faisalmovers.mvvm.utils.snack
+import kotlinx.android.synthetic.main.dialoge_layout.*
 import kotlinx.android.synthetic.main.home_activity.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -104,7 +106,8 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
         viewModel.cities.observe(this, { response ->
             response?.let {
                 citiesList = response.content as ArrayList<CityListModel>
-                citiesList = citiesList.filter { model -> model.active == 1 } as ArrayList<CityListModel>
+                citiesList =
+                    citiesList.filter { model -> model.active == 1 } as ArrayList<CityListModel>
             }
         })
 
@@ -137,6 +140,7 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
 
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun showCalender() {
 
         val newCalendar = Calendar.getInstance()
@@ -147,11 +151,11 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
                 val calendar = Calendar.getInstance()
                 calendar[year, monthOfYear] = dayOfMonth
                 val dateFormatForUI = SimpleDateFormat("EEEE, dd MMMM")
-                val dateFormatForSelectedRouteInfo = SimpleDateFormat("YYYY-MM-DD")
+                val dateFormatForSelectedRouteInfo = SimpleDateFormat("yyyy-MM-dd")
                 val dateForUI: String = dateFormatForUI.format(calendar.time)
-                val dateForSelectedRouteInfo: String
-                = dateFormatForSelectedRouteInfo.format(calendar.time)
-                setSelectedDate(dateForUI,dateForSelectedRouteInfo)
+                val dateForSelectedRouteInfo: String =
+                    dateFormatForSelectedRouteInfo.format(calendar.time)
+                setSelectedDate(dateForUI, dateForSelectedRouteInfo)
             }, newCalendar[Calendar.YEAR], newCalendar[Calendar.MONTH],
             newCalendar[Calendar.DAY_OF_MONTH]
         )
@@ -162,6 +166,43 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
             .setTextColor(resources.getColor(R.color.gradient_color_2))
         StartTime.getButton(DatePickerDialog.BUTTON_NEGATIVE)
             .setTextColor(resources.getColor(R.color.gradient_color_1))
+    }
+
+    private fun formateDateForUIAndForSelectedRouteInfo(dateType: String) {
+        try {
+            val dateFormatForUI = SimpleDateFormat("EEEE, dd MMMM")
+            val dateFormatForSelectedRouteInfo = SimpleDateFormat("yyyy-MM-dd")
+            var dateForUI: String = ""
+            var dateForSelectedRouteInfo: String = ""
+            when (dateType) {
+                Utility.TODAY_DATE -> {
+                    val currentDate = Date()
+                    dateForUI = dateFormatForUI.format(currentDate.time)
+                    dateForSelectedRouteInfo =
+                        dateFormatForSelectedRouteInfo.format(currentDate.time)
+                }
+                Utility.TOMORROW_DATE -> {
+                    val calendar = Calendar.getInstance()
+                    calendar.add(Calendar.DAY_OF_YEAR, 1)
+                    val tomorrow: Date = calendar.time
+                    dateForUI = dateFormatForUI.format(tomorrow)
+                    dateForSelectedRouteInfo =
+                        dateFormatForSelectedRouteInfo.format(tomorrow)
+                }
+                Utility.DAYAFTERTOMORROW_DATE -> {
+                    val calendar = Calendar.getInstance()
+                    calendar.add(Calendar.DAY_OF_YEAR, 2)
+                    val dftDate: Date = calendar.time
+                    dateForUI = dateFormatForUI.format(dftDate)
+                    dateForSelectedRouteInfo =
+                        dateFormatForSelectedRouteInfo.format(dftDate)
+                }
+            }
+            setSelectedDate(dateForUI, dateForSelectedRouteInfo)
+        } catch (e: Exception) {
+            Log.e("Date123 ", e.message.toString())
+        }
+
     }
 
     private fun goToRouteSelection() {
@@ -262,7 +303,10 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
         cityListDialog?.dismiss()
     }
 
-    private fun setSelectedDate(strDate: String , strDate2:String) {
+    private fun setSelectedDate(
+        strDate: String,
+        strDate2: String
+    ) {
         ll_dates_calender?.visibility = View.GONE
         tv_selectedDate?.visibility = View.VISIBLE
         tv_selectedDate?.text = strDate
@@ -323,7 +367,6 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
     private fun getAuthInfo() {
         if (!Utility.isNetworkAvailable(this@HomeActivity)) {
             Utility.showToast(this, getString(R.string.no_internet))
-            Utility.showLog(getString(R.string.no_internet))
             return
         }
         setProgressbar(true)
@@ -331,11 +374,16 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
         authInfo?.enqueue(object : Callback<AuthInfo> {
             override fun onResponse(call: Call<AuthInfo>, response: Response<AuthInfo>) {
                 Utility.authInfo = response.body()!!
+                if (!Utility.isNetworkAvailable(this@HomeActivity)) {
+                    Utility.showToast(this@HomeActivity, getString(R.string.no_internet))
+                    return
+                }
                 viewModel.refresh()
                 setProgressbar(false)
             }
 
             override fun onFailure(call: Call<AuthInfo>, t: Throwable) {
+                setProgressbar(false)
                 Utility.showToast(this@HomeActivity, "Error in Calling")
             }
         })
@@ -370,5 +418,18 @@ class HomeActivity : BaseActivity(), HomeActivityInterface {
 
     override fun onDestroy() {
         super.onDestroy()
+    }
+
+    fun selectTodaysDate(view: View) {
+        formateDateForUIAndForSelectedRouteInfo(Utility.TODAY_DATE)
+
+    }
+
+    fun selectTomorrowDate(view: View) {
+        formateDateForUIAndForSelectedRouteInfo(Utility.TOMORROW_DATE)
+    }
+
+    fun selectDayAfterTomorrowDate(view: View) {
+        formateDateForUIAndForSelectedRouteInfo(Utility.DAYAFTERTOMORROW_DATE)
     }
 }

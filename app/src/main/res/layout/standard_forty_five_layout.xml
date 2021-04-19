@@ -1,0 +1,3318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:background="@drawable/white_rounded_edge_background"
+    android:orientation="vertical">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_4"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_4"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_4"
+                    android:text="@string/seat_4"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_3"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_3"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_3"
+                    android:text="@string/seat_3"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_2"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_2"
+                    android:text="@string/seat_2"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_1"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_1"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_1"
+                    android:text="@string/seat_1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_8"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="8"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_8"
+                    android:text="@string/seat_8"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_7"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_7"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_7"
+                    android:text="@string/seat_7"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_6"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_6"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_6"
+                    android:text="@string/seat_6"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_5"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_5"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_5"
+                    android:text="@string/seat_5"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_12"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_12"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_12"
+                    android:text="@string/seat_12"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_11"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_11"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_12"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_11"
+                    android:text="@string/seat_11"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_10"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_10"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_9"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_10"
+                    android:text="@string/seat_10"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_9"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_9"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_9"
+                    android:text="@string/seat_9"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_16"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="16"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_16"
+                    android:text="@string/seat_16"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_15"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="15"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_16"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_15"
+                    android:text="@string/seat_15"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_14"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="14"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_13"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="@string/seat_14"
+                    android:text="@string/seat_14"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_13"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="13"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_13"
+                    android:text="@string/seat_13"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_20"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_20"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_20"
+                    android:text="@string/seat_20"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_19"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_19"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_20"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_19"
+                    android:text="@string/seat_19"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_18"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_18"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_17"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="@string/seat_18"
+                    android:text="@string/seat_18"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_17"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_17"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_17"
+                    android:text="@string/seat_17"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_24"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_24"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_24"
+                    android:text="@string/seat_24"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_23"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_23"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_23"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_23"
+                    android:text="@string/seat_23"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_22"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_22"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_21"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_22"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="@string/seat_22"
+                    android:text="@string/seat_22"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_21"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_21"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_21"
+                    android:text="@string/seat_21"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_28"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_28"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_28"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_28"
+                    android:text="@string/seat_28"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_27"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_27"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_28"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_27"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_27"
+                    android:text="@string/seat_27"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_26"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_26"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_25"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_26"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="@string/seat_26"
+                    android:text="@string/seat_26"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_25"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_25"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_25"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_25"
+                    android:text="@string/seat_25"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_32"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_32"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_32"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_32"
+                    android:text="@string/seat_32"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_31"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_31"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_32"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_31"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_31"
+                    android:text="@string/seat_31"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_30"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_30"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_29"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_30"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="@string/seat_30"
+                    android:text="@string/seat_30"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_29"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_29"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_29"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_29"
+                    android:text="@string/seat_29"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_36"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_36"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_36"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_36"
+                    android:text="@string/seat_36"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_35"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_35"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_36"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_35"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_35"
+                    android:text="@string/seat_35"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_34"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_34"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_33"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_34"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="@string/seat_34"
+                    android:text="@string/seat_34"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_33"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_33"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_33"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_33"
+                    android:text="@string/seat_33"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_40"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_40"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_40"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_40"
+                    android:text="@string/seat_40"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_39"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_39"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_40"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_39"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_39"
+                    android:text="@string/seat_39"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_38"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_38"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_37"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_38"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="@string/seat_38"
+                    android:text="@string/seat_38"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_37"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_37"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_37"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_37"
+                    android:text="@string/seat_37"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginLeft="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_45"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_45"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_45"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_45"
+                    android:text="@string/seat_45"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_44"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_44"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_45"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_44"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_44"
+                    android:text="@string/seat_44"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_43"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_43"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_42"
+            app:layout_constraintStart_toEndOf="@id/cv_44"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_43"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_43"
+                    android:text="@string/seat_43"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_42"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_42"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_41"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_42"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:tag="@string/seat_42"
+                    android:text="@string/seat_42"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_41"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="@string/seat_41"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_41"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:tag="@string/seat_41"
+                    android:text="@string/seat_41"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_marginStart="@dimen/_18sdp"
+         android:layout_marginLeft="@dimen/_18sdp"
+         android:layout_marginTop="@dimen/_18sdp"
+         android:layout_marginEnd="@dimen/_18sdp"
+         android:layout_marginRight="@dimen/_18sdp"
+         android:layout_weight="3"
+         android:orientation="horizontal">
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_3"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="3"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_3"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="3"
+                     android:text="3"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_1"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="1"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_1"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="1"
+                     android:text="1"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_2"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginEnd="@dimen/_12sdp"
+             android:layout_marginRight="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="2"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toStartOf="@id/cv_1"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_2"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="2"
+                     android:text="2"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+     </androidx.constraintlayout.widget.ConstraintLayout>
+
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_marginStart="@dimen/_18sdp"
+         android:layout_marginLeft="@dimen/_18sdp"
+         android:layout_marginTop="@dimen/_18sdp"
+         android:layout_marginEnd="@dimen/_18sdp"
+         android:layout_marginRight="@dimen/_18sdp"
+         android:layout_weight="3"
+         android:orientation="horizontal">
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_6"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="6"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_6"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="6"
+                     android:text="6"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_4"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="4"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_4"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="4"
+                     android:text="4"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_5"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginEnd="@dimen/_12sdp"
+             android:layout_marginRight="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="5"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toStartOf="@id/cv_4"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_5"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="5"
+                     android:text="5"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_marginStart="@dimen/_18sdp"
+         android:layout_marginLeft="@dimen/_18sdp"
+         android:layout_marginTop="@dimen/_18sdp"
+         android:layout_marginEnd="@dimen/_18sdp"
+         android:layout_marginRight="@dimen/_18sdp"
+         android:layout_weight="3"
+         android:orientation="horizontal">
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_9"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="9"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_9"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="9"
+                     android:text="9"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_7"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="7"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_7"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="7"
+                     android:text="7"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_8"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginEnd="@dimen/_12sdp"
+             android:layout_marginRight="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="8"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toStartOf="@id/cv_7"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_8"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="8"
+                     android:text="8"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+     // Four button layout
+
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_marginStart="@dimen/_18sdp"
+         android:layout_marginLeft="@dimen/_18sdp"
+         android:layout_marginTop="@dimen/_18sdp"
+         android:layout_marginEnd="@dimen/_18sdp"
+         android:layout_marginRight="@dimen/_18sdp"
+         android:layout_weight="3"
+         android:orientation="horizontal">
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_13"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="13"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_13"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="13"
+                     android:text="13"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_12"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginStart="@dimen/_12sdp"
+             android:layout_marginLeft="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="12"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toEndOf="@id/cv_13"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_12"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="12"
+                     android:text="12"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_11"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginEnd="@dimen/_12sdp"
+             android:layout_marginRight="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="11"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toStartOf="@id/cv_10"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_11"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="11"
+                     android:text="11"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_10"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="10"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_10"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="10"
+                     android:text="10"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_marginStart="@dimen/_18sdp"
+         android:layout_marginLeft="@dimen/_18sdp"
+         android:layout_marginTop="@dimen/_18sdp"
+         android:layout_marginEnd="@dimen/_18sdp"
+         android:layout_marginRight="@dimen/_18sdp"
+         android:layout_weight="3"
+         android:orientation="horizontal">
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_17"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="17"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_17"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="17"
+                     android:text="17"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_16"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginStart="@dimen/_12sdp"
+             android:layout_marginLeft="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="16"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toEndOf="@id/cv_17"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_16"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="16"
+                     android:text="16"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_15"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginEnd="@dimen/_12sdp"
+             android:layout_marginRight="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="15"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toStartOf="@id/cv_14"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_15"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="15"
+                     android:text="15"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_14"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="14"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_14"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="14"
+                     android:text="14"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_marginStart="@dimen/_18sdp"
+         android:layout_marginLeft="@dimen/_18sdp"
+         android:layout_marginTop="@dimen/_18sdp"
+         android:layout_marginEnd="@dimen/_18sdp"
+         android:layout_marginRight="@dimen/_18sdp"
+         android:layout_weight="3"
+         android:orientation="horizontal">
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_21"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="21"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_21"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="21"
+                     android:text="21"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_20"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginStart="@dimen/_12sdp"
+             android:layout_marginLeft="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="20"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toEndOf="@id/cv_21"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_20"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="20"
+                     android:text="20"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_19"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginEnd="@dimen/_12sdp"
+             android:layout_marginRight="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="19"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toStartOf="@id/cv_18"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_19"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="19"
+                     android:text="19"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_18"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="18"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_18"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="18"
+                     android:text="18"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_marginStart="@dimen/_18sdp"
+         android:layout_marginLeft="@dimen/_18sdp"
+         android:layout_marginTop="@dimen/_18sdp"
+         android:layout_marginEnd="@dimen/_18sdp"
+         android:layout_marginRight="@dimen/_18sdp"
+         android:layout_weight="3"
+         android:orientation="horizontal">
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_22"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="22"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_22"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="22"
+                     android:text="22"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_23"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginEnd="@dimen/_12sdp"
+             android:layout_marginRight="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="23"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toStartOf="@id/cv_22"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_23"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="23"
+                     android:text="23"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_24"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginStart="@dimen/_12sdp"
+             android:layout_marginLeft="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="24"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toEndOf="@id/cv_25"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_24"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="24"
+                     android:text="24"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_25"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="25"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_25"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="25"
+                     android:text="25"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_marginStart="@dimen/_18sdp"
+         android:layout_marginLeft="@dimen/_18sdp"
+         android:layout_marginTop="@dimen/_18sdp"
+         android:layout_marginEnd="@dimen/_18sdp"
+         android:layout_marginRight="@dimen/_18sdp"
+         android:layout_weight="3"
+         android:orientation="horizontal">
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_26"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="26"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_26"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="26"
+                     android:text="26"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_27"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginEnd="@dimen/_12sdp"
+             android:layout_marginRight="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="27"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toStartOf="@id/cv_26"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_27"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="27"
+                     android:text="27"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_28"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginStart="@dimen/_12sdp"
+             android:layout_marginLeft="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="28"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toEndOf="@id/cv_29"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_28"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:gravity="center"
+                     android:tag="28"
+                     android:text="28"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_29"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="29"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_29"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="29"
+                     android:text="29"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_marginStart="@dimen/_18sdp"
+         android:layout_marginLeft="@dimen/_18sdp"
+         android:layout_marginTop="@dimen/_18sdp"
+         android:layout_marginEnd="@dimen/_18sdp"
+         android:layout_marginRight="@dimen/_18sdp"
+         android:layout_weight="3"
+         android:orientation="horizontal">
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_30"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="30"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_30"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="30"
+                     android:text="30"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_31"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginEnd="@dimen/_12sdp"
+             android:layout_marginRight="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="31"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toStartOf="@id/cv_30"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_31"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="31"
+                     android:text="31"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_32"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginStart="@dimen/_12sdp"
+             android:layout_marginLeft="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="32"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toEndOf="@id/cv_33"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_32"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="32"
+                     android:text="32"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_33"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="33"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_33"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="33"
+                     android:text="33"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_marginStart="@dimen/_18sdp"
+         android:layout_marginLeft="@dimen/_18sdp"
+         android:layout_marginTop="@dimen/_18sdp"
+         android:layout_marginEnd="@dimen/_18sdp"
+         android:layout_marginRight="@dimen/_18sdp"
+         android:layout_weight="3"
+         android:orientation="horizontal">
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_34"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="34"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_34"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="34"
+                     android:text="34"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_35"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginEnd="@dimen/_12sdp"
+             android:layout_marginRight="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="35"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toStartOf="@id/cv_34"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_35"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="35"
+                     android:text="35"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_36"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginStart="@dimen/_12sdp"
+             android:layout_marginLeft="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="36"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toEndOf="@id/cv_37"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_36"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="36"
+                     android:text="36"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_37"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="37"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_37"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="37"
+                     android:text="37"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_marginStart="@dimen/_18sdp"
+         android:layout_marginLeft="@dimen/_18sdp"
+         android:layout_marginTop="@dimen/_18sdp"
+         android:layout_marginEnd="@dimen/_18sdp"
+         android:layout_marginRight="@dimen/_18sdp"
+         android:layout_weight="3"
+         android:orientation="horizontal">
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_38"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="38"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_38"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="38"
+                     android:text="38"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_39"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginEnd="@dimen/_12sdp"
+             android:layout_marginRight="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="39"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintEnd_toStartOf="@id/cv_38"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_39"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="39"
+                     android:text="39"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_40"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:layout_marginStart="@dimen/_12sdp"
+             android:layout_marginLeft="@dimen/_12sdp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="40"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toEndOf="@id/cv_41"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_40"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="40"
+                     android:text="40"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+         <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cv_41"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
+             android:clickable="true"
+             android:focusable="true"
+             android:onClick="selectSeat"
+             android:tag="41"
+             app:cardBackgroundColor="@android:color/white"
+             app:cardCornerRadius="10dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:strokeColor="@color/black"
+             app:strokeWidth="@dimen/_1sdp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:id="@+id/tv_41"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:tag="41"
+                     android:text="41"
+                     android:textColor="@color/black"
+                     android:textSize="@dimen/_18ssp"
+                     android:textStyle="bold" />
+             </LinearLayout>
+         </com.google.android.material.card.MaterialCardView>
+
+     </androidx.constraintlayout.widget.ConstraintLayout>-->
+</LinearLayout>

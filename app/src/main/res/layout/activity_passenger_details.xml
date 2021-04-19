@@ -5,21 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".mvvm.ui.passenger.PassengerDetailsActivity">
-        <TextView
-            android:id="@+id/tv_passenger_details"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_70sdp"
-            android:fontFamily="@font/circular_std_medium"
-            android:text="Passenger Details"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:background="@color/gradient_color_1"
-            android:textSize="@dimen/_22ssp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/sv_passenger_details"
-            />
+
+    <TextView
+        android:id="@+id/tv_passenger_details"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_70sdp"
+        android:background="@color/gradient_color_1"
+        android:fontFamily="@font/circular_std_medium"
+        android:gravity="center"
+        android:text="Passenger Details"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_22ssp"
+        app:layout_constraintBottom_toTopOf="@id/sv_passenger_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/sv_passenger_details"
         android:layout_width="match_parent"
@@ -30,6 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_passenger_details">
+
         <LinearLayout
             android:id="@+id/ll_passenger_details_section"
             android:layout_width="match_parent"
@@ -56,7 +58,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_15sdp"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:tag="p1">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -65,13 +68,19 @@
                         android:paddingTop="@dimen/_8sdp"
                         android:paddingBottom="@dimen/_8sdp"
                         android:text="Passenger 1"
-                        android:textSize="@dimen/_12ssp"/>
+                        android:textSize="@dimen/_12ssp" />
 
                     <EditText
                         android:id="@+id/ed_passenger_one_full_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_5sdp"
+                        android:textColor="@color/white"
+                        android:cursorVisible="true"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:maxLength="35"
+                        android:textCursorDrawable="@color/white"
                         android:background="@drawable/complete_corner_rounded"
                         android:fontFamily="@font/bahnschrift_regular"
                         android:hint="Full Name"
@@ -88,7 +97,12 @@
                         android:background="@drawable/complete_corner_rounded"
                         android:fontFamily="@font/bahnschrift_regular"
                         android:hint="CNIC"
-                        android:paddingStart="10dp"
+                        android:textColor="@color/white"
+                        android:cursorVisible="true"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:maxLength="35"
+                        android:textCursorDrawable="@color/white"                        android:paddingStart="10dp"
                         android:paddingLeft="10dp"
                         android:paddingEnd="2dp"
                         android:paddingRight="2dp"
@@ -101,7 +115,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_15sdp"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:tag="p2">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -110,7 +125,7 @@
                         android:paddingTop="@dimen/_8sdp"
                         android:paddingBottom="@dimen/_8sdp"
                         android:text="Passenger 2"
-                        android:textSize="@dimen/_12ssp"/>
+                        android:textSize="@dimen/_12ssp" />
 
                     <EditText
                         android:id="@+id/ed_passenger_two_full_name"
@@ -118,8 +133,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_5sdp"
                         android:background="@drawable/complete_corner_rounded"
-                        android:hint="Full Name"
                         android:fontFamily="@font/bahnschrift_regular"
+                        android:hint="Full Name"
+                        android:textColor="@color/white"
+                        android:cursorVisible="true"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:maxLength="35"
+                        android:textCursorDrawable="@color/white"
                         android:paddingStart="@dimen/_10sdp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingEnd="@dimen/_2sdp"
@@ -131,8 +152,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/complete_corner_rounded"
-                        android:hint="CNIC"
                         android:fontFamily="@font/bahnschrift_regular"
+                        android:hint="CNIC"
+                        android:textColor="@color/white"
+                        android:cursorVisible="true"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:maxLength="35"
+                        android:textCursorDrawable="@color/white"
                         android:paddingStart="@dimen/_10sdp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingEnd="@dimen/_2sdp"
@@ -157,7 +184,8 @@
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:layout_marginRight="@dimen/_15sdp"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:tag="p3">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -166,7 +194,7 @@
                         android:paddingTop="@dimen/_8sdp"
                         android:paddingBottom="@dimen/_8sdp"
                         android:text="Passenger 3"
-                        android:textSize="@dimen/_12ssp"/>
+                        android:textSize="@dimen/_12ssp" />
 
                     <EditText
                         android:id="@+id/ed_passenger_three_full_name"
@@ -174,8 +202,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:background="@drawable/complete_corner_rounded"
-                        android:hint="Full Name"
                         android:fontFamily="@font/bahnschrift_regular"
+                        android:hint="Full Name"
+                        android:textColor="@color/white"
+                        android:cursorVisible="true"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:maxLength="35"
+                        android:textCursorDrawable="@color/white"
                         android:paddingStart="@dimen/_10sdp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingEnd="@dimen/_2sdp"
@@ -187,8 +221,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/complete_corner_rounded"
-                        android:hint="CNIC"
                         android:fontFamily="@font/bahnschrift_regular"
+                        android:hint="CNIC"
+                        android:textColor="@color/white"
+                        android:cursorVisible="true"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:maxLength="35"
+                        android:textCursorDrawable="@color/white"
                         android:paddingStart="@dimen/_10sdp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingEnd="@dimen/_2sdp"
@@ -205,7 +245,8 @@
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:layout_marginRight="@dimen/_15sdp"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:tag="p4">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -214,7 +255,7 @@
                         android:paddingTop="@dimen/_8sdp"
                         android:paddingBottom="@dimen/_8sdp"
                         android:text="Passenger 4"
-                        android:textSize="@dimen/_12ssp"/>
+                        android:textSize="@dimen/_12ssp" />
 
                     <EditText
                         android:id="@+id/ed_passenger_four_full_name"
@@ -222,8 +263,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_5sdp"
                         android:background="@drawable/complete_corner_rounded"
-                        android:hint="Full Name"
                         android:fontFamily="@font/bahnschrift_regular"
+                        android:hint="Full Name"
+                        android:textColor="@color/white"
+                        android:cursorVisible="true"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:maxLength="35"
+                        android:textCursorDrawable="@color/white"
                         android:paddingStart="@dimen/_10sdp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingEnd="@dimen/_2sdp"
@@ -235,8 +282,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/complete_corner_rounded"
-                        android:hint="CNIC"
                         android:fontFamily="@font/bahnschrift_regular"
+                        android:hint="CNIC"
+                        android:textColor="@color/white"
+                        android:cursorVisible="true"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:maxLength="35"
+                        android:textCursorDrawable="@color/white"
                         android:paddingStart="@dimen/_10sdp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingEnd="@dimen/_2sdp"
@@ -262,7 +315,8 @@
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:layout_marginRight="@dimen/_15sdp"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:tag="p5">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -271,7 +325,7 @@
                         android:paddingTop="@dimen/_8sdp"
                         android:paddingBottom="@dimen/_8sdp"
                         android:text="Passenger 5"
-                        android:textSize="@dimen/_12ssp"/>
+                        android:textSize="@dimen/_12ssp" />
 
                     <EditText
                         android:id="@+id/ed_passenger_five_full_name"
@@ -279,8 +333,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_5sdp"
                         android:background="@drawable/complete_corner_rounded"
-                        android:hint="Full Name"
                         android:fontFamily="@font/bahnschrift_regular"
+                        android:hint="Full Name"
+                        android:textColor="@color/white"
+                        android:cursorVisible="true"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:maxLength="35"
+                        android:textCursorDrawable="@color/white"
                         android:paddingStart="@dimen/_10sdp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingEnd="@dimen/_2sdp"
@@ -288,12 +348,18 @@
                         android:textColorHint="@color/white" />
 
                     <EditText
-                        android:id="@+id/ed_passenger_fve_cnic"
+                        android:id="@+id/ed_passenger_five_cnic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/complete_corner_rounded"
-                        android:hint="CNIC"
                         android:fontFamily="@font/bahnschrift_regular"
+                        android:hint="CNIC"
+                        android:textColor="@color/white"
+                        android:cursorVisible="true"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:maxLength="35"
+                        android:textCursorDrawable="@color/white"
                         android:paddingStart="@dimen/_10sdp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingEnd="@dimen/_2sdp"
@@ -310,7 +376,8 @@
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:layout_marginRight="@dimen/_15sdp"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:tag="p6">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -319,7 +386,7 @@
                         android:paddingTop="@dimen/_8sdp"
                         android:paddingBottom="@dimen/_8sdp"
                         android:text="Passenger 6"
-                        android:textSize="@dimen/_12ssp"/>
+                        android:textSize="@dimen/_12ssp" />
 
                     <EditText
                         android:id="@+id/ed_passenger_six_full_name"
@@ -327,8 +394,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_5sdp"
                         android:background="@drawable/complete_corner_rounded"
-                        android:hint="Full Name"
                         android:fontFamily="@font/bahnschrift_regular"
+                        android:hint="Full Name"
+                        android:textColor="@color/white"
+                        android:cursorVisible="true"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:maxLength="35"
+                        android:textCursorDrawable="@color/white"
                         android:paddingStart="@dimen/_10sdp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingEnd="@dimen/_2sdp"
@@ -340,8 +413,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/complete_corner_rounded"
-                        android:hint="CNIC"
                         android:fontFamily="@font/bahnschrift_regular"
+                        android:hint="CNIC"
+                        android:textColor="@color/white"
+                        android:cursorVisible="true"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:maxLength="35"
+                        android:textCursorDrawable="@color/white"
                         android:paddingStart="@dimen/_10sdp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingEnd="@dimen/_2sdp"
@@ -354,10 +433,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="bottom"
-                android:orientation="vertical"
                 android:layout_marginTop="@dimen/_100sdp"
                 android:layout_marginBottom="@dimen/_15sdp"
+                android:gravity="bottom"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
@@ -372,8 +451,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:fontFamily="@font/circular_std_medium"
+                    android:gravity="center"
                     android:text="Checkout"
                     android:textColor="@color/gradient_color_1"
                     android:textSize="@dimen/_20ssp" />

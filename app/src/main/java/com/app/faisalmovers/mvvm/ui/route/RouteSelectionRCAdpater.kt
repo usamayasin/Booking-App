@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.faisalmovers.R
 import com.app.faisalmovers.mvvm.data.network.model.general.Route
 import com.app.faisalmovers.mvvm.ui.seats.SeatSelectionActivity
+import com.app.faisalmovers.mvvm.ui.terminal.TerminalActivity
 import com.app.faisalmovers.mvvm.utils.Utility
 import com.bumptech.glide.Glide
 import java.util.ArrayList
@@ -76,7 +77,8 @@ class RouteSelectionRCAdpater(var context: Context, listModels: ArrayList<Route>
 
         private fun updateInfoInSelectedRouteDetails(route: Route) {
             Utility.selectedRouteInfo.route = route
-            val intent = Intent(contxt, SeatSelectionActivity::class.java)
+            //val intent = Intent(contxt, SeatSelectionActivity::class.java)
+            val intent = Intent(contxt, TerminalActivity::class.java)
             contxt.startActivity(intent)
         }
 

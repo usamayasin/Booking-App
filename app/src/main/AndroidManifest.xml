@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FaisalMovers"
         android:windowSoftInputMode="adjustPan|adjustResize">
-        <activity android:name=".mvvm.ui.invoice.InvoiceActivity"></activity>
+        <activity android:name=".mvvm.ui.terminal.TerminalActivity"></activity>
+        <activity android:name=".mvvm.ui.invoice.InvoiceActivity" />
         <activity
             android:name=".mvvm.ui.route.RouteSelectionActivity"
             android:screenOrientation="portrait" />

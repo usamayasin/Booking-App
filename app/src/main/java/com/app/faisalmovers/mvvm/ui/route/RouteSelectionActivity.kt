@@ -43,6 +43,11 @@ class RouteSelectionActivity : BaseActivity() {
         populateInitialData()
         setProgressbar(true)
         viewModel = ViewModelProvider(this).get(RouteSelectionViewModel::class.java)
+
+        if (!Utility.isNetworkAvailable(this@RouteSelectionActivity)) {
+            Utility.showToast(this, getString(R.string.no_internet))
+            return
+        }
         viewModel.fetchRoutes(
             Utility.selectedRouteInfo.fromId,
             Utility.selectedRouteInfo.toId,
@@ -99,5 +104,10 @@ class RouteSelectionActivity : BaseActivity() {
         routeSelectionListAdapter =
             RouteSelectionRCAdpater(this@RouteSelectionActivity, routeSelectionArrayList)
         rc_routeInfo!!.adapter = routeSelectionListAdapter
+    }
+
+    override fun onResume() {
+        Utility.selectedRouteInfo.passengerList.clear()
+        super.onResume()
     }
 }

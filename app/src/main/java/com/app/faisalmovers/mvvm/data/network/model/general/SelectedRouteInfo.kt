@@ -6,6 +6,10 @@ class SelectedRouteInfo {
     var fromName: String = ""
     var toId: Int = -1
     var toName: String = ""
-    var date:String = ""
+    var date: String = ""
     var route = Route()
+    var passengerList = ArrayList<PassengerList>()
+    var terminalId:Int=-1
+    var terminalName=""
+
 }
