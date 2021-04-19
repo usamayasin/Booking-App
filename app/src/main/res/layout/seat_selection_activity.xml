@@ -82,7 +82,7 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="50dp"
+                    android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:elevation="0dp"
                     app:cardBackgroundColor="@android:color/white"
@@ -110,7 +110,7 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="50dp"
+                    android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:elevation="0dp"
                     app:cardBackgroundColor="@color/darkBlueBox"
@@ -138,8 +138,8 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="50dp"
-                    android:layout_height="40dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:elevation="0dp"
                     app:cardBackgroundColor="@android:color/holo_red_dark"
                     app:cardCornerRadius="10dp"
@@ -164,6 +164,7 @@
         android:id="@+id/seatsScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:isScrollContainer="true"
         android:orientation="vertical"
         android:tag="seatsScrollView"

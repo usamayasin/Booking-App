@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/homeRootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/white_rounded_edge_background"
     android:orientation="vertical">
 
@@ -21,18 +21,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_1"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="1"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="1">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -55,20 +55,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_2"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintEnd_toStartOf="@id/cv_1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="2">
+            android:tag="2"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -91,20 +91,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_3"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@id/cv_4"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="3">
+            android:tag="3"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -127,18 +127,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_4"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="4"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="4">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -161,15 +161,15 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_seats_not_found"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteY="13dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="@dimen/_15ssp" />
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteY="13dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -186,18 +186,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_5"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="5"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="5">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -220,20 +220,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_6"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintEnd_toStartOf="@id/cv_5"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="6">
+            android:tag="6"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -257,20 +257,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_7"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@id/cv_8"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="7">
+            android:tag="7"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -293,18 +293,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_8"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="8"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="8">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -340,18 +340,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_9"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="9"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="9">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -374,20 +374,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_10"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintEnd_toStartOf="@id/cv_9"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="10">
+            android:tag="10"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_9"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -411,20 +411,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_11"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="11"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toEndOf="@id/cv_12"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginLeft="@dimen/_12sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="11">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -447,18 +447,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_12"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="12"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="12">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -496,18 +496,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_16"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="16"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="16">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -530,20 +530,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_15"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@id/cv_16"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="15">
+            android:tag="15"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_16"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -566,20 +566,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_14"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintEnd_toStartOf="@id/cv_13"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="14">
+            android:tag="14"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_13"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -602,18 +602,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_13"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="13"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="13">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -650,18 +650,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_20"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="20"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="20">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -684,20 +684,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_19"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@id/cv_20"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="19">
+            android:tag="19"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_20"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -720,20 +720,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_18"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintEnd_toStartOf="@id/cv_17"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="18">
+            android:tag="18"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_17"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -756,18 +756,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_17"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="17"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="17">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -803,18 +803,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_24"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="24"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="24">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -837,20 +837,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_23"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@id/cv_24"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="23">
+            android:tag="23"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -873,20 +873,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_22"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintEnd_toStartOf="@id/cv_21"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="22">
+            android:tag="22"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_21"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -909,18 +909,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_21"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="21"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="21">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -956,18 +956,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_25"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="25"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="25">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -990,20 +990,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_26"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintEnd_toStartOf="@id/cv_25"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="26">
+            android:tag="26"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_25"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1026,20 +1026,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_27"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@id/cv_28"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="27">
+            android:tag="27"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_28"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1062,18 +1062,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_28"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="28"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="28">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1109,18 +1109,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_29"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="29"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="29">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1143,20 +1143,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_30"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintEnd_toStartOf="@id/cv_29"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="30">
+            android:tag="30"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_29"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1179,20 +1179,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_31"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@id/cv_32"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="31">
+            android:tag="31"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_32"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1215,18 +1215,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_32"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="32"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="32">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1262,18 +1262,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_33"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="33"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="33">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1296,20 +1296,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_34"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintEnd_toStartOf="@id/cv_33"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="34">
+            android:tag="34"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_33"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1332,20 +1332,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_35"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@id/cv_36"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="35">
+            android:tag="35"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_36"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1368,18 +1368,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_36"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="36"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="36">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1415,18 +1415,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_37"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="37"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="37">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1449,20 +1449,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_38"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintEnd_toStartOf="@id/cv_37"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="38">
+            android:tag="38"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/cv_37"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1485,20 +1485,20 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_39"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@id/cv_40"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
             android:clickable="true"
             android:focusable="true"
             android:onClick="selectSeat"
-            android:tag="39">
+            android:tag="39"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toEndOf="@id/cv_40"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1521,18 +1521,18 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_40"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="selectSeat"
+            android:tag="40"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
-            app:strokeWidth="@dimen/_1sdp"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="selectSeat"
-            android:tag="40">
+            app:strokeWidth="@dimen/_1sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"

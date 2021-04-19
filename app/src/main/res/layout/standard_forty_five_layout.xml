@@ -21,7 +21,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_4"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -55,7 +55,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_3"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
@@ -91,7 +91,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_2"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
@@ -127,7 +127,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_1"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -175,7 +175,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_8"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -209,7 +209,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_7"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
@@ -245,7 +245,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_6"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
@@ -281,7 +281,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_5"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -329,7 +329,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_12"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -363,7 +363,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_11"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
@@ -399,7 +399,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_10"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
@@ -435,7 +435,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_9"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -483,7 +483,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_16"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -517,7 +517,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_15"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
@@ -553,7 +553,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_14"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
@@ -589,7 +589,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_13"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -637,7 +637,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_20"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -671,7 +671,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_19"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
@@ -707,7 +707,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_18"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
@@ -743,7 +743,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_17"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -791,7 +791,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_24"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -825,7 +825,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_23"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
@@ -861,7 +861,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_22"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
@@ -897,7 +897,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_21"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -945,7 +945,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_28"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -979,7 +979,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_27"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
@@ -1015,7 +1015,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_26"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
@@ -1051,7 +1051,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_25"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -1099,7 +1099,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_32"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -1133,7 +1133,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_31"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
@@ -1169,7 +1169,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_30"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
@@ -1205,7 +1205,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_29"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -1253,7 +1253,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_36"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -1287,7 +1287,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_35"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
@@ -1323,7 +1323,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_34"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
@@ -1359,7 +1359,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_33"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -1407,7 +1407,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_40"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -1441,7 +1441,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_39"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
@@ -1477,7 +1477,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_38"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
@@ -1513,7 +1513,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_37"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -1561,7 +1561,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_45"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -1595,7 +1595,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_44"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
@@ -1631,7 +1631,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_43"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
@@ -1641,8 +1641,8 @@
             android:tag="@string/seat_43"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@id/cv_44"
             app:layout_constraintEnd_toStartOf="@id/cv_42"
+            app:layout_constraintStart_toEndOf="@id/cv_44"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/black"
             app:strokeWidth="@dimen/_1sdp">
@@ -1668,7 +1668,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_42"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
@@ -1704,7 +1704,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_41"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
@@ -1753,8 +1753,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_3"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -1787,8 +1787,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_1"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -1821,8 +1821,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_2"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginEnd="@dimen/_12sdp"
              android:layout_marginRight="@dimen/_12sdp"
              android:clickable="true"
@@ -1869,8 +1869,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_6"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -1903,8 +1903,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_4"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -1937,8 +1937,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_5"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginEnd="@dimen/_12sdp"
              android:layout_marginRight="@dimen/_12sdp"
              android:clickable="true"
@@ -1986,8 +1986,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_9"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -2020,8 +2020,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_7"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -2054,8 +2054,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_8"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginEnd="@dimen/_12sdp"
              android:layout_marginRight="@dimen/_12sdp"
              android:clickable="true"
@@ -2104,8 +2104,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_13"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -2138,8 +2138,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_12"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginStart="@dimen/_12sdp"
              android:layout_marginLeft="@dimen/_12sdp"
              android:clickable="true"
@@ -2174,8 +2174,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_11"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginEnd="@dimen/_12sdp"
              android:layout_marginRight="@dimen/_12sdp"
              android:clickable="true"
@@ -2210,8 +2210,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_10"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -2258,8 +2258,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_17"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -2292,8 +2292,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_16"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginStart="@dimen/_12sdp"
              android:layout_marginLeft="@dimen/_12sdp"
              android:clickable="true"
@@ -2328,8 +2328,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_15"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginEnd="@dimen/_12sdp"
              android:layout_marginRight="@dimen/_12sdp"
              android:clickable="true"
@@ -2364,8 +2364,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_14"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -2411,8 +2411,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_21"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -2445,8 +2445,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_20"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginStart="@dimen/_12sdp"
              android:layout_marginLeft="@dimen/_12sdp"
              android:clickable="true"
@@ -2481,8 +2481,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_19"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginEnd="@dimen/_12sdp"
              android:layout_marginRight="@dimen/_12sdp"
              android:clickable="true"
@@ -2517,8 +2517,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_18"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -2564,8 +2564,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_22"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -2598,8 +2598,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_23"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginEnd="@dimen/_12sdp"
              android:layout_marginRight="@dimen/_12sdp"
              android:clickable="true"
@@ -2634,8 +2634,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_24"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginStart="@dimen/_12sdp"
              android:layout_marginLeft="@dimen/_12sdp"
              android:clickable="true"
@@ -2670,8 +2670,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_25"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -2717,8 +2717,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_26"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -2751,8 +2751,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_27"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginEnd="@dimen/_12sdp"
              android:layout_marginRight="@dimen/_12sdp"
              android:clickable="true"
@@ -2787,8 +2787,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_28"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginStart="@dimen/_12sdp"
              android:layout_marginLeft="@dimen/_12sdp"
              android:clickable="true"
@@ -2823,8 +2823,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_29"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -2870,8 +2870,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_30"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -2904,8 +2904,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_31"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginEnd="@dimen/_12sdp"
              android:layout_marginRight="@dimen/_12sdp"
              android:clickable="true"
@@ -2940,8 +2940,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_32"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginStart="@dimen/_12sdp"
              android:layout_marginLeft="@dimen/_12sdp"
              android:clickable="true"
@@ -2976,8 +2976,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_33"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -3023,8 +3023,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_34"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -3057,8 +3057,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_35"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginEnd="@dimen/_12sdp"
              android:layout_marginRight="@dimen/_12sdp"
              android:clickable="true"
@@ -3093,8 +3093,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_36"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginStart="@dimen/_12sdp"
              android:layout_marginLeft="@dimen/_12sdp"
              android:clickable="true"
@@ -3129,8 +3129,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_37"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -3176,8 +3176,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_38"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"
@@ -3210,8 +3210,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_39"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginEnd="@dimen/_12sdp"
              android:layout_marginRight="@dimen/_12sdp"
              android:clickable="true"
@@ -3246,8 +3246,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_40"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:layout_marginStart="@dimen/_12sdp"
              android:layout_marginLeft="@dimen/_12sdp"
              android:clickable="true"
@@ -3282,8 +3282,8 @@
 
          <com.google.android.material.card.MaterialCardView
              android:id="@+id/cv_41"
-             android:layout_width="50dp"
-             android:layout_height="45dp"
+               android:layout_width="45dp"
+            android:layout_height="45dp"
              android:clickable="true"
              android:focusable="true"
              android:onClick="selectSeat"

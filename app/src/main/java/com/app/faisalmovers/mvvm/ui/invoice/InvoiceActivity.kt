@@ -41,10 +41,10 @@ class InvoiceActivity : AppCompatActivity() {
             Utility.showToast(this, getString(R.string.no_internet))
             return
         }
-        viewModel.fetchTerminal(
+       /* viewModel.fetchTerminal(
             Utility.selectedRouteInfo.route.operatorId,
             Utility.selectedRouteInfo.fromId,
-        )
+        )*/
         observeViewModel()
     }
 
@@ -119,6 +119,7 @@ class InvoiceActivity : AppCompatActivity() {
         tv_invoicePrice.text = "PKR ${(Utility.selectedRouteInfo.passengerList.size * Utility.selectedRouteInfo.route.fare)}"
         tv_invoiceDepDate.text = Utility.selectedRouteInfo.route.date
         tv_invoiceDepTime.text = Utility.selectedRouteInfo.route.departureTime
+        tv_invoiceTerminal.text=Utility.selectedRouteInfo.terminalName
 
         val sdf = SimpleDateFormat("dd-MMM-yyyy ,hh:mm a")
         val currentDate = sdf.format(Date())

@@ -131,7 +131,6 @@ class SeatSelectionActivity : BaseActivity() {
 
         setProgressbar(true)
         viewModel = ViewModelProvider(this).get(SeatsViewModel::class.java)
-        invoiceViewModel = ViewModelProvider(this).get(InvoiceViewModel::class.java)
         error_invalid_seat_count.visibility = View.GONE
 
         if (Utility.isNetworkAvailable(this@SeatSelectionActivity) ) {
