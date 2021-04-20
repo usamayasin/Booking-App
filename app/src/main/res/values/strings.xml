@@ -84,6 +84,11 @@
     <string name="seat_49">49</string>
     <string name="seat_50">50</string>
     <string name="powered_by">powered by</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="unpaid">Unpaid</string>
+    <string name="select_payment_method">Select Payment Method</string>
+    <string name="service_charges">Service Charges</string>
+    <string name="tax_vat"><![CDATA[Tax & VAT]]></string>
 
 
 </resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_180sdp"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_15sdp"
+    android:background="@drawable/city_dialog_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/service_charges"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp" />
+
+    <TextView
+        android:id="@+id/tv_price_service_charges"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/service_charges"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:text="@string/tax_vat"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp" />
+
+    <TextView
+        android:id="@+id/tv_price_tax_charges"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/service_charges"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp" />
+
+
+</LinearLayout>

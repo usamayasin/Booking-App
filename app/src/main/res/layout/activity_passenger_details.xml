@@ -56,7 +56,7 @@
                     android:id="@+id/ll_passenger_one"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_15sdp"
+                    android:layout_margin="@dimen/_5sdp"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:tag="p1">
@@ -107,13 +107,51 @@
                         android:paddingEnd="2dp"
                         android:paddingRight="2dp"
                         android:textColorHint="@color/white" />
-                </LinearLayout>
 
+                    <LinearLayout
+                        android:id="@+id/ll_gender_row_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:padding="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/gender_rounded_corner_view_background"
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_male_row_one"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_corner_background"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="Male"
+                            android:fontFamily="@font/bahnschrift_regular"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+                        <TextView
+                            android:id="@+id/tv_female_row_one"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="Female"
+                            android:fontFamily="@font/bahnschrift_regular"
+                            android:textColor="@color/gradient_color_1"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
                 <LinearLayout
                     android:id="@+id/ll_passenger_two"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_15sdp"
+                    android:layout_margin="@dimen/_5sdp"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:tag="p2">
@@ -165,6 +203,43 @@
                         android:paddingEnd="@dimen/_2sdp"
                         android:paddingRight="@dimen/_2sdp"
                         android:textColorHint="@color/white" />
+                    <LinearLayout
+                        android:id="@+id/ll_gender_row_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/gender_rounded_corner_view_background"
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_male_row_two"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_corner_background"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="Male"
+                            android:fontFamily="@font/bahnschrift_regular"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+                        <TextView
+                            android:id="@+id/tv_female_row_two"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="Female"
+                            android:fontFamily="@font/bahnschrift_regular"
+                            android:textColor="@color/gradient_color_1"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -179,10 +254,10 @@
                     android:id="@+id/ll_passenger_three"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:tag="p3">
@@ -234,16 +309,54 @@
                         android:paddingEnd="@dimen/_2sdp"
                         android:paddingRight="@dimen/_2sdp"
                         android:textColorHint="@color/white" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_gender_row_three"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/gender_rounded_corner_view_background"
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_male_row_three"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_corner_background"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="Male"
+                            android:fontFamily="@font/bahnschrift_regular"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+                        <TextView
+                            android:id="@+id/tv_female_row_three"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="Female"
+                            android:fontFamily="@font/bahnschrift_regular"
+                            android:textColor="@color/gradient_color_1"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_passenger_four"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:tag="p4">
@@ -295,6 +408,43 @@
                         android:paddingEnd="@dimen/_2sdp"
                         android:paddingRight="@dimen/_2sdp"
                         android:textColorHint="@color/white" />
+                    <LinearLayout
+                        android:id="@+id/ll_gender_row_four"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/gender_rounded_corner_view_background"
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_male_row_four"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_corner_background"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="Male"
+                            android:fontFamily="@font/bahnschrift_regular"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+                        <TextView
+                            android:id="@+id/tv_female_row_four"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="Female"
+                            android:fontFamily="@font/bahnschrift_regular"
+                            android:textColor="@color/gradient_color_1"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -310,10 +460,10 @@
                     android:id="@+id/ll_passenger_five"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:tag="p5">
@@ -365,16 +515,53 @@
                         android:paddingEnd="@dimen/_2sdp"
                         android:paddingRight="@dimen/_2sdp"
                         android:textColorHint="@color/white" />
+                    <LinearLayout
+                        android:id="@+id/ll_gender_row_five"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/gender_rounded_corner_view_background"
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_male_row_five"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_corner_background"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="Male"
+                            android:fontFamily="@font/bahnschrift_regular"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+                        <TextView
+                            android:id="@+id/tv_female_row_five"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="Female"
+                            android:fontFamily="@font/bahnschrift_regular"
+                            android:textColor="@color/gradient_color_1"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_passenger_six"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:tag="p6">
@@ -426,6 +613,43 @@
                         android:paddingEnd="@dimen/_2sdp"
                         android:paddingRight="@dimen/_2sdp"
                         android:textColorHint="@color/white" />
+                    <LinearLayout
+                        android:id="@+id/ll_gender_row_six"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/gender_rounded_corner_view_background"
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_male_row_six"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_corner_background"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="Male"
+                            android:fontFamily="@font/bahnschrift_regular"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+                        <TextView
+                            android:id="@+id/tv_female_row_six"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:text="Female"
+                            android:fontFamily="@font/bahnschrift_regular"
+                            android:textColor="@color/gradient_color_1"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 

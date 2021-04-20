@@ -11,22 +11,22 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:orientation="horizontal"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp">
+        android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1.5"
+            android:fontFamily="@font/bahnschrift_regular"
             android:gravity="center"
             android:text="@string/invoice"
             android:textColor="@color/white"
-            android:fontFamily="@font/bahnschrift_regular"
             android:textSize="@dimen/_15ssp" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -64,20 +64,43 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_invoiceHeading"
+                    <LinearLayout
+                        android:id="@+id/ll_invoiceHeading"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/invoice_green"
-                        android:gravity="center"
-                        android:padding="@dimen/_8sdp"
-                        android:fontFamily="@font/circular_std_book"
-                        android:text="Lahore - Multan"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_15ssp"
+                        android:background="@android:color/holo_red_dark"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/circular_std_book"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:padding="@dimen/_8sdp"
+                            android:text="@string/unpaid"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15ssp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_invoiceHeading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/circular_std_book"
+                            android:gravity="center"
+                            android:padding="@dimen/_8sdp"
+                            android:text="Lahore - Multan"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15ssp" />
+
+                    </LinearLayout>
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_invoiceCompany"
@@ -86,12 +109,12 @@
                         android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_5sdp"
-                        android:text="@string/app_name"
                         android:fontFamily="@font/gotham_medium"
+                        android:text="@string/app_name"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/_12ssp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_invoiceHeading" />
+                        app:layout_constraintTop_toBottomOf="@+id/ll_invoiceHeading" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_invoiceBusType"
@@ -113,14 +136,14 @@
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_20sdp"
                         android:layout_marginRight="@dimen/_20sdp"
-                        android:maxWidth="@dimen/_100sdp"
                         android:fontFamily="@font/myriad_pro_regular"
+                        android:maxWidth="@dimen/_100sdp"
                         android:text="Abdullah Terminal "
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp"
                         app:layout_constraintBottom_toTopOf="@+id/view_separator"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_invoiceHeading" />
+                        app:layout_constraintTop_toBottomOf="@id/ll_invoiceHeading" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/img_invoiceLocation"
@@ -130,7 +153,7 @@
                         android:layout_weight="0.2"
                         android:src="@drawable/ic_baseline_location"
                         app:layout_constraintEnd_toStartOf="@id/tv_invoiceTerminal"
-                        app:layout_constraintTop_toBottomOf="@id/tv_invoiceHeading" />
+                        app:layout_constraintTop_toBottomOf="@id/ll_invoiceHeading" />
 
                     <View
                         android:id="@+id/view_separator"
@@ -174,15 +197,18 @@
                         android:text="@string/depature_time"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/img_invoiceLocation"
-                        app:layout_constraintTop_toBottomOf="@id/view_separator" />
+                        app:layout_constraintTop_toBottomOf="@id/view_separator"
+                        android:layout_marginRight="@dimen/_5sdp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tv_invoiceDepDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="30 Dec 2020"
                         android:fontFamily="@font/myriad_pro_regular"
+                        android:text="30 Dec 2020"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_10sdp"
                         app:layout_constraintStart_toStartOf="@+id/tv_invoiceDepartureHeading"
@@ -192,9 +218,9 @@
                         android:id="@+id/tv_invoiceDepTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/myriad_pro_regular"
                         android:gravity="center"
                         android:text="11:20 Pm"
-                        android:fontFamily="@font/myriad_pro_regular"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_10sdp"
                         app:layout_constraintStart_toStartOf="@+id/tv_invoiceDepDate"
@@ -218,8 +244,8 @@
                             android:layout_marginStart="@dimen/_20sdp"
                             android:layout_marginLeft="@dimen/_20sdp"
                             android:layout_marginTop="@dimen/_10sdp"
-                            android:maxWidth="@dimen/_110sdp"
                             android:fontFamily="@font/myriad_pro_regular"
+                            android:maxWidth="@dimen/_110sdp"
                             android:text="Haider Khan"
                             android:textColor="@color/black"
                             app:layout_constraintStart_toStartOf="@id/cc_invoiceUserInfo"
@@ -230,9 +256,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/myriad_pro_regular"
                             android:maxWidth="@dimen/_70sdp"
                             android:text="Bookkaru id"
-                            android:fontFamily="@font/myriad_pro_regular"
                             android:textColor="@color/invoice_booking_info"
                             app:layout_constraintStart_toStartOf="@id/tv_bookedByName"
                             app:layout_constraintTop_toBottomOf="@+id/tv_bookedByName"
@@ -243,9 +269,9 @@
                             android:id="@+id/tv_bookedById"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/myriad_pro_regular"
                             android:maxWidth="@dimen/_70sdp"
                             android:text="123456789"
-                            android:fontFamily="@font/myriad_pro_regular"
                             android:textColor="@color/black"
                             app:layout_constraintStart_toStartOf="@id/tv_bookedIDHeading"
                             app:layout_constraintTop_toBottomOf="@+id/tv_bookedIDHeading" />
@@ -255,8 +281,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp"
-                            android:maxWidth="@dimen/_70sdp"
                             android:fontFamily="@font/myriad_pro_regular"
+                            android:maxWidth="@dimen/_70sdp"
                             android:text="PNR"
                             android:textColor="@color/invoice_booking_info"
                             app:layout_constraintEnd_toStartOf="@id/img_qrCode"
@@ -267,9 +293,9 @@
                             android:id="@+id/tv_invoicePnr"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/myriad_pro_regular"
                             android:maxWidth="@dimen/_50sdp"
                             android:text="123458"
-                            android:fontFamily="@font/myriad_pro_regular"
                             android:textColor="@color/invoice_booking_info"
                             app:layout_constraintStart_toStartOf="@id/tv_pnrHeading"
                             app:layout_constraintTop_toBottomOf="@+id/tv_pnrHeading" />
@@ -279,9 +305,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/myriad_pro_regular"
                             android:maxWidth="@dimen/_70sdp"
                             android:text="@string/booking_time"
-                            android:fontFamily="@font/myriad_pro_regular"
                             android:textColor="@color/invoice_booking_info"
                             app:layout_constraintStart_toStartOf="@id/tv_bookedById"
                             app:layout_constraintTop_toBottomOf="@+id/tv_bookedById" />
@@ -290,10 +316,10 @@
                             android:id="@+id/tv_invoiceBookingDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/myriad_pro_regular"
                             android:maxWidth="@dimen/_70sdp"
                             android:text="17 Dec 2020"
                             android:textColor="@color/black"
-                            android:fontFamily="@font/myriad_pro_regular"
                             app:layout_constraintStart_toStartOf="@id/tv_invoiceTimeHeading"
                             app:layout_constraintTop_toBottomOf="@+id/tv_invoiceTimeHeading" />
 
@@ -301,15 +327,14 @@
                             android:id="@+id/tv_invoiceBookingTime"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:fontFamily="@font/myriad_pro_regular"
                             android:maxWidth="@dimen/_70sdp"
                             android:text="10:15 pm"
                             android:textColor="@color/black"
-                            android:fontFamily="@font/myriad_pro_regular"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            app:layout_constraintStart_toStartOf="@id/tv_invoiceBookingDate"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_invoiceBookingDate"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            />
+                            app:layout_constraintStart_toStartOf="@id/tv_invoiceBookingDate"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_invoiceBookingDate" />
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/img_qrCode"
@@ -374,10 +399,10 @@
                                 <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
                                     android:layout_gravity="center"
+                                    android:layout_weight="1"
                                     android:fontFamily="@font/gotham_medium"
+                                    android:gravity="center"
                                     android:text="@string/passenger_details"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_12ssp"
@@ -410,17 +435,17 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:fontFamily="@font/myriad_pro_regular"
                                     android:gravity="center"
-                                    android:text="@string/name"
-                                    android:fontFamily="@font/myriad_pro_regular"/>
+                                    android:text="@string/name" />
 
                                 <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:fontFamily="@font/myriad_pro_regular"
                                     android:gravity="center"
-                                    android:text="@string/nic"
-                                    android:fontFamily="@font/myriad_pro_regular"/>
+                                    android:text="@string/nic" />
 
 
                             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -445,7 +470,7 @@
                         android:id="@+id/ll_priceInfo"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_35sdp"
-                        android:background="@color/invoice_green"
+                        android:background="@android:color/holo_red_dark"
                         android:orientation="horizontal"
                         android:weightSum="3"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -459,6 +484,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
+                            android:id="@+id/ll_price"
                             android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatTextView
@@ -506,7 +532,7 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/bahnschrift_regular"
                             android:gravity="center"
-                            android:text="@string/paid"
+                            android:text="@string/pay_now"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_18sdp"
                             android:textStyle="bold" />
@@ -516,10 +542,11 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
-                android:orientation="vertical"/>
+                android:orientation="vertical" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

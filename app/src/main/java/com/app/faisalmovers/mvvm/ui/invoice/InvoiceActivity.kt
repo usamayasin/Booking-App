@@ -1,28 +1,39 @@
 package com.app.faisalmovers.mvvm.ui.invoice
 
 import android.annotation.SuppressLint
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.TextureView
 import android.view.View
+import android.view.Window
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.faisalmovers.R
+import com.app.faisalmovers.mvvm.data.network.model.general.PayNowOptions
 import com.app.faisalmovers.mvvm.ui.home.RouteSelectionViewModel
 import com.app.faisalmovers.mvvm.ui.passenger.PassengerListRCAdapter
 import com.app.faisalmovers.mvvm.utils.Utility
 import com.bumptech.glide.Glide.init
 import kotlinx.android.synthetic.main.activity_invoice.*
+import kotlinx.android.synthetic.main.pay_now_options_dialoge_layout.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
-class InvoiceActivity : AppCompatActivity() {
+class InvoiceActivity : AppCompatActivity(), PayNowOptionsInterface {
 
     private var passengerInfoListAdapter: RecyclerView.Adapter<*>? = null
     private var passengerInfoRclayoutManager: RecyclerView.LayoutManager? = null
     private var passengerVisibilityFlag: Boolean = false
     private lateinit var viewModel: InvoiceViewModel
+    private var payNowOptionsDialog: Dialog? = null
+    private var priceDetailDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +43,7 @@ class InvoiceActivity : AppCompatActivity() {
     }
 
 
-    fun init(){
+    fun init() {
         setRecyclerView()
         setInvoiceDetails()
 
@@ -41,10 +52,10 @@ class InvoiceActivity : AppCompatActivity() {
             Utility.showToast(this, getString(R.string.no_internet))
             return
         }
-       /* viewModel.fetchTerminal(
-            Utility.selectedRouteInfo.route.operatorId,
-            Utility.selectedRouteInfo.fromId,
-        )*/
+        /* viewModel.fetchTerminal(
+             Utility.selectedRouteInfo.route.operatorId,
+             Utility.selectedRouteInfo.fromId,
+         )*/
         observeViewModel()
     }
 
@@ -69,31 +80,50 @@ class InvoiceActivity : AppCompatActivity() {
 
     private fun listener() {
 
-        img_passengerInfoControl.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_arrow_drop_up));
-        img_passengerInfoControl.setOnClickListener{
-            if(!passengerVisibilityFlag){
+        img_passengerInfoControl.setImageDrawable(
+            ContextCompat.getDrawable(
+                this,
+                R.drawable.ic_arrow_drop_up
+            )
+        );
+        img_passengerInfoControl.setOnClickListener {
+            if (!passengerVisibilityFlag) {
                 rc_passengerInfo.visibility = View.GONE
                 rc_passengerInfo.animate()
                     .translationY(rc_passengerInfo.getHeight().toFloat())
                     .alpha(0.0f)
                     .setDuration(300);
-                img_passengerInfoControl.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_arrow_drop_down));
+                img_passengerInfoControl.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        this,
+                        R.drawable.ic_arrow_drop_down
+                    )
+                );
                 passengerVisibilityFlag = true
-            } else if(rc_passengerInfo != null){
+            } else if (rc_passengerInfo != null) {
                 rc_passengerInfo.animate()
                     .translationY(0.0f)
                     .alpha(1.0f)
                     .setDuration(300);
 
                 rc_passengerInfo.visibility = View.VISIBLE
-                img_passengerInfoControl.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_arrow_drop_up));
+                img_passengerInfoControl.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        this,
+                        R.drawable.ic_arrow_drop_up
+                    )
+                );
                 passengerVisibilityFlag = false
             }
         }
 
-        iv_invoiceCancel.setOnClickListener{
+        iv_invoiceCancel.setOnClickListener {
             onBackPressed()
         }
+        tv_invoicePriceStatus.setOnClickListener {
+            showPayNowOptionsDailoge()
+        }
+        ll_price.setOnClickListener { showPriceDetailDialoge() }
     }
 
 
@@ -116,17 +146,19 @@ class InvoiceActivity : AppCompatActivity() {
             }
         }
         tv_invoiceSeatNo.text = seatNumbers
-        tv_invoicePrice.text = "PKR ${(Utility.selectedRouteInfo.passengerList.size * Utility.selectedRouteInfo.route.fare)}"
+        tv_invoicePrice.text =
+            "PKR ${(Utility.selectedRouteInfo.passengerList.size * Utility.selectedRouteInfo.route.fare)}"
         tv_invoiceDepDate.text = Utility.selectedRouteInfo.route.date
         tv_invoiceDepTime.text = Utility.selectedRouteInfo.route.departureTime
-        tv_invoiceTerminal.text=Utility.selectedRouteInfo.terminalName
+        tv_invoiceTerminal.text = Utility.selectedRouteInfo.terminalName
 
         val sdf = SimpleDateFormat("dd-MMM-yyyy ,hh:mm a")
         val currentDate = sdf.format(Date())
         tv_invoiceBookingDate.text = currentDate.split(",")[0]
         tv_invoiceBookingTime.text = currentDate.split(",")[1]
         tv_invoiceCompany.text = Utility.selectedRouteInfo.route.operatorName
-        tv_invoiceHeading.text = Utility.selectedRouteInfo.route.from + " - " + Utility.selectedRouteInfo.route.to
+        tv_invoiceHeading.text =
+            Utility.selectedRouteInfo.route.from + " - " + Utility.selectedRouteInfo.route.to
     }
 
     fun setRecyclerView() {
@@ -138,5 +170,52 @@ class InvoiceActivity : AppCompatActivity() {
         passengerInfoListAdapter =
             PassengerListRCAdapter(this@InvoiceActivity, Utility.selectedRouteInfo.passengerList)
         rc_passengerInfo!!.adapter = passengerInfoListAdapter
+    }
+
+    private fun showPayNowOptionsDailoge() {
+        payNowOptionsDialog = Dialog(this@InvoiceActivity)
+        payNowOptionsDialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        payNowOptionsDialog?.setContentView(R.layout.pay_now_options_dialoge_layout)
+        payNowOptionsDialog?.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        payNowOptionsDialog?.show()
+
+        val rc_pay_now_options =
+            payNowOptionsDialog?.findViewById<View>(R.id.rc_pay_now_options) as RecyclerView
+        rc_pay_now_options!!.layoutManager = LinearLayoutManager(this)
+        rc_pay_now_options!!.setHasFixedSize(true)
+
+        var payNowOptionsList: ArrayList<PayNowOptions> = ArrayList<PayNowOptions>()
+        payNowOptionsList.add(PayNowOptions("JazzCash", ""))
+        payNowOptionsList.add(PayNowOptions("EasyPaisa", ""))
+        payNowOptionsList.add(PayNowOptions("Credit/Debit Card", ""))
+        payNowOptionsList.add(PayNowOptions("JazzCash", ""))
+
+        if (payNowOptionsList.size > 0) {
+            rc_pay_now_options.adapter = PayNowOptionsRCAdapter(payNowOptionsList, this)
+        }
+
+
+    }
+
+    private fun showPriceDetailDialoge() {
+        priceDetailDialog = Dialog(this@InvoiceActivity)
+        priceDetailDialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        priceDetailDialog?.setContentView(R.layout.price_detail_dialoge_layout)
+        priceDetailDialog?.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        priceDetailDialog?.show()
+
+        val tv_price_service_charges =
+            priceDetailDialog?.findViewById<View>(R.id.tv_price_service_charges) as TextView
+
+        val tv_price_tax_charges =
+            priceDetailDialog?.findViewById<View>(R.id.tv_price_tax_charges) as TextView
+
+        tv_price_service_charges.text = "PKR 0"
+        tv_price_tax_charges.text = "PKR 0"
+    }
+
+    override fun onPayNowOptionClick(options: PayNowOptions) {
+        Utility.showToast(this,  options.payNowOptionName)
+        payNowOptionsDialog?.dismiss()
     }
 }
