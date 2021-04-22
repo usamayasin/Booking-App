@@ -28,6 +28,7 @@ class Utility {
         const val SEAT_HOLD = "Hold"
         const val SEAT_RESERVED = "Reserved"
         const val TOTAL_SEATS:Int = 41
+        const val CINIC_VALIDATION_COUNT=13
 
         const val TODAY_DATE="0"
         const val TOMORROW_DATE="1"

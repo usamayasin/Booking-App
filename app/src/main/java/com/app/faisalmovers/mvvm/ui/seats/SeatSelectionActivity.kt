@@ -336,8 +336,8 @@ class SeatSelectionActivity : BaseActivity() {
             for (seat in Utility.selectedRouteInfo.passengerList) {
                 onBackPressedUnHoldSelectedSeats(seat.seatID.toString())
             }
+            super.onBackPressed()
         }
-        super.onBackPressed()
     }
 
     fun onBackPressedUnHoldSelectedSeats(selectedSeatId: String) {
@@ -547,6 +547,14 @@ class SeatSelectionActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
 //        Utility.selectedRouteInfo.passengerList.clear()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if(dialog.isShowing){
+            dialog.dismiss()
+            dialog.cancel()
+        }
     }
 
 }

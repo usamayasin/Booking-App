@@ -18,6 +18,7 @@ import androidx.core.view.isVisible
 import com.app.faisalmovers.R
 import com.app.faisalmovers.mvvm.ui.invoice.InvoiceActivity
 import com.app.faisalmovers.mvvm.utils.Utility
+import com.app.faisalmovers.mvvm.utils.Utility.Companion.CINIC_VALIDATION_COUNT
 import kotlinx.android.synthetic.main.activity_passenger_details.*
 
 class PassengerDetailsActivity : AppCompatActivity() {
@@ -153,7 +154,7 @@ class PassengerDetailsActivity : AppCompatActivity() {
                 ed_passenger_one_cnic.error = "required"
                 return
             }
-            if (ed_passenger_one_cnic.text.length < 14) {
+            if (ed_passenger_one_cnic.text.length < CINIC_VALIDATION_COUNT) {
                 ed_passenger_one_cnic.error = "Invalid CNIC"
                 return
             }
@@ -170,7 +171,7 @@ class PassengerDetailsActivity : AppCompatActivity() {
                 ed_passenger_two_cnic.error = "required"
                 return
             }
-            if (ed_passenger_two_cnic.text.length < 14) {
+            if (ed_passenger_two_cnic.text.length < CINIC_VALIDATION_COUNT) {
                 ed_passenger_two_cnic.error = "Invalid CNIC"
                 return
             }
@@ -186,7 +187,7 @@ class PassengerDetailsActivity : AppCompatActivity() {
                 ed_passenger_three_cnic.error = "required"
                 return
             }
-            if (ed_passenger_three_cnic.text.length < 14) {
+            if (ed_passenger_three_cnic.text.length < 13) {
                 ed_passenger_three_cnic.error = "Invalid CNIC"
                 return
             }
@@ -201,7 +202,7 @@ class PassengerDetailsActivity : AppCompatActivity() {
                 ed_passenger_four_cnic.error = "required"
                 return
             }
-            if (ed_passenger_four_cnic.text.length < 14) {
+            if (ed_passenger_four_cnic.text.length < CINIC_VALIDATION_COUNT) {
                 ed_passenger_four_cnic.error = "Invalid CNIC"
                 return
             }
@@ -217,7 +218,7 @@ class PassengerDetailsActivity : AppCompatActivity() {
                 ed_passenger_five_cnic.error = "required"
                 return
             }
-            if (ed_passenger_five_cnic.text.length < 14) {
+            if (ed_passenger_five_cnic.text.length < CINIC_VALIDATION_COUNT) {
                 ed_passenger_five_cnic.error = "Invalid CNIC"
                 return
             }
@@ -232,7 +233,7 @@ class PassengerDetailsActivity : AppCompatActivity() {
                 ed_passenger_six_cnic.error = "required"
                 return
             }
-            if (ed_passenger_six_cnic.text.length < 14) {
+            if (ed_passenger_six_cnic.text.length < CINIC_VALIDATION_COUNT) {
                 ed_passenger_six_cnic.error = "Invalid CNIC"
                 return
             }

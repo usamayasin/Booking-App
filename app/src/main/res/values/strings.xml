@@ -89,6 +89,7 @@
     <string name="select_payment_method">Select Payment Method</string>
     <string name="service_charges">Service Charges</string>
     <string name="tax_vat"><![CDATA[Tax & VAT]]></string>
+    <string name="cinc_with_dashes">* Cinc with dashes e.g (12345-1234567-8)</string>
 
 
 </resources>

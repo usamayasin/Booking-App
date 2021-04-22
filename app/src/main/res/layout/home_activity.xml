@@ -35,8 +35,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/pwdfaisalmovers" />
-        <TextView
+            android:src="@mipmap/new_bus_icon" />
+      <!--  <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/_12sdp"
@@ -50,7 +50,7 @@
             android:fontFamily="@font/changeling_neo"
             android:text="@string/app_name"
             android:gravity="center"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"/>-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

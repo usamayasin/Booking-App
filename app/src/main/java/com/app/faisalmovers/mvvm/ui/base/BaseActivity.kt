@@ -11,7 +11,7 @@ import java.util.*
 import kotlin.concurrent.schedule
 
 open class BaseActivity: AppCompatActivity() {
-    lateinit  var dialog: Dialog
+  public  lateinit  var dialog: Dialog
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
