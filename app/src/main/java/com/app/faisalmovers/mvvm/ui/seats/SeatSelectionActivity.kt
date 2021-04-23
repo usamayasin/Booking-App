@@ -71,10 +71,10 @@ class SeatSelectionActivity : BaseActivity() {
             }
             "Standard Plus", "Executive" -> {
                 //if (Utility.selectedRouteInfo.route.seats == 40) {
-                    seatUIFlag = true
-                    stub.layoutResource = R.layout.standard_plus_and_executive_seat_layout
-                    stub.inflate()
-                    setProgressbar(false)
+                seatUIFlag = true
+                stub.layoutResource = R.layout.standard_plus_and_executive_seat_layout
+                stub.inflate()
+                setProgressbar(false)
                 //}
             }
             "Standard Plus Executive" -> {
@@ -86,19 +86,19 @@ class SeatSelectionActivity : BaseActivity() {
                 //}
             }
             "Business Class" -> {
-              //  if (Utility.selectedRouteInfo.route.seats == 33) {
-                    seatUIFlag = true
-                    stub.layoutResource = R.layout.business_thirty_three_layout
-                    stub.inflate()
-                    setProgressbar(false)
-              //  }
+                //  if (Utility.selectedRouteInfo.route.seats == 33) {
+                seatUIFlag = true
+                stub.layoutResource = R.layout.business_thirty_three_layout
+                stub.inflate()
+                setProgressbar(false)
+                //  }
             }
             "Executive Plus" -> {
                 //if (Utility.selectedRouteInfo.route.seats == 37) {
-                    seatUIFlag = true
-                    stub.layoutResource = R.layout.executive_plus_seat_layout
-                    stub.inflate()
-                    setProgressbar(false)
+                seatUIFlag = true
+                stub.layoutResource = R.layout.executive_plus_seat_layout
+                stub.inflate()
+                setProgressbar(false)
                 //}
             }
 
@@ -133,8 +133,8 @@ class SeatSelectionActivity : BaseActivity() {
         viewModel = ViewModelProvider(this).get(SeatsViewModel::class.java)
         error_invalid_seat_count.visibility = View.GONE
 
-        if (Utility.isNetworkAvailable(this@SeatSelectionActivity) ) {
-            if(seatUIFlag){
+        if (Utility.isNetworkAvailable(this@SeatSelectionActivity)) {
+            if (seatUIFlag) {
                 viewModel.fetchSeats(
                     Utility.selectedRouteInfo.fromId.toString(),
                     Utility.selectedRouteInfo.toId.toString(),
@@ -330,55 +330,8 @@ class SeatSelectionActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        setProgressbar(false)
-
-        if (Utility.selectedRouteInfo.passengerList.size > 0) {
-            for (seat in Utility.selectedRouteInfo.passengerList) {
-                onBackPressedUnHoldSelectedSeats(seat.seatID.toString())
-            }
-            super.onBackPressed()
-        }
+        super.onBackPressed()
     }
-
-    fun onBackPressedUnHoldSelectedSeats(selectedSeatId: String) {
-        if (Utility.isNetworkAvailable(this)) {
-            setProgressbar(true)
-            val unHoldSeatUrl =
-                "https://hamza.bookkaru.com/api/v1/seatUnhold?seat_id=${selectedSeatId}&oid=${Utility.selectedRouteInfo.route.operatorId}"
-            try {
-                val queue = Volley.newRequestQueue(this)
-                val stringRequest =
-                    object : StringRequest(Request.Method.GET, unHoldSeatUrl,
-                        Response.Listener<String> { response ->
-                            val responseObject = JSONObject(response.toString())
-                            if (responseObject.getString("Status")!!
-                                    .contentEquals("success")
-                            ) {
-                                println("SeatSelectionActivtiy: Seat gets Unhold -> $selectedSeatId")
-                            }
-                        },
-                        Response.ErrorListener {
-                            setProgressbar(false)
-                            showToast(this, "Seat did not UnHold .. Please try again")
-                        }) {
-                        override fun getHeaders(): MutableMap<String, String> {
-                            val headers = HashMap<String, String>()
-                            headers["Authorization"] =
-                                "Bearer " + Utility.authInfo.access_token.toString()
-                            headers["Accept"] = "application/json"
-                            headers["Content-Type"] = "application/json"
-                            return headers
-                        }
-                    }
-                queue.add(stringRequest)
-            } catch (e: Exception) {
-                setProgressbar(false)
-                showToast(this, "Seat did not UnHold .. Please try again")
-                Log.e("UnHoldResponseError ", e.message.toString())
-            }
-        }
-    }
-
     private fun setSeatsInfo() {
         try {
             for (seat in seatsList) {
@@ -398,7 +351,7 @@ class SeatSelectionActivity : BaseActivity() {
             val secondChild: TextView = firstChild[0] as TextView
 
             if (seat_status.contentEquals(Utility.SEAT_RESERVED)) {
-                cardView.setCardBackgroundColor(Color.RED)
+                cardView.setCardBackgroundColor(ContextCompat.getColor(this, R.color.seat_booked))
                 secondChild.setTextColor(Color.WHITE)
                 cardView.isEnabled = false
                 cardView.isClickable = false
@@ -429,7 +382,7 @@ class SeatSelectionActivity : BaseActivity() {
             val firstChild: LinearLayout = cardView[0] as LinearLayout
             val secondChild: TextView = firstChild[0] as TextView
 
-            cardView.setCardBackgroundColor(Color.GREEN)
+            cardView.setCardBackgroundColor(ContextCompat.getColor(this, R.color.seat_hold))
             secondChild.setTextColor(Color.WHITE)
             addSeat(seatId)
             Utility.selectedRouteInfo.passengerList.add(PassengerList("", "", seatNo, seatId))
@@ -546,15 +499,7 @@ class SeatSelectionActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-//        Utility.selectedRouteInfo.passengerList.clear()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        if(dialog.isShowing){
-            dialog.dismiss()
-            dialog.cancel()
-        }
-    }
 
 }

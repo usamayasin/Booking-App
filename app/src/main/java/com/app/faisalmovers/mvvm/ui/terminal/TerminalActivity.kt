@@ -10,6 +10,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.app.faisalmovers.R
 import com.app.faisalmovers.mvvm.data.network.model.general.Terminal
 import com.app.faisalmovers.mvvm.ui.base.BaseActivity
@@ -17,6 +21,7 @@ import com.app.faisalmovers.mvvm.ui.invoice.InvoiceViewModel
 import com.app.faisalmovers.mvvm.ui.seats.SeatSelectionActivity
 import com.app.faisalmovers.mvvm.utils.Utility
 import kotlinx.android.synthetic.main.activity_invoice.*
+import org.json.JSONObject
 
 
 class TerminalActivity : BaseActivity() {
@@ -67,8 +72,64 @@ class TerminalActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        Utility.selectedRouteInfo.passengerList.clear()
-        getTerminal()
+        try {
+            if (Utility.selectedRouteInfo.passengerList.size > 0) {
+                setProgressbar(true)
+                onBackPressedUnHoldSelectedSeatsRecursive(Utility.selectedRouteInfo.passengerList.size - 1)
+
+            }
+            getTerminal()
+        } catch (e: Exception) {
+        }
+
+    }
+
+    fun onBackPressedUnHoldSelectedSeatsRecursive(index: Int) {
+
+        if (index < 0) {
+            setProgressbar(false)
+            Utility.selectedRouteInfo.passengerList.clear()
+        } else {
+            var mutalbeIndex = index
+            if (Utility.isNetworkAvailable(this)) {
+                val unHoldSeatUrl =
+                    "https://hamza.bookkaru.com/api/v1/seatUnhold?seat_id=" +
+                            "${
+                                Utility.selectedRouteInfo.passengerList[index].seatID.toString()
+                            }&oid=${Utility.selectedRouteInfo.route.operatorId}"
+                try {
+                    val queue = Volley.newRequestQueue(this)
+                    val stringRequest =
+                        object : StringRequest(
+                            Request.Method.GET, unHoldSeatUrl,
+                            Response.Listener<String> { response ->
+                                val responseObject = JSONObject(response.toString())
+                                if (responseObject.getString("Status")!!
+                                        .contentEquals("success")
+                                ) {
+                                    onBackPressedUnHoldSelectedSeatsRecursive(--mutalbeIndex)
+                                }
+                            },
+                            Response.ErrorListener {
+                                Utility.showToast(this, "Seat did not UnHold .. Please try again")
+                            }) {
+                            override fun getHeaders(): MutableMap<String, String> {
+                                val headers = HashMap<String, String>()
+                                headers["Authorization"] =
+                                    "Bearer " + Utility.authInfo.access_token.toString()
+                                headers["Accept"] = "application/json"
+                                headers["Content-Type"] = "application/json"
+                                return headers
+                            }
+                        }
+                    queue.add(stringRequest)
+                } catch (e: Exception) {
+                    //  setProgressbar(false)
+                    Utility.showToast(this, "Seat did not UnHold .. Please try again")
+                    Log.e("UnHoldResponseError ", e.message.toString())
+                }
+            }
+        }
     }
 
     private fun getTerminal() {

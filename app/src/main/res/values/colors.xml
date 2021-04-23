@@ -19,4 +19,7 @@
     <color name="invoice_separator">#dddddd</color>
     <color name="invoice_booking_info">#727273</color>
     <color name="invoice_view">#595858</color>
+
+    <color name="seat_booked">#cc364f</color>
+    <color name="seat_hold">#2bb673</color>
 </resources>

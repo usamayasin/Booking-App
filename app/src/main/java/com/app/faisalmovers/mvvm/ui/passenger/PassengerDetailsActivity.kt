@@ -135,12 +135,20 @@ class PassengerDetailsActivity : AppCompatActivity() {
                 viewGroup.findViewWithTag(viewsTagList[index]) as LinearLayout
             hideDetailView(linearLayout)
         }
+        if(passengerCount%2!=0){
+            val viewGroup =
+                (findViewById<View>(android.R.id.content) as ViewGroup).getChildAt(0) as ViewGroup
+            val linearLayout: LinearLayout =
+                viewGroup.findViewWithTag(viewsTagList[passengerCount]) as LinearLayout
+
+            linearLayout.visibility=View.INVISIBLE
+        }
 
 
     }
 
     private fun hideDetailView(view: LinearLayout) {
-        view.visibility = View.INVISIBLE
+        view.visibility = View.GONE
     }
 
     private fun validationAndGetPassengerDetails() {

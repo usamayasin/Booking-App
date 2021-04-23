@@ -85,7 +85,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:elevation="0dp"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="@color/seat_hold"
                     app:cardCornerRadius="10dp"
                     tools:targetApi="lollipop" />
 
@@ -141,7 +141,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:elevation="0dp"
-                    app:cardBackgroundColor="@android:color/holo_red_dark"
+                    app:cardBackgroundColor="@color/seat_booked"
                     app:cardCornerRadius="10dp"
                     tools:targetApi="lollipop" />
 

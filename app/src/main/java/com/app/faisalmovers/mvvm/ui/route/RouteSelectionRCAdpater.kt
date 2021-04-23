@@ -1,7 +1,9 @@
 package com.app.faisalmovers.mvvm.ui.route
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +18,8 @@ import com.app.faisalmovers.mvvm.ui.seats.SeatSelectionActivity
 import com.app.faisalmovers.mvvm.ui.terminal.TerminalActivity
 import com.app.faisalmovers.mvvm.utils.Utility
 import com.bumptech.glide.Glide
+import java.text.ParseException
+import java.text.SimpleDateFormat
 import java.util.ArrayList
 
 class RouteSelectionRCAdpater(var context: Context, listModels: ArrayList<Route>) :
@@ -39,16 +43,58 @@ class RouteSelectionRCAdpater(var context: Context, listModels: ArrayList<Route>
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data: Route = listModels[position]
 
-        holder.tv_busType?.text=data.busType;
-        holder.tv_seatLeft?.text= data.seats.toString();
-        holder.tv_selectedRoutePrice?.text=data.fare.toString()+"/-";
-        holder.tv_selectedRouteDeparture?.text=data.from;
-        holder.tv_selectedRouteArrival?.text=data.to;
+        holder.tv_busType?.text = data.busType;
+        holder.tv_seatLeft?.text = data.seats.toString();
+        holder.tv_selectedRoutePrice?.text = data.fare.toString() + "/-";
+        holder.tv_selectedRouteDeparture?.text =
+            convert24hourTimeFormateto12hour(data.departureTime)
+        holder.tv_selectedRouteArrival?.text = convert24hourTimeFormateto12hour(data.arrivalTime)
         holder.iv_operatorLogo?.let {
-            Glide.with(holder.itemView.context).load(data.operatorLogo).placeholder(R.drawable.bus).into(
-                it
-            )
+            Glide.with(holder.itemView.context).load(data.operatorLogo).placeholder(R.drawable.bus)
+                .into(
+                    it
+                )
         }
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    /*private fun convert24hourTimeFormateto12hour(value: String): String {
+        var formatedTime = ""
+        try {
+            val formate12Hour = SimpleDateFormat("HH:mm a");
+            formatedTime = formate12Hour?.parse(value).toString();
+        } catch (e: ParseException) {
+
+        }
+        return formatedTime
+    }*/
+    private fun convert24hourTimeFormateto12hour(value: String): String {
+        Log.e("actualTime-----> ", value)
+        var formatedTime = ""
+        try {
+            val hours = Integer.valueOf(value.split(":")[0])
+            val mins = Integer.valueOf(value.split(":")[1])
+            formatedTime = if (hours > 12) {
+                (hours % 12).toString()
+            } else {
+                hours.toString()
+            }
+            formatedTime += ":"
+            if (mins < 10) {
+                formatedTime += "0$mins"
+            } else {
+                formatedTime += mins.toString()
+            }
+            formatedTime += if (hours >= 12) {
+                " pm"
+            } else {
+                " am"
+            }
+
+        } catch (e: ParseException) {
+
+        }
+        return formatedTime
     }
 
     override fun getItemCount(): Int {
@@ -62,7 +108,7 @@ class RouteSelectionRCAdpater(var context: Context, listModels: ArrayList<Route>
         var tv_selectedRoutePrice: AppCompatTextView? = null
         var tv_selectedRouteDeparture: AppCompatTextView? = null
         var tv_selectedRouteArrival: AppCompatTextView? = null
-        var iv_operatorLogo:ImageView? = null
+        var iv_operatorLogo: ImageView? = null
         var ll_route_item: LinearLayoutCompat? = null
         var dataList: ArrayList<Route> = ArrayList<Route>()
         override fun onClick(v: View) {
